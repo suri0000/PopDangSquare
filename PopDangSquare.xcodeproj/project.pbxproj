@@ -58,13 +58,37 @@
 			children = (
 				85AC102B2BD64CAF00C00DCF /* AppDelegate.swift */,
 				85AC102D2BD64CAF00C00DCF /* SceneDelegate.swift */,
-				85AC102F2BD64CAF00C00DCF /* ViewController.swift */,
-				85AC10312BD64CAF00C00DCF /* Main.storyboard */,
+				85AC10402BD6590800C00DCF /* Controller */,
+				85AC103F2BD658FC00C00DCF /* Model */,
+				85AC10412BD6591100C00DCF /* View */,
 				85AC10342BD64CB100C00DCF /* Assets.xcassets */,
-				85AC10362BD64CB100C00DCF /* LaunchScreen.storyboard */,
 				85AC10392BD64CB100C00DCF /* Info.plist */,
 			);
 			path = PopDangSquare;
+			sourceTree = "<group>";
+		};
+		85AC103F2BD658FC00C00DCF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		85AC10402BD6590800C00DCF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				85AC102F2BD64CAF00C00DCF /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		85AC10412BD6591100C00DCF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				85AC10312BD64CAF00C00DCF /* Main.storyboard */,
+				85AC10362BD64CB100C00DCF /* LaunchScreen.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
