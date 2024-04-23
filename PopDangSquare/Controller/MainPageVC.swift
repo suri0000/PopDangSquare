@@ -22,6 +22,7 @@ class MainPageVC: UIViewController {
         
         // NowPlayingTableViewCell register
         tableView.register(UINib(nibName: "NowPlayingTableViewCell", bundle: nil), forCellReuseIdentifier: "NowPlayingTableViewCell")
+        
         // MovieChartTableViewCell register
         tableView.register(UINib(nibName: "MovieChartTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieChartTableViewCell")
         
@@ -42,11 +43,11 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 150
         case 1:
-            return 250
+            return 280
         case 2:
-            return 150
+            return 180
         case 3:
-            return 300
+            return 350
         default:
             return 80
         }

@@ -8,38 +8,60 @@
 import UIKit
 
 class MovieChartTableViewCell: UITableViewCell {
-
+    
+    var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
+    let imageNames = [UIImage(named: "image1.png")!, UIImage(named: "image2.png")!, UIImage(named: "image3.png")!]
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        // 콜렉션뷰 레이아웃 설정
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal // 가로 스크롤 설정
+        layout.itemSize = CGSize(width: collectionView.frame.width, height: collectionView.frame.height) // 셀 크기 설정
+        layout.minimumLineSpacing = 0 // 셀 간 최소 간격 설정
+        layout.minimumInteritemSpacing = 0 // 행 간 최소 간격 설정 (가로 스크롤에서는 보통 사용되지 않음)
+        collectionView.setCollectionViewLayout(layout, animated: false)
+        
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UINib(nibName: "MovieChartCell", bundle: nil), forCellWithReuseIdentifier : "MovieChartCell")
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        collectionView.register(UINib(nibName: "MovieChartCell", bundle: nil), forCellWithReuseIdentifier: "MovieChartCell")
+        
+        collectionView.isPagingEnabled = true // 페이징 활성화
+        
+        setupPageControl()
     }
     
+    func setupPageControl() {
+        pageControl = UIPageControl(frame: CGRect(x: 0, y: collectionView.frame.maxY - 30, width: collectionView.frame.width, height: 20))
+        pageControl.numberOfPages = imageNames.count
+        pageControl.currentPage = 0
+        pageControl.tintColor = UIColor.red
+        pageControl.pageIndicatorTintColor = UIColor.lightGray
+        pageControl.currentPageIndicatorTintColor = UIColor.black
+        self.contentView.addSubview(pageControl)
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
 }
 
-extension MovieChartTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+extension MovieChartTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return imageNames.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieChartCell", for: indexPath) as! MovieChartCell
-        
-        //        cell.configure(with: model[indexPath.row])
+        cell.chartImage.image = imageNames[indexPath.row]
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 250)
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let width = scrollView.frame.width
+        let pageIndex = Int(scrollView.contentOffset.x / width)
+        pageControl.currentPage = pageIndex
     }
 }
