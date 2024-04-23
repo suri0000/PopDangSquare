@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		54625E202BD67C07006397B4 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54625E1F2BD67C07006397B4 /* MyPage.storyboard */; };
 		54625E222BD67C3A006397B4 /* MyPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54625E212BD67C3A006397B4 /* MyPageController.swift */; };
+		54AE9FE32BD780790039DDE7 /* MypageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AE9FE22BD780790039DDE7 /* MypageData.swift */; };
+		54AE9FE62BD790210039DDE7 /* firstQuickmenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AE9FE52BD790210039DDE7 /* firstQuickmenuCollectionViewCell.xib */; };
+		54AE9FE72BD790210039DDE7 /* firstQuickmenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AE9FE42BD790210039DDE7 /* firstQuickmenuCollectionViewCell.swift */; };
 		85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC102B2BD64CAF00C00DCF /* AppDelegate.swift */; };
 		85AC102E2BD64CAF00C00DCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC102D2BD64CAF00C00DCF /* SceneDelegate.swift */; };
 		85AC10302BD64CAF00C00DCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC102F2BD64CAF00C00DCF /* ViewController.swift */; };
@@ -20,6 +23,9 @@
 /* Begin PBXFileReference section */
 		54625E1F2BD67C07006397B4 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		54625E212BD67C3A006397B4 /* MyPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageController.swift; sourceTree = "<group>"; };
+		54AE9FE22BD780790039DDE7 /* MypageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MypageData.swift; path = PopDangSquare/Controller/MypageData.swift; sourceTree = SOURCE_ROOT; };
+		54AE9FE42BD790210039DDE7 /* firstQuickmenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstQuickmenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		54AE9FE52BD790210039DDE7 /* firstQuickmenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = firstQuickmenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		85AC10282BD64CAF00C00DCF /* PopDangSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopDangSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85AC102B2BD64CAF00C00DCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85AC102D2BD64CAF00C00DCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +80,7 @@
 		85AC103F2BD658FC00C00DCF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				54AE9FE22BD780790039DDE7 /* MypageData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -93,6 +100,8 @@
 				85AC10312BD64CAF00C00DCF /* Main.storyboard */,
 				85AC10362BD64CB100C00DCF /* LaunchScreen.storyboard */,
 				54625E1F2BD67C07006397B4 /* MyPage.storyboard */,
+				54AE9FE42BD790210039DDE7 /* firstQuickmenuCollectionViewCell.swift */,
+				54AE9FE52BD790210039DDE7 /* firstQuickmenuCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -155,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54AE9FE62BD790210039DDE7 /* firstQuickmenuCollectionViewCell.xib in Resources */,
 				85AC10352BD64CB100C00DCF /* Assets.xcassets in Resources */,
 				85AC10382BD64CB100C00DCF /* Base in Resources */,
 				85AC10332BD64CAF00C00DCF /* Base in Resources */,
@@ -171,7 +181,9 @@
 			files = (
 				54625E222BD67C3A006397B4 /* MyPageController.swift in Sources */,
 				85AC10302BD64CAF00C00DCF /* ViewController.swift in Sources */,
+				54AE9FE32BD780790039DDE7 /* MypageData.swift in Sources */,
 				85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */,
+				54AE9FE72BD790210039DDE7 /* firstQuickmenuCollectionViewCell.swift in Sources */,
 				85AC102E2BD64CAF00C00DCF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,7 +341,7 @@
 				INFOPLIST_FILE = PopDangSquare/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = MyPage;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -357,7 +369,7 @@
 				INFOPLIST_FILE = PopDangSquare/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = MyPage;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
