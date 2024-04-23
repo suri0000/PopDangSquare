@@ -13,6 +13,8 @@
 		85AC10332BD64CAF00C00DCF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 85AC10322BD64CAF00C00DCF /* Base */; };
 		85AC10352BD64CB100C00DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85AC10342BD64CB100C00DCF /* Assets.xcassets */; };
 		85AC10382BD64CB100C00DCF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 85AC10372BD64CB100C00DCF /* Base */; };
+		AB4A12DE2BD74F5C00B39808 /* MainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A12DD2BD74F5C00B39808 /* MainPageVC.swift */; };
+		AB4A12E02BD74F6A00B39808 /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4A12DF2BD74F6A00B39808 /* MainPage.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		85AC10342BD64CB100C00DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85AC10372BD64CB100C00DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85AC10392BD64CB100C00DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB4A12DD2BD74F5C00B39808 /* MainPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageVC.swift; sourceTree = "<group>"; };
+		AB4A12DF2BD74F6A00B39808 /* MainPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainPage.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				85AC102F2BD64CAF00C00DCF /* ViewController.swift */,
+				AB4A12DD2BD74F5C00B39808 /* MainPageVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 			children = (
 				85AC10312BD64CAF00C00DCF /* Main.storyboard */,
 				85AC10362BD64CB100C00DCF /* LaunchScreen.storyboard */,
+				AB4A12DF2BD74F6A00B39808 /* MainPage.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -149,6 +155,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB4A12E02BD74F6A00B39808 /* MainPage.storyboard in Resources */,
 				85AC10352BD64CB100C00DCF /* Assets.xcassets in Resources */,
 				85AC10382BD64CB100C00DCF /* Base in Resources */,
 				85AC10332BD64CAF00C00DCF /* Base in Resources */,
@@ -164,6 +171,7 @@
 			files = (
 				85AC10302BD64CAF00C00DCF /* ViewController.swift in Sources */,
 				85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */,
+				AB4A12DE2BD74F5C00B39808 /* MainPageVC.swift in Sources */,
 				85AC102E2BD64CAF00C00DCF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,7 +324,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CS9SP68DH3;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PopDangSquare/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -344,7 +352,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CS9SP68DH3;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PopDangSquare/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
