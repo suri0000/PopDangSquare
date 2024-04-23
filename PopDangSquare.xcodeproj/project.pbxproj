@@ -16,6 +16,7 @@
 		85AC10432BD680E000C00DCF /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85AC10422BD680E000C00DCF /* LoginView.storyboard */; };
 		85AC10452BD749B000C00DCF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC10442BD749B000C00DCF /* LoginViewController.swift */; };
 		85AC10482BD7846F00C00DCF /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC10472BD7846F00C00DCF /* TextFieldExtension.swift */; };
+		85AC104A2BD7971300C00DCF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC10492BD7971300C00DCF /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		85AC10422BD680E000C00DCF /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
 		85AC10442BD749B000C00DCF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		85AC10472BD7846F00C00DCF /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
+		85AC10492BD7971300C00DCF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				85AC102F2BD64CAF00C00DCF /* ViewController.swift */,
 				85AC10442BD749B000C00DCF /* LoginViewController.swift */,
+				85AC10492BD7971300C00DCF /* SignUpViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85AC104A2BD7971300C00DCF /* SignUpViewController.swift in Sources */,
 				85AC10452BD749B000C00DCF /* LoginViewController.swift in Sources */,
 				85AC10302BD64CAF00C00DCF /* ViewController.swift in Sources */,
 				85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */,

@@ -15,7 +15,6 @@ class LoginViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureTextField()
-    // Do any additional setup after loading the view.
   }
   
   func configureTextField() {
