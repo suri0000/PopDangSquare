@@ -18,11 +18,15 @@ class MainPageVC: UIViewController {
         tableView.dataSource = self
         
         // logoCellTableViewCell register
-            tableView.register(UINib(nibName: "LogoCellTableViewCell", bundle: nil), forCellReuseIdentifier: "LogoCellTableViewCell")
+        tableView.register(UINib(nibName: "LogoCellTableViewCell", bundle: nil), forCellReuseIdentifier: "LogoCellTableViewCell")
         
-        // 컬렌션뷰 register
+        // NowPlayingTableViewCell register
         tableView.register(UINib(nibName: "NowPlayingTableViewCell", bundle: nil), forCellReuseIdentifier: "NowPlayingTableViewCell")
-        // Do any additional setup after loading the view.
+        // MovieChartTableViewCell register
+        tableView.register(UINib(nibName: "MovieChartTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieChartTableViewCell")
+        
+        // ComingSoonCellTableViewCell register
+        tableView.register(UINib(nibName: "ComingSoonCellTableViewCell", bundle: nil), forCellReuseIdentifier: "ComingSoonCellTableViewCell")
     }
     
 }
@@ -30,7 +34,7 @@ class MainPageVC: UIViewController {
 extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
     //TableView Section 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 4
     }
     //TableView Height 설정
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -39,6 +43,10 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
             return 150
         case 1:
             return 250
+        case 2:
+            return 150
+        case 3:
+            return 300
         default:
             return 80
         }
@@ -47,14 +55,19 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "LogoCellTableViewCell", for: indexPath) as! LogoCellTableViewCell
-                // 추가적인 셀 설정이 필요할 경우 여기에 코드 추가
-                return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LogoCellTableViewCell", for: indexPath) as! LogoCellTableViewCell
+            // 추가적인 셀 설정이 필요할 경우 여기에 코드 추가
+            return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell", for: indexPath) as! NowPlayingTableViewCell
             cell.configure()
             return cell
-            
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MovieChartTableViewCell", for: indexPath) as! MovieChartTableViewCell
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ComingSoonCellTableViewCell", for: indexPath) as! ComingSoonCellTableViewCell
+            return cell
         default:
             return UITableViewCell()
         }

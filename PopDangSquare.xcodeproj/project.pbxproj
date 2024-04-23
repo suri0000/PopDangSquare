@@ -24,6 +24,12 @@
 		AB4A12F72BD79F6300B39808 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A12F62BD79F6300B39808 /* Movie.swift */; };
 		AB4A12FC2BD7C25F00B39808 /* MovieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A12FA2BD7C25F00B39808 /* MovieChartTableViewCell.swift */; };
 		AB4A12FD2BD7C25F00B39808 /* MovieChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4A12FB2BD7C25F00B39808 /* MovieChartTableViewCell.xib */; };
+		AB4A13012BD7C35A00B39808 /* MovieChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A12FF2BD7C35A00B39808 /* MovieChartCell.swift */; };
+		AB4A13022BD7C35A00B39808 /* MovieChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4A13002BD7C35A00B39808 /* MovieChartCell.xib */; };
+		AB4A13082BD7C61200B39808 /* ComingSoonCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A13062BD7C61200B39808 /* ComingSoonCellTableViewCell.swift */; };
+		AB4A13092BD7C61200B39808 /* ComingSoonCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4A13072BD7C61200B39808 /* ComingSoonCellTableViewCell.xib */; };
+		AB4A130C2BD7C62F00B39808 /* ComingSoonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A130A2BD7C62F00B39808 /* ComingSoonCell.swift */; };
+		AB4A130D2BD7C62F00B39808 /* ComingSoonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4A130B2BD7C62F00B39808 /* ComingSoonCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +52,12 @@
 		AB4A12F62BD79F6300B39808 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Movie.swift; path = PopDangSquare/View/Cell/logoCell/Movie.swift; sourceTree = SOURCE_ROOT; };
 		AB4A12FA2BD7C25F00B39808 /* MovieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieChartTableViewCell.swift; sourceTree = "<group>"; };
 		AB4A12FB2BD7C25F00B39808 /* MovieChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieChartTableViewCell.xib; sourceTree = "<group>"; };
+		AB4A12FF2BD7C35A00B39808 /* MovieChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieChartCell.swift; sourceTree = "<group>"; };
+		AB4A13002BD7C35A00B39808 /* MovieChartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieChartCell.xib; sourceTree = "<group>"; };
+		AB4A13062BD7C61200B39808 /* ComingSoonCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonCellTableViewCell.swift; sourceTree = "<group>"; };
+		AB4A13072BD7C61200B39808 /* ComingSoonCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComingSoonCellTableViewCell.xib; sourceTree = "<group>"; };
+		AB4A130A2BD7C62F00B39808 /* ComingSoonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonCell.swift; sourceTree = "<group>"; };
+		AB4A130B2BD7C62F00B39808 /* ComingSoonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComingSoonCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +162,7 @@
 				AB4A12EB2BD78D2900B39808 /* CollectionView */,
 				AB4A12EA2BD78D2100B39808 /* TableView */,
 				AB4A12F82BD7A7DB00B39808 /* MovieChart */,
+				AB4A13032BD7C59500B39808 /* ComingSoon */,
 			);
 			path = NowPlaying;
 			sourceTree = "<group>";
@@ -166,6 +179,7 @@
 		AB4A12F82BD7A7DB00B39808 /* MovieChart */ = {
 			isa = PBXGroup;
 			children = (
+				AB4A12FE2BD7C32800B39808 /* CollectionView */,
 				AB4A12F92BD7C24100B39808 /* TableView */,
 			);
 			path = MovieChart;
@@ -178,6 +192,42 @@
 				AB4A12FB2BD7C25F00B39808 /* MovieChartTableViewCell.xib */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		AB4A12FE2BD7C32800B39808 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				AB4A12FF2BD7C35A00B39808 /* MovieChartCell.swift */,
+				AB4A13002BD7C35A00B39808 /* MovieChartCell.xib */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		AB4A13032BD7C59500B39808 /* ComingSoon */ = {
+			isa = PBXGroup;
+			children = (
+				AB4A13052BD7C5E800B39808 /* CollectionView */,
+				AB4A13042BD7C5E100B39808 /* TableView */,
+			);
+			path = ComingSoon;
+			sourceTree = "<group>";
+		};
+		AB4A13042BD7C5E100B39808 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				AB4A13062BD7C61200B39808 /* ComingSoonCellTableViewCell.swift */,
+				AB4A13072BD7C61200B39808 /* ComingSoonCellTableViewCell.xib */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		AB4A13052BD7C5E800B39808 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				AB4A130A2BD7C62F00B39808 /* ComingSoonCell.swift */,
+				AB4A130B2BD7C62F00B39808 /* ComingSoonCell.xib */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,10 +288,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB4A130D2BD7C62F00B39808 /* ComingSoonCell.xib in Resources */,
 				AB4A12E02BD74F6A00B39808 /* MainPage.storyboard in Resources */,
 				AB4A12FD2BD7C25F00B39808 /* MovieChartTableViewCell.xib in Resources */,
 				AB4A12E82BD78CF900B39808 /* NowPlayingTableViewCell.xib in Resources */,
+				AB4A13022BD7C35A00B39808 /* MovieChartCell.xib in Resources */,
 				AB4A12F52BD798D500B39808 /* LogoCellTableViewCell.xib in Resources */,
+				AB4A13092BD7C61200B39808 /* ComingSoonCellTableViewCell.xib in Resources */,
 				85AC10352BD64CB100C00DCF /* Assets.xcassets in Resources */,
 				85AC10382BD64CB100C00DCF /* Base in Resources */,
 				85AC10332BD64CAF00C00DCF /* Base in Resources */,
@@ -259,8 +312,11 @@
 				AB4A12F42BD798D500B39808 /* LogoCellTableViewCell.swift in Sources */,
 				85AC10302BD64CAF00C00DCF /* ViewController.swift in Sources */,
 				AB4A12EF2BD78D5300B39808 /* NowPlayingCell.swift in Sources */,
+				AB4A130C2BD7C62F00B39808 /* ComingSoonCell.swift in Sources */,
+				AB4A13082BD7C61200B39808 /* ComingSoonCellTableViewCell.swift in Sources */,
 				85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */,
 				AB4A12FC2BD7C25F00B39808 /* MovieChartTableViewCell.swift in Sources */,
+				AB4A13012BD7C35A00B39808 /* MovieChartCell.swift in Sources */,
 				AB4A12E92BD78CF900B39808 /* NowPlayingTableViewCell.swift in Sources */,
 				AB4A12DE2BD74F5C00B39808 /* MainPageVC.swift in Sources */,
 				AB4A12F72BD79F6300B39808 /* Movie.swift in Sources */,
