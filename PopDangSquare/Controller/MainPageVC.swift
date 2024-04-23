@@ -8,22 +8,55 @@
 import UIKit
 
 class MainPageVC: UIViewController {
-
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // 테이블뷰 관련
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        // logoCellTableViewCell register
+            tableView.register(UINib(nibName: "logoCellTableViewCell", bundle: nil), forCellReuseIdentifier: "logoCellTableViewCell")
+        
+        // 컬렌션뷰 register
+        tableView.register(UINib(nibName: "MainPageTableViewCell", bundle: nil), forCellReuseIdentifier: "MainPageTableViewCell")
         // Do any additional setup after loading the view.
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
+    //TableView Section 개수
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
     }
-    */
-
+    //TableView Height 설정
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return 150
+        case 1:
+            return 250
+        default:
+            return 80
+        }
+    }
+    //TableViewCell 설정
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "logoCellTableViewCell", for: indexPath) as! logoCellTableViewCell
+                // 추가적인 셀 설정이 필요할 경우 여기에 코드 추가
+                return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MainPageTableViewCell", for: indexPath) as! MainPageTableViewCell
+            cell.configure()
+            return cell
+            
+        default:
+            return UITableViewCell()
+        }
+    }
 }

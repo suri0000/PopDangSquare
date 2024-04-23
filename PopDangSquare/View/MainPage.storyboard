@@ -13,57 +13,26 @@
             <objects>
                 <viewController storyboardIdentifier="MainPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bfp-yV-yHU" customClass="MainPageVC" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xhu-J2-Qli">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="900"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZeM-5H-f5C">
-                                <rect key="frame" x="0.0" y="59" width="393" height="807"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25k-iE-KEz">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="900"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="시작" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvE-eJ-xd8">
-                                                <rect key="frame" x="175" y="56" width="39" height="27"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="끝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BN2-Jt-4fC">
-                                                <rect key="frame" x="175" y="781" width="15" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="900" id="vG8-J0-HdP"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="25k-iE-KEz" firstAttribute="leading" secondItem="Cjf-ke-JjF" secondAttribute="leading" id="XZF-j3-yTw"/>
-                                    <constraint firstItem="25k-iE-KEz" firstAttribute="bottom" secondItem="Cjf-ke-JjF" secondAttribute="bottom" id="e8Q-Me-iON"/>
-                                    <constraint firstItem="25k-iE-KEz" firstAttribute="width" secondItem="rql-4s-U8x" secondAttribute="width" id="iuK-b9-Sva"/>
-                                    <constraint firstItem="25k-iE-KEz" firstAttribute="trailing" secondItem="Cjf-ke-JjF" secondAttribute="trailing" id="ppM-a2-Mhy"/>
-                                    <constraint firstItem="25k-iE-KEz" firstAttribute="top" secondItem="Cjf-ke-JjF" secondAttribute="top" id="u6D-Is-uFW"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="Cjf-ke-JjF"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="rql-4s-U8x"/>
-                            </scrollView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2HN-MW-75t">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jAN-vN-dT6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ZeM-5H-f5C" firstAttribute="leading" secondItem="jAN-vN-dT6" secondAttribute="leading" id="H2G-8g-mIr"/>
-                            <constraint firstItem="jAN-vN-dT6" firstAttribute="bottom" secondItem="ZeM-5H-f5C" secondAttribute="bottom" id="SSZ-CQ-GIH"/>
-                            <constraint firstItem="ZeM-5H-f5C" firstAttribute="top" secondItem="jAN-vN-dT6" secondAttribute="top" id="WfH-kg-PTC"/>
-                            <constraint firstItem="jAN-vN-dT6" firstAttribute="trailing" secondItem="ZeM-5H-f5C" secondAttribute="trailing" id="amw-3J-lNl"/>
+                            <constraint firstItem="2HN-MW-75t" firstAttribute="trailing" secondItem="jAN-vN-dT6" secondAttribute="trailing" id="MMq-d7-A6R"/>
+                            <constraint firstItem="2HN-MW-75t" firstAttribute="top" secondItem="jAN-vN-dT6" secondAttribute="top" id="Q9W-Kf-COC"/>
+                            <constraint firstAttribute="bottom" secondItem="2HN-MW-75t" secondAttribute="bottom" id="Wod-wS-D0I"/>
+                            <constraint firstItem="2HN-MW-75t" firstAttribute="leading" secondItem="jAN-vN-dT6" secondAttribute="leading" id="pR3-GB-8kz"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="393" height="900"/>
+                    <connections>
+                        <outlet property="tableView" destination="2HN-MW-75t" id="Qta-bj-krd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tfi-cI-E9b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
