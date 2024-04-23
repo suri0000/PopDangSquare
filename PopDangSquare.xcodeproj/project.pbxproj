@@ -14,6 +14,7 @@
 		85AC10352BD64CB100C00DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85AC10342BD64CB100C00DCF /* Assets.xcassets */; };
 		85AC10382BD64CB100C00DCF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 85AC10372BD64CB100C00DCF /* Base */; };
 		85AC10432BD680E000C00DCF /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85AC10422BD680E000C00DCF /* LoginView.storyboard */; };
+		85AC10452BD749B000C00DCF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC10442BD749B000C00DCF /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		85AC10372BD64CB100C00DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85AC10392BD64CB100C00DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85AC10422BD680E000C00DCF /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
+		85AC10442BD749B000C00DCF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				85AC102F2BD64CAF00C00DCF /* ViewController.swift */,
+				85AC10442BD749B000C00DCF /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85AC10452BD749B000C00DCF /* LoginViewController.swift in Sources */,
 				85AC10302BD64CAF00C00DCF /* ViewController.swift in Sources */,
 				85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */,
 				85AC102E2BD64CAF00C00DCF /* SceneDelegate.swift in Sources */,
