@@ -9,7 +9,7 @@ import UIKit
 
 
 
-class MainPageTableViewCell: UITableViewCell {
+class NowPlayingTableViewCell: UITableViewCell {
     
     @IBOutlet var collectionView: UICollectionView!
     
@@ -50,7 +50,7 @@ class MainPageTableViewCell: UITableViewCell {
     
 }
 
-extension MainPageTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+extension NowPlayingTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }

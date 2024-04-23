@@ -7,7 +7,7 @@
 
 import UIKit
 
-class logoCellTableViewCell: UITableViewCell {
+class LogoCellTableViewCell: UITableViewCell {
 
     @IBOutlet weak var logoImage: UIImageView!
     

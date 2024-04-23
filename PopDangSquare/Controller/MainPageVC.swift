@@ -18,10 +18,10 @@ class MainPageVC: UIViewController {
         tableView.dataSource = self
         
         // logoCellTableViewCell register
-            tableView.register(UINib(nibName: "logoCellTableViewCell", bundle: nil), forCellReuseIdentifier: "logoCellTableViewCell")
+            tableView.register(UINib(nibName: "LogoCellTableViewCell", bundle: nil), forCellReuseIdentifier: "LogoCellTableViewCell")
         
         // 컬렌션뷰 register
-        tableView.register(UINib(nibName: "MainPageTableViewCell", bundle: nil), forCellReuseIdentifier: "MainPageTableViewCell")
+        tableView.register(UINib(nibName: "NowPlayingTableViewCell", bundle: nil), forCellReuseIdentifier: "NowPlayingTableViewCell")
         // Do any additional setup after loading the view.
     }
     
@@ -47,11 +47,11 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "logoCellTableViewCell", for: indexPath) as! logoCellTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "LogoCellTableViewCell", for: indexPath) as! LogoCellTableViewCell
                 // 추가적인 셀 설정이 필요할 경우 여기에 코드 추가
                 return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MainPageTableViewCell", for: indexPath) as! MainPageTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell", for: indexPath) as! NowPlayingTableViewCell
             cell.configure()
             return cell
             
