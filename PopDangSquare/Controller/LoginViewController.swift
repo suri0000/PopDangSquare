@@ -14,13 +14,13 @@ class LoginViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setEmailTextField()
+    configureTextField()
     // Do any additional setup after loading the view.
   }
   
-  func setEmailTextField() {
-    emailTextField.clipsToBounds = true
-    emailTextField.layer.cornerRadius = 15
+  func configureTextField() {
+    emailTextField.setTextField(string: "이메일을 입력해주세요")
+    passwordTextField.setTextField(string: "비밀번호를 입력해주세요")
   }
   
 }
