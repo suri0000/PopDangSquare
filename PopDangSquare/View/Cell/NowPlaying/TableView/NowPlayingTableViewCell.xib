@@ -25,7 +25,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gKV-3O-y6B">
-                        <rect key="frame" x="0.0" y="32" width="320" height="250"/>
+                        <rect key="frame" x="16" y="32" width="288" height="250"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="250" id="vKM-Y1-NYa"/>
@@ -39,8 +39,8 @@
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="gKV-3O-y6B" secondAttribute="trailing" id="00r-zJ-ilb"/>
-                    <constraint firstItem="gKV-3O-y6B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Q6O-JN-BaO"/>
+                    <constraint firstAttribute="trailing" secondItem="gKV-3O-y6B" secondAttribute="trailing" constant="16" id="00r-zJ-ilb"/>
+                    <constraint firstItem="gKV-3O-y6B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Q6O-JN-BaO"/>
                     <constraint firstItem="gKV-3O-y6B" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="32" id="jOh-OD-TSY"/>
                 </constraints>
             </tableViewCellContentView>

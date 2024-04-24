@@ -45,7 +45,7 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
         case 1:
             return 280
         case 2:
-            return 180
+            return 200
         case 3:
             return 350
         default:

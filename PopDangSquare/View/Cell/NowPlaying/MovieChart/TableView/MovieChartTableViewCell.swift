@@ -11,7 +11,8 @@ class MovieChartTableViewCell: UITableViewCell {
     
     var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
-    let imageNames = [UIImage(named: "image1.png")!, UIImage(named: "image2.png")!, UIImage(named: "image3.png")!]
+    let imageNames = ["image1.png", "image2.png", "image3.png"].compactMap { UIImage(named: $0) }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,7 +22,6 @@ class MovieChartTableViewCell: UITableViewCell {
         layout.scrollDirection = .horizontal // 가로 스크롤 설정
         layout.itemSize = CGSize(width: collectionView.frame.width, height: collectionView.frame.height) // 셀 크기 설정
         layout.minimumLineSpacing = 0 // 셀 간 최소 간격 설정
-        layout.minimumInteritemSpacing = 0 // 행 간 최소 간격 설정 (가로 스크롤에서는 보통 사용되지 않음)
         collectionView.setCollectionViewLayout(layout, animated: false)
         
         collectionView.dataSource = self
@@ -34,7 +34,7 @@ class MovieChartTableViewCell: UITableViewCell {
     }
     
     func setupPageControl() {
-        pageControl = UIPageControl(frame: CGRect(x: 0, y: collectionView.frame.maxY - 30, width: collectionView.frame.width, height: 20))
+        pageControl = UIPageControl(frame: CGRect(x: 0, y: collectionView.frame.maxY + 50, width: collectionView.frame.width, height: 20))
         pageControl.numberOfPages = imageNames.count
         pageControl.currentPage = 0
         pageControl.tintColor = UIColor.red
