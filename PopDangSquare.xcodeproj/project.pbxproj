@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5407E04F2BD949870050E39D /* MyPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5407E04E2BD949870050E39D /* MyPageController.swift */; };
+		5466E38B2BD9540C001CB23E /* MypageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5466E38A2BD9540C001CB23E /* MypageData.swift */; };
 		54FF423E2BD948DC002703F8 /* CustomerServiceViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FF423D2BD948DC002703F8 /* CustomerServiceViewCell.xib */; };
 		54FF42402BD948ED002703F8 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54FF423F2BD948ED002703F8 /* MyPage.storyboard */; };
 		54FF42422BD948FC002703F8 /* CustomerServiceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FF42412BD948FC002703F8 /* CustomerServiceViewCell.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		5407E04E2BD949870050E39D /* MyPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageController.swift; sourceTree = "<group>"; };
+		5466E38A2BD9540C001CB23E /* MypageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageData.swift; sourceTree = "<group>"; };
 		54FF423D2BD948DC002703F8 /* CustomerServiceViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerServiceViewCell.xib; sourceTree = "<group>"; };
 		54FF423F2BD948ED002703F8 /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		54FF42412BD948FC002703F8 /* CustomerServiceViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerServiceViewCell.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		85AC103F2BD658FC00C00DCF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5466E38A2BD9540C001CB23E /* MypageData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			files = (
 				5407E04F2BD949870050E39D /* MyPageController.swift in Sources */,
 				85AC104A2BD7971300C00DCF /* SignUpViewController.swift in Sources */,
+				5466E38B2BD9540C001CB23E /* MypageData.swift in Sources */,
 				85AC10452BD749B000C00DCF /* LoginViewController.swift in Sources */,
 				854B8DA42BD8A1F1003AB9AC /* UIResponderExtension.swift in Sources */,
 				85AC10302BD64CAF00C00DCF /* ViewController.swift in Sources */,
@@ -365,7 +369,7 @@
 				INFOPLIST_FILE = PopDangSquare/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = MyPage;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -393,7 +397,7 @@
 				INFOPLIST_FILE = PopDangSquare/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = MyPage;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
