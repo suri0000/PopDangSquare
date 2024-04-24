@@ -280,7 +280,7 @@
                                                             <constraint firstAttribute="height" constant="34" id="dhm-HR-bGw"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" secureTextEntry="YES"/>
                                                     </textField>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호는 영문, 숫자 조합으로 6자 이상이어야 합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="810-7s-EA4" userLabel="비밀번호 오류 메시지">
                                                         <rect key="frame" x="7" y="58.333333333333314" width="220.66666666666666" height="12"/>
@@ -318,7 +318,7 @@
                                                             <constraint firstAttribute="height" constant="34" id="qbW-3P-bAa"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" secureTextEntry="YES"/>
                                                     </textField>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호가 일치하지 않습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5j-9P-nLA" userLabel="비밀번호 확인 오류 메시지">
                                                         <rect key="frame" x="7.0000000000000071" y="58.333333333333371" width="121.66666666666669" height="12"/>
@@ -396,6 +396,16 @@
                             <constraint firstItem="Z9n-Wf-UJZ" firstAttribute="top" secondItem="HZU-xa-bJj" secondAttribute="top" id="uiz-pF-yxM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailErrorLabel" destination="9YK-3N-gCc" id="xQp-CG-0cR"/>
+                        <outlet property="emailTextField" destination="hn4-bc-BLt" id="YN8-MH-bBv"/>
+                        <outlet property="nameTextField" destination="Mdf-fI-kR4" id="4B9-E0-EY3"/>
+                        <outlet property="passwordErrorLabel" destination="810-7s-EA4" id="qEa-hd-BEg"/>
+                        <outlet property="passwordTextField" destination="f8H-6K-XsS" id="fuH-9g-vwL"/>
+                        <outlet property="scrollView" destination="Z9n-Wf-UJZ" id="Xip-Cb-Rfe"/>
+                        <outlet property="verifyPasswordErrorLabel" destination="k5j-9P-nLA" id="MKU-yH-9dg"/>
+                        <outlet property="verifyPasswordTextField" destination="TkX-Ca-HRn" id="sso-y0-M6N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6s-Pt-moz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
