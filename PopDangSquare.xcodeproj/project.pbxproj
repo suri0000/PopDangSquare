@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54FF423E2BD948DC002703F8 /* CustomerServiceViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FF423D2BD948DC002703F8 /* CustomerServiceViewCell.xib */; };
+		54FF42402BD948ED002703F8 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54FF423F2BD948ED002703F8 /* MyPage.storyboard */; };
+		54FF42422BD948FC002703F8 /* CustomerServiceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FF42412BD948FC002703F8 /* CustomerServiceViewCell.swift */; };
 		854B8DA42BD8A1F1003AB9AC /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B8DA32BD8A1F1003AB9AC /* UIResponderExtension.swift */; };
 		85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC102B2BD64CAF00C00DCF /* AppDelegate.swift */; };
 		85AC102E2BD64CAF00C00DCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC102D2BD64CAF00C00DCF /* SceneDelegate.swift */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54FF423D2BD948DC002703F8 /* CustomerServiceViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerServiceViewCell.xib; sourceTree = "<group>"; };
+		54FF423F2BD948ED002703F8 /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		54FF42412BD948FC002703F8 /* CustomerServiceViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerServiceViewCell.swift; sourceTree = "<group>"; };
 		854B8DA32BD8A1F1003AB9AC /* UIResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
 		85AC10282BD64CAF00C00DCF /* PopDangSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopDangSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85AC102B2BD64CAF00C00DCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +96,7 @@
 			children = (
 				85AC102F2BD64CAF00C00DCF /* ViewController.swift */,
 				85AC10442BD749B000C00DCF /* LoginViewController.swift */,
+				54FF42412BD948FC002703F8 /* CustomerServiceViewCell.swift */,
 				85AC10492BD7971300C00DCF /* SignUpViewController.swift */,
 			);
 			path = Controller;
@@ -99,7 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				85AC10312BD64CAF00C00DCF /* Main.storyboard */,
+				54FF423D2BD948DC002703F8 /* CustomerServiceViewCell.xib */,
 				85AC10362BD64CB100C00DCF /* LaunchScreen.storyboard */,
+				54FF423F2BD948ED002703F8 /* MyPage.storyboard */,
 				85AC10422BD680E000C00DCF /* LoginView.storyboard */,
 			);
 			path = View;
@@ -172,6 +181,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54FF423E2BD948DC002703F8 /* CustomerServiceViewCell.xib in Resources */,
+				54FF42402BD948ED002703F8 /* MyPage.storyboard in Resources */,
 				85AC10352BD64CB100C00DCF /* Assets.xcassets in Resources */,
 				85AC10382BD64CB100C00DCF /* Base in Resources */,
 				85AC10332BD64CAF00C00DCF /* Base in Resources */,
@@ -192,6 +203,7 @@
 				85AC10302BD64CAF00C00DCF /* ViewController.swift in Sources */,
 				85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */,
 				85AC10482BD7846F00C00DCF /* TextFieldExtension.swift in Sources */,
+				54FF42422BD948FC002703F8 /* CustomerServiceViewCell.swift in Sources */,
 				85AC102E2BD64CAF00C00DCF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
