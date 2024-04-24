@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5407E04F2BD949870050E39D /* MyPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5407E04E2BD949870050E39D /* MyPageController.swift */; };
 		54FF423E2BD948DC002703F8 /* CustomerServiceViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54FF423D2BD948DC002703F8 /* CustomerServiceViewCell.xib */; };
 		54FF42402BD948ED002703F8 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54FF423F2BD948ED002703F8 /* MyPage.storyboard */; };
 		54FF42422BD948FC002703F8 /* CustomerServiceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FF42412BD948FC002703F8 /* CustomerServiceViewCell.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5407E04E2BD949870050E39D /* MyPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageController.swift; sourceTree = "<group>"; };
 		54FF423D2BD948DC002703F8 /* CustomerServiceViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerServiceViewCell.xib; sourceTree = "<group>"; };
 		54FF423F2BD948ED002703F8 /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		54FF42412BD948FC002703F8 /* CustomerServiceViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerServiceViewCell.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				85AC102F2BD64CAF00C00DCF /* ViewController.swift */,
 				85AC10442BD749B000C00DCF /* LoginViewController.swift */,
+				5407E04E2BD949870050E39D /* MyPageController.swift */,
 				54FF42412BD948FC002703F8 /* CustomerServiceViewCell.swift */,
 				85AC10492BD7971300C00DCF /* SignUpViewController.swift */,
 			);
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5407E04F2BD949870050E39D /* MyPageController.swift in Sources */,
 				85AC104A2BD7971300C00DCF /* SignUpViewController.swift in Sources */,
 				85AC10452BD749B000C00DCF /* LoginViewController.swift in Sources */,
 				854B8DA42BD8A1F1003AB9AC /* UIResponderExtension.swift in Sources */,
