@@ -7,6 +7,9 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
     var myPageData:[MypageData] = MypageData.mypage
     
     // UI요소들
+    @IBOutlet weak var myInforMationManageMentbutton: UIButton!
+    @IBOutlet weak var wishHistorybutton: UIButton!
+    @IBOutlet weak var reservationDetailsbutton: UIButton!
     @IBOutlet weak var myInforMationManageMent: UIButton!
     @IBOutlet weak var wishHistory: UIButton!
     @IBOutlet weak var reserVationDetails: UIButton!
@@ -18,21 +21,6 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var quickMenuNameLable: UILabel!
     @IBOutlet weak var serviceLable: UILabel!
     @IBOutlet weak var serviceCollview: UICollectionView!
-    
-    // 퀵 메뉴를 표시하기 위한 컬렉션 뷰
-    let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal // 수평 스크롤 설정
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell") // 셀 등록
-        collectionView.layer.cornerRadius = 10 // 둥근 모서리 설정
-        collectionView.layer.shadowColor = UIColor.gray.cgColor // 그림자 색깔 설정
-        collectionView.layer.shadowOffset = CGSize(width: 0, height: 2) // 그림자 오프셋 설정
-        collectionView.layer.shadowOpacity = 0.8 // 그림자 투명도 설정
-        collectionView.layer.shadowRadius = 4 // 그림자 반경 설정
-        return collectionView
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,14 +38,27 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             button?.setImage(UIImage(named: "your_image_name"), for: .normal) // 이미지 설정
         }
         
+        // quickMenuView 디자인 설정
+        quickMenuView.layer.cornerRadius = 15 // 원하는 둥근 정도 설정
+        quickMenuView.layer.borderColor = UIColor.black.cgColor // 검은색 테두리
+        quickMenuView.layer.borderWidth = 3 // 테두리 두께
+        quickMenuView.layer.shadowColor = UIColor.black.cgColor // 그림자 색상
+        quickMenuView.layer.shadowOpacity = 0.5 // 그림자 투명도
+        quickMenuView.layer.shadowOffset = CGSize(width: 0, height: 2) // 그림자의 위치 및 크기 조절
+        quickMenuView.layer.shadowRadius = 4 // 그림자의 반경 조절
+        quickMenuView.clipsToBounds = false // 그림자가 잘리지 않도록 설정
         
-        // Quick Menu Collview와 Service Collview의 데이터 소스 및 델리게이트 설정
+        
+        // Service Collview의 데이터 소스 및 델리게이트 설정
         serviceCollview.dataSource = self
         serviceCollview.delegate = self
         
         // Service Collview의 스크롤 방향 설정
         if let layout = serviceCollview.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
+            
+            // 커스텀 셀을 콜렉션 뷰에 등록
+            serviceCollview.register(UINib(nibName: "CustomerServiceViewCell", bundle: nil), forCellWithReuseIdentifier: "customerServiceViewCell")
         }
     }
     
@@ -66,27 +67,30 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
     // 각 CollectionView의 항목 개수 반환
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == serviceCollview {
-            return 5 // Service Collview에 대한 항목 개수 반환
+            return 1 // Service Collview에 대한 항목 개수 반환
         }
         return 0
     }
-    // 각 CollectionView의 셀 설정
+    // 커스텀 셀을 콜렉션 뷰에 반환
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == serviceCollview {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCell", for: indexPath)
-            // Service Collview의 셀 설정
-            cell.backgroundColor = .green // 예시로 배경색 설정
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customerServiceViewCell", for: indexPath)as? CustomerServiceViewCell else {//indexPath 버그
+                return UICollectionViewCell()
+            }
+            // 셀의 데이터 설정
             return cell
         }
         return UICollectionViewCell()
     }
-    
     // MARK: - UICollectionViewDelegateFlowLayout
     
     // 각 셀의 크기 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == serviceCollview {
-            return CGSize(width: 100, height: 100) // Service Collview의 셀 크기 설정
+            
+            return CGSize(width: 392, height: 160)
+            
+            // Service Collview의 셀 크기 설정
         }
         return CGSize.zero
     }
@@ -99,10 +103,10 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         return 0
     }
     
-    // 각 CollectionView의 인셋 설정
+    // 왼쪽 인셋 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView == serviceCollview {
-            return UIEdgeInsets.zero // Service Collview의 인셋 설정
+            return UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 0) // 왼쪽에 30포인트의 인셋 추가
         }
         return UIEdgeInsets.zero
     }
