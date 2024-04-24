@@ -23,8 +23,8 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="2wd-73-Khr"/>
                                 </connections>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="...으로 검색된 결과입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5d-qY-wuO">
-                                <rect key="frame" x="70" y="178" width="253" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="...으로 검색된 결과입니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5d-qY-wuO">
+                                <rect key="frame" x="51" y="178" width="290" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
@@ -36,11 +36,12 @@
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="fQO-9j-CkM" id="n66-PW-zsJ"/>
+                        <outlet property="searchResult" destination="V5d-qY-wuO" id="Gjg-kP-L37"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="55" y="-13"/>
+            <point key="canvasLocation" x="54.198473282442748" y="-13.380281690140846"/>
         </scene>
     </scenes>
 </document>
