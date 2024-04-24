@@ -22,9 +22,9 @@ class SignUpViewController: UIViewController {
     super.viewDidLoad()
     
     nameTextField.delegate = self
-    //    emailTextField.delegate = self
-    //    passwordTextField.delegate = self
-    //    verifyPasswordTextField.delegate = self
+    emailTextField.delegate = self
+    passwordTextField.delegate = self
+    verifyPasswordTextField.delegate = self
     
     addKeyboardObserver()
     setTapGesture()
@@ -71,7 +71,7 @@ class SignUpViewController: UIViewController {
     let contentInset = UIEdgeInsets(
       top: 0.0,
       left: 0.0,
-      bottom: keyboardFrame.size.height + 10,
+      bottom: keyboardFrame.size.height + 15,
       right: 0.0)
     scrollView.contentInset = contentInset
     scrollView.scrollIndicatorInsets = contentInset
@@ -82,6 +82,7 @@ class SignUpViewController: UIViewController {
       scrollView.scrollRectToVisible(textField.frame, animated: true)
     }
   }
+  
   // 키보드 내려가면 다시 원래대로 스크롤뷰 위치 조정
   @objc private func keyboardWillHide() {
     let contentInset = UIEdgeInsets.zero
@@ -102,18 +103,32 @@ extension SignUpViewController: UITextFieldDelegate {
     // 각 텍스트 필드의 입력이 종료될 때 유효성 검증을 수행하고 에러 메시지를 표시함
     if textField == emailTextField {
       if let email = emailTextField.text {
-        isValidEmail(email: email) == false ? (emailErrorLabel.text =  "이메일 형식이 아닙니다.") : (emailErrorLabel.text = "")
+        if isValidEmail(email: email) == false {
+          emailErrorLabel.isHidden = false
+        } else {
+          emailErrorLabel.isHidden = true
+        }
       }
     } else if textField == passwordTextField {
       if let password = passwordTextField.text {
-        isValidPassword(pwd: password) == false ? (passwordErrorLabel.text =  "비밀번호는 영문, 숫자 조합 6자리 이상이어야 합니다.") : (passwordErrorLabel.text = "")
+        if isValidPassword(pwd: password) == false {
+          passwordErrorLabel.isHidden = false
+        } else {
+          passwordErrorLabel.isHidden = true
+        }
       }
     } else if textField == verifyPasswordTextField {
       if let password = verifyPasswordTextField.text {
-        verifyPassword(pwd: password) == false ? (verifyPasswordErrorLabel.text = "비밀번호가 다릅니다.") : (verifyPasswordErrorLabel.text = "")
+        if verifyPassword(pwd: password) == false {
+          verifyPasswordErrorLabel.isHidden = false
+        } else {
+          verifyPasswordErrorLabel.isHidden = true
+        }
       }
     }
+    
   }
+  
   
   // 아이디 형식 검사
   func isValidEmail(email: String) -> Bool {
