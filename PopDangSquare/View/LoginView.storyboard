@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZIw-16-lf2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -136,6 +136,10 @@
                                     <directionalEdgeInsets key="contentInsets" top="11" leading="0.0" bottom="11" trailing="0.0"/>
                                     <color key="baseForegroundColor" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="signUpButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZMr-bY-4SG"/>
+                                    <segue destination="ZIw-16-lf2" kind="show" id="0bh-13-hHX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -162,6 +166,7 @@
                             <constraint firstItem="asW-Zz-hm5" firstAttribute="top" secondItem="vfm-J1-YJv" secondAttribute="bottom" constant="55" id="yYr-oa-m4t"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="GPh-QL-6uu"/>
                     <connections>
                         <outlet property="emailTextField" destination="673-8I-MgU" id="2eV-7M-BMF"/>
                         <outlet property="passwordTextField" destination="o6y-JQ-MVK" id="vBo-SL-okF"/>
@@ -169,21 +174,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135.1145038167939" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1987.0229007633586" y="3.5211267605633805"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="9iU-p5-MSr">
             <objects>
                 <viewController id="ZIw-16-lf2" customClass="SignUpViewController" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lsr-zq-eKp">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9n-Wf-UJZ">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Na-Eg-ZbW" userLabel="Container">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="9EL-gX-JOn">
                                                 <rect key="frame" x="120" y="5.0000000000000071" width="153" height="125.66666666666669"/>
@@ -198,7 +203,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PfV-HU-XIb" userLabel="NameView">
-                                                <rect key="frame" x="52" y="217.66666666666669" width="289" height="53.333333333333314"/>
+                                                <rect key="frame" x="52" y="217.66666666666666" width="289" height="53.333333333333343"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tq0-8u-C4U">
                                                         <rect key="frame" x="7" y="0.0" width="21" height="14.333333333333334"/>
@@ -207,7 +212,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="성함을 입력해주세요" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Mdf-fI-kR4">
-                                                        <rect key="frame" x="0.0" y="19.333333333333314" width="289" height="34"/>
+                                                        <rect key="frame" x="0.0" y="19.333333333333343" width="289" height="34"/>
                                                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="5Ih-mj-Osa"/>
@@ -283,7 +288,7 @@
                                                         <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="one-time-code"/>
                                                     </textField>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호는 영문, 숫자 조합으로 6자 이상이어야 합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="810-7s-EA4" userLabel="비밀번호 오류 메시지">
-                                                        <rect key="frame" x="7" y="58.333333333333314" width="220.66666666666666" height="12"/>
+                                                        <rect key="frame" x="7" y="58.333333333333371" width="220.66666666666666" height="12"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -302,7 +307,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDk-lf-X4o" userLabel="Verify Password View">
-                                                <rect key="frame" x="52" y="491.66666666666657" width="289" height="70.333333333333314"/>
+                                                <rect key="frame" x="52" y="491.66666666666669" width="289" height="70.333333333333314"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYe-aq-CYS">
                                                         <rect key="frame" x="7" y="0.0" width="65.666666666666671" height="14.333333333333334"/>
@@ -311,7 +316,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일을 입력해주세요" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="TkX-Ca-HRn">
-                                                        <rect key="frame" x="0.0" y="19.333333333333371" width="289" height="34"/>
+                                                        <rect key="frame" x="0.0" y="19.333333333333314" width="289" height="34"/>
                                                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="TNE-Yg-qYq"/>
@@ -321,7 +326,7 @@
                                                         <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                                     </textField>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호가 일치하지 않습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5j-9P-nLA" userLabel="비밀번호 확인 오류 메시지">
-                                                        <rect key="frame" x="7.0000000000000071" y="58.333333333333371" width="121.66666666666669" height="12"/>
+                                                        <rect key="frame" x="7.0000000000000071" y="58.333333333333314" width="121.66666666666669" height="12"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -348,6 +353,9 @@
                                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                                     <color key="baseBackgroundColor" red="0.95294117649999999" green="0.74509803919999995" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="signUpButtonTapped:" destination="ZIw-16-lf2" eventType="touchUpInside" id="Z7g-eE-yDI"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -396,6 +404,7 @@
                             <constraint firstItem="Z9n-Wf-UJZ" firstAttribute="top" secondItem="HZU-xa-bJj" secondAttribute="top" id="uiz-pF-yxM"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="MaJ-ss-bdq"/>
                     <connections>
                         <outlet property="emailErrorLabel" destination="9YK-3N-gCc" id="xQp-CG-0cR"/>
                         <outlet property="emailTextField" destination="hn4-bc-BLt" id="YN8-MH-bBv"/>
@@ -409,7 +418,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6s-Pt-moz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1012.9770992366412" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="2866.4122137404579" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>

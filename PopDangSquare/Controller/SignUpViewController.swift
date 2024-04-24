@@ -39,13 +39,24 @@ class SignUpViewController: UIViewController {
     verifyPasswordTextField.setTextField(string: "비밀번호를 한 번 더 입력해주세요")
   }
   
+  @IBAction func signUpButtonTapped(_ sender: Any) {
+    guard let userName = nameTextField.text,
+          let email = emailTextField.text,
+          let password = passwordTextField.text else { return }
+    
+    UserDefaults.standard.set(userName, forKey: "userName")
+    UserDefaults.standard.set(email, forKey: "userID")
+    UserDefaults.standard.set(password, forKey: "userPassword")
+  }
+  
+  // MARK: - Keyboard 관련 UI 설정
+  
   // 키보드 바깥 터치하면 키보드 내려가게
   func setTapGesture() {
     let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
     tap.cancelsTouchesInView = false
     view.addGestureRecognizer(tap)
   }
-  
   
   private func addKeyboardObserver() {
     // Register Keyboard notifications
