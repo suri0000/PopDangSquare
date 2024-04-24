@@ -11,6 +11,117 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var detailCollView: UICollectionView!
     
+//    let movieDetail = DetailData.detail
+//    let reviewDetail = ReviewData.reviews
+   
+    enum SectionType: Int, CaseIterable {
+        case detail, review
+        
+        var columnCount: Int {
+            switch self {
+            case .detail:
+                return DetailData.detail.count
+            case .review:
+                return ReviewData.reviews.count
+            }
+        }
+        
+        enum ItemType: Hashable{
+            case detail(DetailData)
+            case review(ReviewData)
+        }
+    }
+    
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    var datasource: UICollectionViewDiffableDataSource<SectionType, SectionType.ItemType>!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupCollectionView()
+        setupDataSource()
+        
+        
+        // Apply initial snapshot
+        var snapshot = NSDiffableDataSourceSnapshot<SectionType, SectionType.ItemType>()
+        snapshot.appendSections([.detail, .review])
+//        snapshot.appendItems([.detail(DetailData)], toSection: .detail)
+//        snapshot.appendItems([.detail(DetailData.detail[indexPath.section])], toSection: .detail)
+        snapshot.appendItems([.detail(DetailData.init(movieNm: "a", movieNmEn: "b", prdtYear: "d"))], toSection: .detail)
+        snapshot.appendItems([.review(ReviewData.init(detailStars: "AA", detailDate: "BB", detailReview: "AA"))], toSection: .review)
+        datasource.apply(snapshot)
+        //Layout
+        detailCollView.collectionViewLayout = layout()
+        
+        //        self.navigationItem.largeTitleDisplayMode = .never
+    }
+    
+    private func setupCollectionView() {
+        detailCollView.register(UINib(nibName: "DetailViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailViewCell")
+        detailCollView.register(UINib(nibName: "DetailReviewCell", bundle: nil), forCellWithReuseIdentifier: "DetailReviewCell")
+        
+        detailCollView.dataSource = datasource
+        // Add collectionView constraints or setup its frame
+    }
+    
+    private func setupDataSource() {
+        datasource = UICollectionViewDiffableDataSource<SectionType, SectionType.ItemType>(collectionView: detailCollView, cellProvider: {
+            collectionView, indexPath, item in
+            
+            switch self.datasource.snapshot().sectionIdentifiers[indexPath.section] {
+                
+            case .detail:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailViewCell", for: indexPath) as? DetailViewCell,
+//                      case let .detail(detailItem) = item //
+                      case let .detail(detailItem) = item
+                else {
+                    return DetailViewCell()
+                }
+                cell.configure(detailItem)
+                return cell
+                
+            case .review:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailReviewCell", for: indexPath) as? DetailReviewCell,
+                      case let .review(reviewItem) = item
+                else {
+                    return DetailReviewCell()
+                }
+                cell.configure(reviewItem)
+                return cell
+            }
+        })
+        
+        
+    }
+    
+    private func layout() -> UICollectionViewCompositionalLayout {
+        
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.8))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5)) //estimated = 사이즈가 재각각이면 큰것에 따르게끔
+        //        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        //count없는것은 유동적으로 사이즈가 맞춰지길 원할때 사용.
+        //        group.interItemSpacing = .fixed(10)
+        
+        let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 20, bottom: 30, trailing: 20)
+                section.interGroupSpacing = 20
+        
+        //        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
+        //        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        //        section.boundarySupplementaryItems = [header]
+        
+        
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
+    }
+    
+}
+    
+    /*
     
     let movieDetail = DetailData.detail
     let reviewDetail = ReviewData.reviews
@@ -34,6 +145,8 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         detailCollView.register(UINib(nibName: DetailViewCell.className, bundle: nil), forCellWithReuseIdentifier: DetailViewCell.cellId)
         detailCollView.register(UINib(nibName: DetailReviewCell.className, bundle: nil), forCellWithReuseIdentifier: DetailReviewCell.cellId)
+        
+        
         
         datasource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: detailCollView, cellProvider: {
             collectionView, indexPath, item in
@@ -63,10 +176,11 @@ class DetailViewController: UIViewController {
         snapshot.appendSections([.detailMain, .review])
         //각 섹션이 뭔지 좀 더 명활하게 하기 위해 위에꺼 일단 씀
         
-        snapshot.appendSections(Section.allCases)
+//        snapshot.appendSections(Section.allCases)
         
         //[section, [item]][section, [item]]
         snapshot.appendItems(movieDetail, toSection: .detailMain)
+        snapshot.appendItems(reviewDetail, toSection: .review)
 
         datasource.apply(snapshot)
         
@@ -84,7 +198,7 @@ class DetailViewController: UIViewController {
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)) //estimated = 사이즈가 재각각이면 큰것에 따르게끔
 //        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         //count없는것은 유동적으로 사이즈가 맞춰지길 원할때 사용.
 //        group.interItemSpacing = .fixed(10)
         
@@ -105,5 +219,5 @@ class DetailViewController: UIViewController {
     
     
 }
-
+     */
 

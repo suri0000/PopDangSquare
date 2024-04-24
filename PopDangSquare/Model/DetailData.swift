@@ -16,9 +16,9 @@ struct DetailData: Hashable {
 
 extension DetailData {
     static let detail: [DetailData] = [
-//        DetailData(movieNm: "무궁화꽃이", movieNmEn: "eqweqwqwe", prdtYear: "11.11.11"),
-//        DetailData(movieNm: "피었습니다", movieNmEn: "dsfhdf", prdtYear: "22.22.22"),
-//        DetailData(movieNm: "무궁화꽃2", movieNmEn: "qwehkashdk", prdtYear: "33.33.33"),
+        DetailData(movieNm: "무궁화꽃이", movieNmEn: "eqweqwqwe", prdtYear: "11.11.11"),
+        DetailData(movieNm: "피었습니다", movieNmEn: "dsfhdf", prdtYear: "22.22.22"),
+        DetailData(movieNm: "무궁화꽃2", movieNmEn: "qwehkashdk", prdtYear: "33.33.33"),
         DetailData(movieNm: "피엇읍닏아", movieNmEn: "qewkj", prdtYear: "44.44.44")
     ]
 }
