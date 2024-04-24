@@ -100,7 +100,7 @@ class SignUpViewController: UIViewController {
     scrollView.contentInset = contentInset
     scrollView.scrollIndicatorInsets = contentInset
   }
-  
+   
 }
 
 extension SignUpViewController: UITextFieldDelegate {
