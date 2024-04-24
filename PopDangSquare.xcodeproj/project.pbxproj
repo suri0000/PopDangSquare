@@ -135,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				AB4A12F12BD798BB00B39808 /* logoCell */,
+				AB4A13032BD7C59500B39808 /* ComingSoon */,
+				AB4A12F82BD7A7DB00B39808 /* MovieChart */,
 				AB4A12F02BD7918800B39808 /* NowPlaying */,
 			);
 			path = Cell;
@@ -163,8 +165,6 @@
 			children = (
 				AB4A12EB2BD78D2900B39808 /* CollectionView */,
 				AB4A12EA2BD78D2100B39808 /* TableView */,
-				AB4A12F82BD7A7DB00B39808 /* MovieChart */,
-				AB4A13032BD7C59500B39808 /* ComingSoon */,
 			);
 			path = NowPlaying;
 			sourceTree = "<group>";
