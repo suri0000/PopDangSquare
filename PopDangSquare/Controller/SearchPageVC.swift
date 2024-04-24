@@ -8,29 +8,46 @@
 import UIKit
 
 class SearchPageVC: UIViewController, UISearchBarDelegate {
-    // 추후 네비게이션 연결 후 필요한 코드
-    //    .navigationBarBackButtonHidden()
-    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchResult: UILabel!
+    @IBOutlet weak var detailedResultLabel: UILabel! // 검색 결과를 보여줄 라벨
     
+    let dummyData = ["Apple", "Banana", "Snack", "Chocolate", "Ice Cream"] // 더미 데이터 배열
+
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.searchBarStyle = .minimal
         searchBar.searchTextField.backgroundColor = .white
-        searchResult.isHidden = true // 초기에는 검색 결과 레이블을 숨김
+        searchResult.isHidden = true
+        detailedResultLabel.isHidden = true // 초기에는 결과 라벨을 숨김
         searchBar.delegate = self
     }
-    
-    // 검색 버튼을 눌렀을 때 호출되는 메서드
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder() // 키보드 숨기기
+        searchBar.resignFirstResponder()
         if let searchText = searchBar.text, !searchText.isEmpty {
-            searchResult.text = "\(searchText)로 검색된 결과입니다."
-            searchResult.isHidden = false // 검색 결과 레이블 보이기
+            // 검색 결과 초기화
+            searchResult.isHidden = false
+            detailedResultLabel.isHidden = true
+            
+            searchResult.text = "\(searchText)(으)로 검색된 결과입니다. "
+            
+            // 사용자의 입력을 포함하는 모든 항목을 찾음
+            let matchingItems = dummyData.filter { $0.localizedCaseInsensitiveContains(searchText) }
+            
+            if !matchingItems.isEmpty {
+                // 모든 일치하는 항목을 detailedResultLabel에 표시
+                detailedResultLabel.text = "Matching : \(matchingItems.joined(separator: ", "))"
+                detailedResultLabel.isHidden = false
+            } else {
+                detailedResultLabel.text = "No matching items found."
+                detailedResultLabel.isHidden = false
+            }
         } else {
-            searchResult.isHidden = true // 검색 결과 레이블 숨기기
+            searchResult.isHidden = true
+            detailedResultLabel.isHidden = true
         }
     }
-    
 }
+
+
