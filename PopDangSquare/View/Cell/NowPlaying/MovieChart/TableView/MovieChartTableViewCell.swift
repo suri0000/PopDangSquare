@@ -11,7 +11,8 @@ class MovieChartTableViewCell: UITableViewCell {
     
     var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
-    let imageNames = ["image1.png", "image2.png", "image3.png"].compactMap { UIImage(named: $0) }
+    let imageNames = ["heart.fill", "pencil", "trash"].compactMap { UIImage(systemName: $0) }
+
 
     
     override func awakeFromNib() {
