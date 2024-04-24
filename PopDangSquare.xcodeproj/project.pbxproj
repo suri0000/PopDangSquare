@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		854B8DA42BD8A1F1003AB9AC /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B8DA32BD8A1F1003AB9AC /* UIResponderExtension.swift */; };
 		85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC102B2BD64CAF00C00DCF /* AppDelegate.swift */; };
 		85AC102E2BD64CAF00C00DCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC102D2BD64CAF00C00DCF /* SceneDelegate.swift */; };
 		85AC10302BD64CAF00C00DCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC102F2BD64CAF00C00DCF /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		854B8DA32BD8A1F1003AB9AC /* UIResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
 		85AC10282BD64CAF00C00DCF /* PopDangSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopDangSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85AC102B2BD64CAF00C00DCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85AC102D2BD64CAF00C00DCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				85AC10472BD7846F00C00DCF /* TextFieldExtension.swift */,
+				854B8DA32BD8A1F1003AB9AC /* UIResponderExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			files = (
 				85AC104A2BD7971300C00DCF /* SignUpViewController.swift in Sources */,
 				85AC10452BD749B000C00DCF /* LoginViewController.swift in Sources */,
+				854B8DA42BD8A1F1003AB9AC /* UIResponderExtension.swift in Sources */,
 				85AC10302BD64CAF00C00DCF /* ViewController.swift in Sources */,
 				85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */,
 				85AC10482BD7846F00C00DCF /* TextFieldExtension.swift in Sources */,
