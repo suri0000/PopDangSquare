@@ -8,7 +8,6 @@
 import Foundation
 
 struct DetailData: Hashable {
-//    let detailImage: [String]?
     let movieNm: String
     let movieNmEn: String
     let prdtYear: String

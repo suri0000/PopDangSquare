@@ -8,7 +8,7 @@
 import Foundation
 
 struct ReviewData: Hashable {
-
+    
     let detailStars: String
     let detailDate: String
     let detailReview: String
