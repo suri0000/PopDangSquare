@@ -14,6 +14,10 @@
 		85AC10332BD64CAF00C00DCF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 85AC10322BD64CAF00C00DCF /* Base */; };
 		85AC10352BD64CB100C00DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85AC10342BD64CB100C00DCF /* Assets.xcassets */; };
 		85AC10382BD64CB100C00DCF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 85AC10372BD64CB100C00DCF /* Base */; };
+		85AC10432BD680E000C00DCF /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85AC10422BD680E000C00DCF /* LoginView.storyboard */; };
+		85AC10452BD749B000C00DCF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC10442BD749B000C00DCF /* LoginViewController.swift */; };
+		85AC10482BD7846F00C00DCF /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC10472BD7846F00C00DCF /* TextFieldExtension.swift */; };
+		85AC104A2BD7971300C00DCF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC10492BD7971300C00DCF /* SignUpViewController.swift */; };
 		CC0111D22BD7C94300273153 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0111D12BD7C94300273153 /* ReviewData.swift */; };
 		CC48D2492BD8BEF6006B958E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC48D2482BD8BEF6006B958E /* NetworkManager.swift */; };
 		CC77B38F2BD6690D006142DE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC77B38E2BD6690D006142DE /* DetailViewController.swift */; };
@@ -24,10 +28,6 @@
 		CC77B3A12BD77257006142DE /* DetailReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC77B39F2BD77257006142DE /* DetailReviewCell.xib */; };
 		CC77B3A42BD77C33006142DE /* DetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC77B3A22BD77C33006142DE /* DetailViewCell.swift */; };
 		CC77B3A52BD77C33006142DE /* DetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC77B3A32BD77C33006142DE /* DetailViewCell.xib */; };
-		85AC10432BD680E000C00DCF /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85AC10422BD680E000C00DCF /* LoginView.storyboard */; };
-		85AC10452BD749B000C00DCF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC10442BD749B000C00DCF /* LoginViewController.swift */; };
-		85AC10482BD7846F00C00DCF /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC10472BD7846F00C00DCF /* TextFieldExtension.swift */; };
-		85AC104A2BD7971300C00DCF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC10492BD7971300C00DCF /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +40,10 @@
 		85AC10342BD64CB100C00DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85AC10372BD64CB100C00DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85AC10392BD64CB100C00DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85AC10422BD680E000C00DCF /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
+		85AC10442BD749B000C00DCF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		85AC10472BD7846F00C00DCF /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
+		85AC10492BD7971300C00DCF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CC0111D12BD7C94300273153 /* ReviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
 		CC48D2482BD8BEF6006B958E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CC77B38E2BD6690D006142DE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = PopDangSquare/Controller/DetailViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -50,10 +54,6 @@
 		CC77B39F2BD77257006142DE /* DetailReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailReviewCell.xib; sourceTree = "<group>"; };
 		CC77B3A22BD77C33006142DE /* DetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCell.swift; sourceTree = "<group>"; };
 		CC77B3A32BD77C33006142DE /* DetailViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewCell.xib; sourceTree = "<group>"; };
-		85AC10422BD680E000C00DCF /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
-		85AC10442BD749B000C00DCF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		85AC10472BD7846F00C00DCF /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
-		85AC10492BD7971300C00DCF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,7 +389,7 @@
 				INFOPLIST_FILE = PopDangSquare/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = DetailView;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -417,7 +417,7 @@
 				INFOPLIST_FILE = PopDangSquare/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = DetailView;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
