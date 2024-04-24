@@ -41,15 +41,17 @@ class DetailViewController: UIViewController {
         
         setupCollectionView()
         setupDataSource()
-        
+        NetworkManager.fetchMovies { _, _ in
+            
+        }
         
         // Apply initial snapshot
         var snapshot = NSDiffableDataSourceSnapshot<SectionType, SectionType.ItemType>()
         snapshot.appendSections([.detail, .review])
 //        snapshot.appendItems([.detail(DetailData)], toSection: .detail)
 //        snapshot.appendItems([.detail(DetailData.detail[indexPath.section])], toSection: .detail)
-        snapshot.appendItems([.detail(DetailData.init(movieNm: "a", movieNmEn: "b", prdtYear: "d"))], toSection: .detail)
-        snapshot.appendItems([.review(ReviewData.init(detailStars: "AA", detailDate: "BB", detailReview: "AA"))], toSection: .review)
+        snapshot.appendItems([.detail(DetailData.init(movieNm: "범죄도시7", movieNmEn: "BeomjoeCity", prdtYear: "2024.05.05"))], toSection: .detail)
+        snapshot.appendItems([.review(ReviewData.init(detailStars: "⭐️⭐️⭐️⭐️", detailDate: "220108", detailReview: "내가 살면서 이런 영화 다시 보나 봐라. 진짜로. 근데 재밌음.. 사실 재미있었다. 나만 보고싶어서 평점 이렇게 남겨봅니다. 하하호호 제작진들 놀랬겠죠? 후핫"))], toSection: .review)
         datasource.apply(snapshot)
         //Layout
         detailCollView.collectionViewLayout = layout()

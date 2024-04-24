@@ -21,6 +21,8 @@ class DetailReviewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         detailReviewView.layer.cornerRadius = 16
+        detailReviewLabel.numberOfLines = 0
+        detailReviewLabel.adjustsFontSizeToFitWidth = true
     }
 
     public func configure(_ reviewInfo: ReviewData) {
