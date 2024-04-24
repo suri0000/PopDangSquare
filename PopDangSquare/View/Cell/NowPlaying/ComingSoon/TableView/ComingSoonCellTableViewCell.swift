@@ -15,7 +15,7 @@ class ComingSoonCellTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.backgroundColor = UIColor.clear
         collectionView.isScrollEnabled = false
         collectionView.dataSource = self
         collectionView.delegate = self

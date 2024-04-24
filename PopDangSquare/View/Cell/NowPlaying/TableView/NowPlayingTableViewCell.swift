@@ -7,7 +7,9 @@
 
 import UIKit
 
-
+struct Movie {
+    var title: String
+}
 
 class NowPlayingTableViewCell: UITableViewCell {
     
@@ -29,7 +31,7 @@ class NowPlayingTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
+        self.backgroundColor = UIColor.clear
         let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
 //        layout?.itemSize = CGSize(width: 100, height: 100) // 적절한 크기로 조정하세요.
         layout?.minimumInteritemSpacing = 10 // 항목 간 최소 간격

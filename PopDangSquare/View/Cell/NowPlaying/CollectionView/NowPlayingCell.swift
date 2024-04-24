@@ -23,6 +23,7 @@ class NowPlayingCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         setupButtonAndContentView()
         setupShadow()
     }

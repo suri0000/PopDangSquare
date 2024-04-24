@@ -16,7 +16,7 @@ class MainPageVC: UIViewController {
         // 테이블뷰 관련
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.backgroundColor = UIColor.clear
         // logoCellTableViewCell register
         tableView.register(UINib(nibName: "LogoCellTableViewCell", bundle: nil), forCellReuseIdentifier: "LogoCellTableViewCell")
         

@@ -16,7 +16,7 @@ class MovieChartTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.backgroundColor = UIColor.clear
         // 콜렉션뷰 레이아웃 설정
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal // 가로 스크롤 설정
