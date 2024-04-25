@@ -9,10 +9,12 @@ import UIKit
 
 class SearchPageVC: UIViewController, UISearchBarDelegate {
     
+    @IBOutlet weak var recommendView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchResult: UILabel!
     @IBOutlet weak var detailedResultLabel: UILabel! // 검색 결과를 보여줄 라벨
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var secondTableView: UITableView!
     
     let dummyData = ["Apple", "Banana", "Snack", "Chocolate", "Ice Cream"] // 더미 데이터 배열
     
@@ -25,6 +27,9 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         
+        secondTableView.backgroundColor = .clear
+        secondTableView.separatorStyle = .none
+        recommendView.backgroundColor = .clear
         // SearchResultTableViewCell register
         tableView.register(UINib(nibName: "SearchResultTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchResultTableViewCell")
         

@@ -9,7 +9,12 @@ import UIKit
 
 class SearchResultTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var bookButton: UIButton!
     @IBOutlet weak var posterImage: UIImageView!
+    
+    @IBAction func bookButtonTapped(_ sender: Any) {
+        print("bookButtonTapped")
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,6 +22,8 @@ class SearchResultTableViewCell: UITableViewCell {
         posterImage.layer.cornerRadius = 10
         posterImage.layer.masksToBounds = true
         self.backgroundColor = .clear
+        bookButton.layer.cornerRadius = 10
+        bookButton.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
