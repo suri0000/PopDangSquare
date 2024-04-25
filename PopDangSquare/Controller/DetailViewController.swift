@@ -37,9 +37,9 @@ class DetailViewController: UIViewController {
         
         setupCollectionView()
         setupDataSource()
-        NetworkManager.fetchMovies { _, _ in
-            
-        }
+//        NetworkManager.fetchMovies { _, _ in
+//            
+//        }
         
         // Apply initial snapshot
         var snapshot = NSDiffableDataSourceSnapshot<SectionType, SectionType.ItemType>()
