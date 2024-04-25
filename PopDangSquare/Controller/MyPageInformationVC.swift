@@ -27,7 +27,19 @@ class MyPageInformationVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // 배경 이미지를 원형으로 만들기
+        myPageInfoPorfileImage.layer.cornerRadius = myPageInfoPorfileImage.frame.size.width / 2
+        myPageInfoPorfileImage.clipsToBounds = true
+        
+        // 배경 버튼을 원형으로 만들기
+        myPageInfoProfileButton.layer.cornerRadius = myPageInfoProfileButton.frame.size.width / 2
+        myPageInfoProfileButton.clipsToBounds = true
+        
+        // 그림자 추가
+        myPageInfoPorfileImage.layer.shadowColor = UIColor.black.cgColor
+        myPageInfoPorfileImage.layer.shadowOpacity = 0.5
+        myPageInfoPorfileImage.layer.shadowOffset = CGSize(width: 0, height: 2)
+        myPageInfoPorfileImage.layer.shadowRadius = 4
     }
 }
-
