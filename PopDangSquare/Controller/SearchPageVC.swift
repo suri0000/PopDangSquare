@@ -22,6 +22,8 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
         // 테이블뷰 관련
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
         
         // SearchResultTableViewCell register
         tableView.register(UINib(nibName: "SearchResultTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchResultTableViewCell")
@@ -64,10 +66,7 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
             tableView.isHidden = true // 검색어가 비어있으므로 tableView를 숨김
         }
     }
-
-    
 }
-
 
 extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
     //TableView Section 개수
@@ -84,6 +83,6 @@ extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150// 적절한 셀의 높이로 설정하세요.
+        return 180// 적절한 셀의 높이로 설정하세요.
     }
 }

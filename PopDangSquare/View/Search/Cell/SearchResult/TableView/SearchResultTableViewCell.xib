@@ -16,16 +16,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcu-V0-zJF">
-                        <rect key="frame" x="139" y="70" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U7k-f4-zaW">
+                        <rect key="frame" x="16" y="16" width="288" height="128"/>
+                        <color key="backgroundColor" red="0.090196078430000007" green="0.10980392160000001" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="U7k-f4-zaW" secondAttribute="bottom" constant="16" id="At2-uu-wkT"/>
+                    <constraint firstAttribute="trailing" secondItem="U7k-f4-zaW" secondAttribute="trailing" constant="16" id="SJS-qo-OPB"/>
+                    <constraint firstItem="U7k-f4-zaW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="fE4-FU-CS4"/>
+                    <constraint firstItem="U7k-f4-zaW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="q0j-Nh-k1d"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="posterImage" destination="U7k-f4-zaW" id="xcO-OL-s78"/>
+            </connections>
             <point key="canvasLocation" x="129.7709923664122" y="49.295774647887328"/>
         </tableViewCell>
     </objects>

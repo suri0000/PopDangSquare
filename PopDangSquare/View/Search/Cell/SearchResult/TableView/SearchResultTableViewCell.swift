@@ -9,10 +9,14 @@ import UIKit
 
 class SearchResultTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var posterImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+        posterImage.layer.cornerRadius = 10
+        posterImage.layer.masksToBounds = true
+        self.backgroundColor = .clear
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
