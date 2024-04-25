@@ -69,11 +69,16 @@ class SignUpViewController: UIViewController {
   
   // 사용자 정보 입력이 안 됐을 때 Alert
   func showAlert(message: String) {
-    let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-    let okAction = UIAlertAction(title: "확인", style: .default)
-    
-    alert.addAction(okAction)
-    present(alert, animated: true)
+    // 현재 뷰 컨트롤러가 윈도우에 추가되었는지 확인
+    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+      if let window = windowScene.windows.first {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        
+        alert.addAction(okAction)
+        window.rootViewController?.present(alert, animated: true)
+      }
+    }
   }
   
   // MARK: - Keyboard 관련 UI 설정
