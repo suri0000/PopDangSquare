@@ -50,10 +50,10 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         
         // 퀵메뉴 wishHistorybutton 설정
         wishHistorybutton.setBackgroundImage(UIImage(), for: .normal) // 배경 이미지를 투명한 이미지로 설정
-
+        
         // reservationDetailsbutton 설정
         reservationDetailsbutton.setBackgroundImage(UIImage(), for: .normal) // 배경 이미지를 투명한 이미지로 설정
-
+        
         // myInforMationManageMentbutton 설정
         myInforMationManageMentbutton.setBackgroundImage(UIImage(), for: .normal) // 배경 이미지를 투명한 이미지로 설정
         
@@ -89,6 +89,30 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             
             // 커스텀 셀을 콜렉션 뷰에 등록
             serviceCollview.register(UINib(nibName: "CustomerServiceViewCell", bundle: nil), forCellWithReuseIdentifier: "customerServiceViewCell")
+            
+            // 사용자 정보 가져와서 UI 업데이트
+                fetchUserInfo()
+            
+            // MARK: - UserDefaults 설정해봄
+            // 사용자 정보를 가져와서 UI 업데이트하는 함수
+            func fetchUserInfo() {
+                // 여기서부터 사용자 정보를 가져오는 코드를 작성
+                // 예로, 사용자의 이름, 프로필 이미지 경로 등을 가져옴
+                
+                let userName = "John Doe"
+                let profileImagePath = "path_to_profile_image"
+                
+                // 사용자 이름 설정
+                myPageNameLable.text = userName
+                
+                // 프로필 이미지 설정
+                if let profileImage = UIImage(named: profileImagePath) {
+                    self.profileImage.image = profileImage
+                } else {
+                    // 프로필 이미지를 가져오지 못한 경우 기본 이미지 설정
+                    self.profileImage.image = UIImage(named: "default_profile_image")
+                }
+            }
         }
     }
     
