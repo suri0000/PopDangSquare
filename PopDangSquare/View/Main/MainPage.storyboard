@@ -30,7 +30,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="2HN-MW-75t" id="Qta-bj-krd"/>
+                        <outlet property="tableView" destination="2HN-MW-75t" id="HV3-2J-PhJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tfi-cI-E9b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
