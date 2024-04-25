@@ -41,6 +41,16 @@
 		AB4A13542BD94D7800B39808 /* MainPageableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4A13422BD94D7800B39808 /* MainPageableViewCell.xib */; };
 		AB4A13562BD94D9400B39808 /* MainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A13552BD94D9400B39808 /* MainPageVC.swift */; };
 		AB4A13692BDA017000B39808 /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4A13682BDA017000B39808 /* MainPage.storyboard */; };
+		CCD2A2592BD9F5AF0001FEC4 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A2532BD9F5AF0001FEC4 /* DetailView.storyboard */; };
+		CCD2A25A2BD9F5AF0001FEC4 /* DetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A2542BD9F5AF0001FEC4 /* DetailViewCell.xib */; };
+		CCD2A25B2BD9F5AF0001FEC4 /* DetailReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2A2552BD9F5AF0001FEC4 /* DetailReviewCell.swift */; };
+		CCD2A25C2BD9F5AF0001FEC4 /* DetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2A2562BD9F5AF0001FEC4 /* DetailViewCell.swift */; };
+		CCD2A25D2BD9F5AF0001FEC4 /* DetailHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2A2572BD9F5AF0001FEC4 /* DetailHeaderReusableView.swift */; };
+		CCD2A25E2BD9F5AF0001FEC4 /* DetailReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A2582BD9F5AF0001FEC4 /* DetailReviewCell.xib */; };
+		CCD2A2602BD9F5CC0001FEC4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2A25F2BD9F5CC0001FEC4 /* DetailViewController.swift */; };
+		CCD2A2642BD9F5DA0001FEC4 /* DetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2A2612BD9F5DA0001FEC4 /* DetailData.swift */; };
+		CCD2A2652BD9F5DA0001FEC4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2A2622BD9F5DA0001FEC4 /* NetworkManager.swift */; };
+		CCD2A2662BD9F5DA0001FEC4 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2A2632BD9F5DA0001FEC4 /* ReviewData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +90,16 @@
 		AB4A13422BD94D7800B39808 /* MainPageableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainPageableViewCell.xib; sourceTree = "<group>"; };
 		AB4A13552BD94D9400B39808 /* MainPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageVC.swift; sourceTree = "<group>"; };
 		AB4A13682BDA017000B39808 /* MainPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainPage.storyboard; sourceTree = "<group>"; };
+		CCD2A2532BD9F5AF0001FEC4 /* DetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
+		CCD2A2542BD9F5AF0001FEC4 /* DetailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewCell.xib; sourceTree = "<group>"; };
+		CCD2A2552BD9F5AF0001FEC4 /* DetailReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailReviewCell.swift; sourceTree = "<group>"; };
+		CCD2A2562BD9F5AF0001FEC4 /* DetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewCell.swift; sourceTree = "<group>"; };
+		CCD2A2572BD9F5AF0001FEC4 /* DetailHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailHeaderReusableView.swift; sourceTree = "<group>"; };
+		CCD2A2582BD9F5AF0001FEC4 /* DetailReviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailReviewCell.xib; sourceTree = "<group>"; };
+		CCD2A25F2BD9F5CC0001FEC4 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CCD2A2612BD9F5DA0001FEC4 /* DetailData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailData.swift; sourceTree = "<group>"; };
+		CCD2A2622BD9F5DA0001FEC4 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CCD2A2632BD9F5DA0001FEC4 /* ReviewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +147,9 @@
 		85AC103F2BD658FC00C00DCF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CCD2A2612BD9F5DA0001FEC4 /* DetailData.swift */,
+				CCD2A2622BD9F5DA0001FEC4 /* NetworkManager.swift */,
+				CCD2A2632BD9F5DA0001FEC4 /* ReviewData.swift */,
 				544E456B2BD9F10F002F2F1E /* MypageData.swift */,
 			);
 			path = Model;
@@ -137,6 +160,7 @@
 			children = (
 				AB4A13552BD94D9400B39808 /* MainPageVC.swift */,
 				85AC102F2BD64CAF00C00DCF /* ViewController.swift */,
+				CCD2A25F2BD9F5CC0001FEC4 /* DetailViewController.swift */,
 				544E456F2BD9F192002F2F1E /* MyPageController.swift */,
 				85AC10442BD749B000C00DCF /* LoginViewController.swift */,
 				85AC10492BD7971300C00DCF /* SignUpViewController.swift */,
@@ -152,6 +176,12 @@
 				85AC10312BD64CAF00C00DCF /* Main.storyboard */,
 				85AC10362BD64CB100C00DCF /* LaunchScreen.storyboard */,
 				AB4A13682BDA017000B39808 /* MainPage.storyboard */,
+				CCD2A2572BD9F5AF0001FEC4 /* DetailHeaderReusableView.swift */,
+				CCD2A2552BD9F5AF0001FEC4 /* DetailReviewCell.swift */,
+				CCD2A2582BD9F5AF0001FEC4 /* DetailReviewCell.xib */,
+				CCD2A2532BD9F5AF0001FEC4 /* DetailView.storyboard */,
+				CCD2A2562BD9F5AF0001FEC4 /* DetailViewCell.swift */,
+				CCD2A2542BD9F5AF0001FEC4 /* DetailViewCell.xib */,
 				544E45732BD9F1BA002F2F1E /* CustomerServiceViewCell.xib */,
 				544E45712BD9F1A2002F2F1E /* CustomerServiceViewCell.swift */,
 				85AC10422BD680E000C00DCF /* LoginView.storyboard */,
@@ -340,6 +370,9 @@
 				AB4A13692BDA017000B39808 /* MainPage.storyboard in Resources */,
 				AB4A134C2BD94D7800B39808 /* MovieChartCell.xib in Resources */,
 				85AC10332BD64CAF00C00DCF /* Base in Resources */,
+				CCD2A25E2BD9F5AF0001FEC4 /* DetailReviewCell.xib in Resources */,
+				CCD2A25A2BD9F5AF0001FEC4 /* DetailViewCell.xib in Resources */,
+				CCD2A2592BD9F5AF0001FEC4 /* DetailView.storyboard in Resources */,
 				544E45742BD9F1BA002F2F1E /* CustomerServiceViewCell.xib in Resources */,
 				85AC10432BD680E000C00DCF /* LoginView.storyboard in Resources */,
 				AB4A13542BD94D7800B39808 /* MainPageableViewCell.xib in Resources */,
@@ -354,13 +387,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCD2A2602BD9F5CC0001FEC4 /* DetailViewController.swift in Sources */,
 				544E45722BD9F1A2002F2F1E /* CustomerServiceViewCell.swift in Sources */,
 				544E45702BD9F192002F2F1E /* MyPageController.swift in Sources */,
 				544E456C2BD9F10F002F2F1E /* MypageData.swift in Sources */,
 				85AC104A2BD7971300C00DCF /* SignUpViewController.swift in Sources */,
 				85AC10452BD749B000C00DCF /* LoginViewController.swift in Sources */,
+				CCD2A2652BD9F5DA0001FEC4 /* NetworkManager.swift in Sources */,
 				854B8DA42BD8A1F1003AB9AC /* UIResponderExtension.swift in Sources */,
 				AB4A13442BD94D7800B39808 /* ComingSoonCell.swift in Sources */,
+				CCD2A2662BD9F5DA0001FEC4 /* ReviewData.swift in Sources */,
 				85AC10302BD64CAF00C00DCF /* ViewController.swift in Sources */,
 				AB4A134F2BD94D7800B39808 /* NowPlayingCell.swift in Sources */,
 				AB4A13532BD94D7800B39808 /* MainPageableViewCell.swift in Sources */,
@@ -371,8 +407,12 @@
 				85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */,
 				85AC10482BD7846F00C00DCF /* TextFieldExtension.swift in Sources */,
 				AB4A13482BD94D7800B39808 /* LogoCellTableViewCell.swift in Sources */,
+				CCD2A25C2BD9F5AF0001FEC4 /* DetailViewCell.swift in Sources */,
+				CCD2A2642BD9F5DA0001FEC4 /* DetailData.swift in Sources */,
+				CCD2A25B2BD9F5AF0001FEC4 /* DetailReviewCell.swift in Sources */,
 				85AC102E2BD64CAF00C00DCF /* SceneDelegate.swift in Sources */,
 				AB4A13562BD94D9400B39808 /* MainPageVC.swift in Sources */,
+				CCD2A25D2BD9F5AF0001FEC4 /* DetailHeaderReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
