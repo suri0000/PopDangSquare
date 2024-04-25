@@ -22,6 +22,13 @@ class DetailViewController: UIViewController {
                 return ReviewData.reviews.count
             }
         }
+        
+        var title: String {
+            switch self {
+            case .detail: return "Moview Detail"
+            case .review: return "Reviews"
+            }
+        }
         enum ItemType: Hashable{
             case detail(DetailData)
             case review(ReviewData)
@@ -34,27 +41,25 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupCollectionView()
         setupDataSource()
-//        NetworkManager.fetchMovies { _, _ in
-//            
-//        }
+        //        NetworkManager.fetchMovies { _, _ in
+        //
+        //        }
         
-        // Apply initial snapshot
-        var snapshot = NSDiffableDataSourceSnapshot<SectionType, SectionType.ItemType>()
-        snapshot.appendSections([.detail, .review])
-        snapshot.appendItems([.detail(DetailData.init(movieNm: "범죄도시7", movieNmEn: "BeomjoeCity", prdtYear: "2024.05.05"))], toSection: .detail)
-        snapshot.appendItems([.review(ReviewData.init(detailStars: "⭐️⭐️⭐️⭐️", detailDate: "220108", detailReview: "내가 살면서 이런 영화 다시 보나 봐라. 진짜로. 근데 재밌음.. 사실 재미있었다. 나만 보고싶어서 평점 이렇게 남겨봅니다. 하하호호 제작진들 놀랬겠죠? 후핫"))], toSection: .review)
-        datasource.apply(snapshot)
-        //Layout
-        detailCollView.collectionViewLayout = layout()
     }
-    
+}
+extension DetailViewController {
     private func setupCollectionView() {
+
+        
         detailCollView.register(UINib(nibName: "DetailViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailViewCell")
         detailCollView.register(UINib(nibName: "DetailReviewCell", bundle: nil), forCellWithReuseIdentifier: "DetailReviewCell")
+        detailCollView.register(UINib(nibName: "DetailHeaderReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "DetailHeaderReusableView")
         detailCollView.dataSource = datasource
+        
+        //Layout
+        detailCollView.collectionViewLayout = layout()
     }
     
     private func setupDataSource() {
@@ -82,22 +87,49 @@ class DetailViewController: UIViewController {
                 return cell
             }
         })
+        
+        //Section Header
+        datasource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "DetailHeaderReusableView", for: indexPath) as? DetailHeaderReusableView else {
+                return nil
+            }
+            
+            let allSections = SectionType.allCases
+            let section = allSections[indexPath.section]
+            header.configure(section.title)
+            return header
+        }
+        
+        // Apply initial snapshot
+        var snapshot = NSDiffableDataSourceSnapshot<SectionType, SectionType.ItemType>()
+        snapshot.appendSections([.detail, .review])
+        // detail이미지는 터치에 반응한 녀석으로 띄우게 해야됨.
+        snapshot.appendItems(DetailData.detail.map { SectionType.ItemType.detail($0) }, toSection: .detail)
+        snapshot.appendItems(ReviewData.reviews.map { SectionType.ItemType.review($0) }, toSection: .review)
+        datasource.apply(snapshot, animatingDifferences: true)
     }
-    
+}
+
+extension DetailViewController {
     private func layout() -> UICollectionViewCompositionalLayout {
         
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.8))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 20, bottom: 30, trailing: 20)
-        section.interGroupSpacing = 20
+        section.orthogonalScrollingBehavior = .groupPaging
+        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 10, trailing: 5)
+        section.interGroupSpacing = 5
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        section.boundarySupplementaryItems = [header]
+        
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }
     
 }
-

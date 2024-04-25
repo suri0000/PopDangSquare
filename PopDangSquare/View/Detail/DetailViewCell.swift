@@ -24,8 +24,6 @@ class DetailViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        detailBackImage.backgroundColor = .red
-        detailPosterImage.backgroundColor = .cyan
     }
     
     public func configure(_ detailInfo: DetailData) {
