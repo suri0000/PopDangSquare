@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		544E456C2BD9F10F002F2F1E /* MypageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E456B2BD9F10F002F2F1E /* MypageData.swift */; };
+		544E456E2BD9F171002F2F1E /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 544E456D2BD9F171002F2F1E /* MyPage.storyboard */; };
+		544E45702BD9F192002F2F1E /* MyPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E456F2BD9F192002F2F1E /* MyPageController.swift */; };
+		544E45722BD9F1A2002F2F1E /* CustomerServiceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E45712BD9F1A2002F2F1E /* CustomerServiceViewCell.swift */; };
+		544E45742BD9F1BA002F2F1E /* CustomerServiceViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 544E45732BD9F1BA002F2F1E /* CustomerServiceViewCell.xib */; };
 		854B8DA42BD8A1F1003AB9AC /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B8DA32BD8A1F1003AB9AC /* UIResponderExtension.swift */; };
 		85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC102B2BD64CAF00C00DCF /* AppDelegate.swift */; };
 		85AC102E2BD64CAF00C00DCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC102D2BD64CAF00C00DCF /* SceneDelegate.swift */; };
@@ -39,6 +44,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		544E456B2BD9F10F002F2F1E /* MypageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageData.swift; sourceTree = "<group>"; };
+		544E456D2BD9F171002F2F1E /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		544E456F2BD9F192002F2F1E /* MyPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageController.swift; sourceTree = "<group>"; };
+		544E45712BD9F1A2002F2F1E /* CustomerServiceViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerServiceViewCell.swift; sourceTree = "<group>"; };
+		544E45732BD9F1BA002F2F1E /* CustomerServiceViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerServiceViewCell.xib; sourceTree = "<group>"; };
 		854B8DA32BD8A1F1003AB9AC /* UIResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
 		85AC10282BD64CAF00C00DCF /* PopDangSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopDangSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85AC102B2BD64CAF00C00DCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +127,7 @@
 		85AC103F2BD658FC00C00DCF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				544E456B2BD9F10F002F2F1E /* MypageData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -126,6 +137,7 @@
 			children = (
 				AB4A13552BD94D9400B39808 /* MainPageVC.swift */,
 				85AC102F2BD64CAF00C00DCF /* ViewController.swift */,
+				544E456F2BD9F192002F2F1E /* MyPageController.swift */,
 				85AC10442BD749B000C00DCF /* LoginViewController.swift */,
 				85AC10492BD7971300C00DCF /* SignUpViewController.swift */,
 			);
@@ -136,9 +148,12 @@
 			isa = PBXGroup;
 			children = (
 				AB4A13432BD94D7800B39808 /* Cell */,
+				544E456D2BD9F171002F2F1E /* MyPage.storyboard */,
 				85AC10312BD64CAF00C00DCF /* Main.storyboard */,
 				85AC10362BD64CB100C00DCF /* LaunchScreen.storyboard */,
 				AB4A13682BDA017000B39808 /* MainPage.storyboard */,
+				544E45732BD9F1BA002F2F1E /* CustomerServiceViewCell.xib */,
+				544E45712BD9F1A2002F2F1E /* CustomerServiceViewCell.swift */,
 				85AC10422BD680E000C00DCF /* LoginView.storyboard */,
 			);
 			path = View;
@@ -316,6 +331,7 @@
 			files = (
 				85AC10352BD64CB100C00DCF /* Assets.xcassets in Resources */,
 				AB4A13472BD94D7800B39808 /* ComingSoonCellTableViewCell.xib in Resources */,
+				544E456E2BD9F171002F2F1E /* MyPage.storyboard in Resources */,
 				85AC10382BD64CB100C00DCF /* Base in Resources */,
 				AB4A134E2BD94D7800B39808 /* MovieChartTableViewCell.xib in Resources */,
 				AB4A13452BD94D7800B39808 /* ComingSoonCell.xib in Resources */,
@@ -324,6 +340,7 @@
 				AB4A13692BDA017000B39808 /* MainPage.storyboard in Resources */,
 				AB4A134C2BD94D7800B39808 /* MovieChartCell.xib in Resources */,
 				85AC10332BD64CAF00C00DCF /* Base in Resources */,
+				544E45742BD9F1BA002F2F1E /* CustomerServiceViewCell.xib in Resources */,
 				85AC10432BD680E000C00DCF /* LoginView.storyboard in Resources */,
 				AB4A13542BD94D7800B39808 /* MainPageableViewCell.xib in Resources */,
 				AB4A13502BD94D7800B39808 /* NowPlayingCell.xib in Resources */,
@@ -337,6 +354,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				544E45722BD9F1A2002F2F1E /* CustomerServiceViewCell.swift in Sources */,
+				544E45702BD9F192002F2F1E /* MyPageController.swift in Sources */,
+				544E456C2BD9F10F002F2F1E /* MypageData.swift in Sources */,
 				85AC104A2BD7971300C00DCF /* SignUpViewController.swift in Sources */,
 				85AC10452BD749B000C00DCF /* LoginViewController.swift in Sources */,
 				854B8DA42BD8A1F1003AB9AC /* UIResponderExtension.swift in Sources */,
