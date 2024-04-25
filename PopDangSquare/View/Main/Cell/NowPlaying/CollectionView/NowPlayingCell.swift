@@ -35,7 +35,7 @@ class NowPlayingCell: UICollectionViewCell {
     @IBAction func purchaseBtnTapped(_ sender: Any) {
         print("purchaseButtonTapped")
         // TODO: 상세 페이지로 연결해야 함
-        // onPurchaseButtonTapped?()
+        onPurchaseButtonTapped?()
     }
     
     // MARK: - Configuration

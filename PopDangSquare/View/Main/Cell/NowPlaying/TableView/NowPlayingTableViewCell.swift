@@ -16,6 +16,8 @@ class NowPlayingTableViewCell: UITableViewCell {
     @IBOutlet var collectionView: UICollectionView!
     
     var movies = [Movie]()
+    // MainPage로 데이터를 전달할 클로저
+    var onMovieBooked: ((Movie) -> Void)?
     
     func configure() {
         movies = [
@@ -62,11 +64,17 @@ extension NowPlayingTableViewCell: UICollectionViewDataSource, UICollectionViewD
         return movies.count
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NowPlayingCell", for: indexPath) as! NowPlayingCell
         let movie = movies[indexPath.row]
         cell.configure(with: movie)
-        //        cell.configure(with: model[indexPath.row])
+        
+        // NowPlayingCell의 클로저 구현
+        cell.onPurchaseButtonTapped = { [weak self] in
+            self?.onMovieBooked?(movie)
+        }
+        
         return cell
     }
     

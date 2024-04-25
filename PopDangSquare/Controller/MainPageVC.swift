@@ -71,6 +71,16 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell", for: indexPath) as! NowPlayingTableViewCell
             cell.configure()
+            // 클로저 구현
+            cell.onMovieBooked = { [weak self] movie in
+                guard let strongSelf = self else { return }
+                let storyboard = UIStoryboard(name: "DetailView", bundle: nil)
+                if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+                    // 네비게이션 컨트롤러를 통한 화면 전환
+                    strongSelf.navigationController?.pushViewController(detailViewController, animated: true)
+                }
+            }
+
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieChartTableViewCell", for: indexPath) as! MovieChartTableViewCell

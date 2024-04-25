@@ -13,7 +13,8 @@ class ComingSoonCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = UIColor.clear
+        self.backgroundColor = .clear
+        posterView.backgroundColor = .clear
         // Initialization code
     }
 
