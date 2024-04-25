@@ -21,7 +21,7 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Lz-Qq-ptn">
-                        <rect key="frame" x="205" y="93" width="83" height="35"/>
+                        <rect key="frame" x="205" y="101" width="83" height="35"/>
                         <color key="backgroundColor" red="0.090196078430000007" green="0.10980392160000001" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" title="Button"/>
@@ -34,7 +34,7 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="U7k-f4-zaW" secondAttribute="bottom" constant="8" id="At2-uu-wkT"/>
                     <constraint firstAttribute="trailing" secondItem="U7k-f4-zaW" secondAttribute="trailing" constant="16" id="SJS-qo-OPB"/>
-                    <constraint firstAttribute="bottom" secondItem="1Lz-Qq-ptn" secondAttribute="bottom" constant="32" id="cD7-cs-Ci1"/>
+                    <constraint firstAttribute="bottom" secondItem="1Lz-Qq-ptn" secondAttribute="bottom" constant="24" id="cD7-cs-Ci1"/>
                     <constraint firstItem="U7k-f4-zaW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="fE4-FU-CS4"/>
                     <constraint firstAttribute="trailing" secondItem="1Lz-Qq-ptn" secondAttribute="trailing" constant="32" id="oTD-xV-FcE"/>
                     <constraint firstItem="U7k-f4-zaW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="q0j-Nh-k1d"/>

@@ -106,10 +106,10 @@ extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == firstTableView {
-            return 160 // 첫 번째 테이블뷰의 셀 높이
+            return 150 // 첫 번째 테이블뷰의 셀 높이
         }
         if tableView == secondTableView {
-            return 160 // 두 번째 테이블뷰의 셀 높이
+            return 150 // 두 번째 테이블뷰의 셀 높이
         }
         return 44 // 기본값
     }
