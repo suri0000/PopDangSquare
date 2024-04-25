@@ -47,8 +47,6 @@
 		AB4A13652BD9F2CC00B39808 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A135E2BD9F2CC00B39808 /* SearchResultTableViewCell.swift */; };
 		AB4A13662BD9F2CC00B39808 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4A135F2BD9F2CC00B39808 /* SearchResultTableViewCell.xib */; };
 		AB4A13692BDA017000B39808 /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4A13682BDA017000B39808 /* MainPage.storyboard */; };
-		CC38B7622BDAB72C0032ECBD /* ReserveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC38B7612BDAB72C0032ECBD /* ReserveCell.xib */; };
-		CC38B7632BDAB72C0032ECBD /* ReserveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC38B7602BDAB72C0032ECBD /* ReserveCell.swift */; };
 		CCD2A2592BD9F5AF0001FEC4 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A2532BD9F5AF0001FEC4 /* DetailView.storyboard */; };
 		CCD2A25A2BD9F5AF0001FEC4 /* DetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A2542BD9F5AF0001FEC4 /* DetailViewCell.xib */; };
 		CCD2A25B2BD9F5AF0001FEC4 /* DetailReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2A2552BD9F5AF0001FEC4 /* DetailReviewCell.swift */; };
@@ -111,8 +109,6 @@
 		AB4A135E2BD9F2CC00B39808 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		AB4A135F2BD9F2CC00B39808 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 		AB4A13682BDA017000B39808 /* MainPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainPage.storyboard; sourceTree = "<group>"; };
-		CC38B7602BDAB72C0032ECBD /* ReserveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveCell.swift; sourceTree = "<group>"; };
-		CC38B7612BDAB72C0032ECBD /* ReserveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReserveCell.xib; sourceTree = "<group>"; };
 		CCD2A2532BD9F5AF0001FEC4 /* DetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		CCD2A2542BD9F5AF0001FEC4 /* DetailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewCell.xib; sourceTree = "<group>"; };
 		CCD2A2552BD9F5AF0001FEC4 /* DetailReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailReviewCell.swift; sourceTree = "<group>"; };
@@ -204,7 +200,6 @@
 		85AC10412BD6591100C00DCF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CC38B75F2BDAB70A0032ECBD /* Reserve */,
 				AB4A13722BDA08FB00B39808 /* Search */,
 				AB4A136E2BDA083900B39808 /* Login */,
 				AB4A136D2BDA078C00B39808 /* MyPage */,
@@ -417,15 +412,6 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		CC38B75F2BDAB70A0032ECBD /* Reserve */ = {
-			isa = PBXGroup;
-			children = (
-				CC38B7602BDAB72C0032ECBD /* ReserveCell.swift */,
-				CC38B7612BDAB72C0032ECBD /* ReserveCell.xib */,
-			);
-			path = Reserve;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -504,7 +490,6 @@
 				CCD2A2782BDAA3340001FEC4 /* DetailActorCell.xib in Resources */,
 				AB4A13662BD9F2CC00B39808 /* SearchResultTableViewCell.xib in Resources */,
 				AB4A13642BD9F2CC00B39808 /* SearchResultCell.xib in Resources */,
-				CC38B7622BDAB72C0032ECBD /* ReserveCell.xib in Resources */,
 				CCD2A2792BDAA34E0001FEC4 /* DetailTrailerCell.xib in Resources */,
 				AB4A135A2BD9F2B700B39808 /* SearchPage.storyboard in Resources */,
 				AB4A13542BD94D7800B39808 /* MainPageableViewCell.xib in Resources */,
@@ -539,7 +524,6 @@
 				AB4A13512BD94D7800B39808 /* NowPlayingTableViewCell.swift in Sources */,
 				AB4A134B2BD94D7800B39808 /* MovieChartCell.swift in Sources */,
 				CCD2A26A2BDA8B1E0001FEC4 /* ActorData.swift in Sources */,
-				CC38B7632BDAB72C0032ECBD /* ReserveCell.swift in Sources */,
 				AB4A13462BD94D7800B39808 /* ComingSoonCellTableViewCell.swift in Sources */,
 				85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */,
 				CCD2A26C2BDA8DC30001FEC4 /* TrailerData.swift in Sources */,
