@@ -42,9 +42,12 @@ class LoginViewController: UIViewController {
       return
     }
     
-    // 마이페이지로 넘어가기
     if userEmail == enteredEmail && userPassword == enteredPassword {
       successLogin()
+    } else if userEmail != enteredEmail {
+      signUpViewController.showAlert(message: "이메일이 일치하지 않습니다.")
+    } else if userPassword != enteredPassword {
+      signUpViewController.showAlert(message: "비밀번호가 다릅니다.")
     }
     
   }
