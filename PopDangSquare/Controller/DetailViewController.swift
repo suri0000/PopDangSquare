@@ -12,7 +12,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailCollView: UICollectionView!
     
     enum SectionType: Int, CaseIterable {
-        case detail, review
+        case detail, review, actor, trailer
         
         var columnCount: Int {
             switch self {
@@ -20,6 +20,10 @@ class DetailViewController: UIViewController {
                 return DetailData.detail.count
             case .review:
                 return ReviewData.reviews.count
+            case .actor:
+                return ActorData.actors.count
+            case .trailer:
+                return TrailerData.trailers.count
             }
         }
         
@@ -27,11 +31,15 @@ class DetailViewController: UIViewController {
             switch self {
             case .detail: return "Moview Detail"
             case .review: return "Reviews"
+            case .actor: return "Actors"
+            case .trailer: return "Trailers"
             }
         }
         enum ItemType: Hashable{
             case detail(DetailData)
             case review(ReviewData)
+            case actor(ActorData)
+            case trailer(TrailerData)
         }
     }
     
@@ -55,6 +63,8 @@ extension DetailViewController {
         
         detailCollView.register(UINib(nibName: "DetailViewCell", bundle: nil), forCellWithReuseIdentifier: "DetailViewCell")
         detailCollView.register(UINib(nibName: "DetailReviewCell", bundle: nil), forCellWithReuseIdentifier: "DetailReviewCell")
+        detailCollView.register(UINib(nibName: "DetailActorCell", bundle: nil), forCellWithReuseIdentifier: "DetailActorCell")
+        detailCollView.register(UINib(nibName: "DetailTrailerCell", bundle: nil), forCellWithReuseIdentifier: "DetailTrailerCell")
         detailCollView.register(UINib(nibName: "DetailHeaderReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "DetailHeaderReusableView")
         detailCollView.dataSource = datasource
         
@@ -85,6 +95,24 @@ extension DetailViewController {
                 }
                 cell.configure(reviewItem)
                 return cell
+                
+            case .actor:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailActorCell", for: indexPath) as? DetailActorCell,
+                      case let .actor(actorItem) = item
+                else {
+                    return DetailActorCell()
+                }
+                cell.configure(actorItem)
+                return cell
+                
+            case .trailer:
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailTrailerCell", for: indexPath) as? DetailTrailerCell,
+                      case let .trailer(trailerItem) = item
+                else {
+                    return DetailTrailerCell()
+                }
+                cell.configure(trailerItem)
+                return cell
             }
         })
         
@@ -102,34 +130,100 @@ extension DetailViewController {
         
         // Apply initial snapshot
         var snapshot = NSDiffableDataSourceSnapshot<SectionType, SectionType.ItemType>()
-        snapshot.appendSections([.detail, .review])
+        snapshot.appendSections([.detail, .review, .actor, .trailer])
         // detail이미지는 터치에 반응한 녀석으로 띄우게 해야됨.
         snapshot.appendItems(DetailData.detail.map { SectionType.ItemType.detail($0) }, toSection: .detail)
         snapshot.appendItems(ReviewData.reviews.map { SectionType.ItemType.review($0) }, toSection: .review)
+        snapshot.appendItems(ActorData.actors.map { SectionType.ItemType.actor($0) }, toSection: .actor)
+        snapshot.appendItems(TrailerData.trailers.map { SectionType.ItemType.trailer($0) }, toSection: .trailer)
         datasource.apply(snapshot, animatingDifferences: true)
     }
 }
 
+
 extension DetailViewController {
     private func layout() -> UICollectionViewCompositionalLayout {
         
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, environment in
+            switch SectionType(rawValue: sectionIndex)! {
+            case .detail:
+                
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                
+                let section = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .groupPaging
+                section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 10, trailing: 5)
+                section.interGroupSpacing = 5
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                section.boundarySupplementaryItems = [header]
+                
+                return section
+                
+            case .review:
+                
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(0.3))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                
+                let section = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .groupPaging
+                section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 1, bottom: 0, trailing: 1)
+//                section.interGroupSpacing = 5
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                section.boundarySupplementaryItems = [header]
+                
+                return section
+                
+            case .actor:
+                
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.3))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
+                
+                let section = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .groupPaging
+                section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 10, trailing: 5)
+                section.interGroupSpacing = 5
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                section.boundarySupplementaryItems = [header]
+                
+                return section
+                
+            case .trailer:
+                
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.3))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                
+                let section = NSCollectionLayoutSection(group: group)
+                section.orthogonalScrollingBehavior = .groupPaging
+                section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 10, trailing: 5)
+                section.interGroupSpacing = 5
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                section.boundarySupplementaryItems = [header]
+                
+                return section
+            }
+        }
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .groupPaging
-        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 10, trailing: 5)
-        section.interGroupSpacing = 5
-        
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
-        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-        section.boundarySupplementaryItems = [header]
-        
-        let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }
-    
 }
