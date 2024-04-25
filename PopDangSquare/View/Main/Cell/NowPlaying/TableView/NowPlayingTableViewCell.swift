@@ -38,6 +38,7 @@ class NowPlayingTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.selectionStyle = .none
         self.backgroundColor = UIColor.clear // 셀 배경을 투명하게
+        collectionView.layer.cornerRadius = 10
         let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
 //        layout?.itemSize = CGSize(width: 100, height: 100) // 적절한 크기로 조정하세요.
 //        layout?.minimumInteritemSpacing = 10 // 항목 간 최소 간격

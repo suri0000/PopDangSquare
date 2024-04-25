@@ -17,6 +17,7 @@ class ComingSoonCellTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.selectionStyle = .none
         self.backgroundColor = UIColor.clear
+        collectionView.layer.cornerRadius = 10
         collectionView.isScrollEnabled = false
         collectionView.dataSource = self
         collectionView.delegate = self

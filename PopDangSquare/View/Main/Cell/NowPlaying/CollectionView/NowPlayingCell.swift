@@ -52,6 +52,7 @@ class NowPlayingCell: UICollectionViewCell {
     /// contentView의 모서리를 설정하고 마스킹합니다.
     private func setupContentViewAppearance() {
         contentView.layer.cornerRadius = 10
+        self.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
     }
     

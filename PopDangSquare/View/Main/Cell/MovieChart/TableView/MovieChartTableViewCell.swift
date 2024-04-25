@@ -15,7 +15,7 @@ class MovieChartTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        collectionView.backgroundColor = .clear
+        self.backgroundColor = UIColor.clear
         collectionView.layer.cornerRadius = 10
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 12, right: 0))
     }
