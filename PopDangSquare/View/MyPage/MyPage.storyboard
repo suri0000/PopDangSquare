@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Xy-ch-M7O">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -17,32 +17,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LmP-zx-Mkm">
-                                <rect key="frame" x="0.0" y="59" width="393" height="197"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="197"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="197" id="fH1-rm-0i8"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OnV-sV-f9T">
-                                <rect key="frame" x="300" y="69" width="83" height="35"/>
+                                <rect key="frame" x="300" y="113" width="83" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="로그아웃"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ywk-hc-SeM">
-                                <rect key="frame" x="100" y="139" width="193" height="200"/>
+                                <rect key="frame" x="100" y="183" width="193" height="200"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="M9k-9e-u3y"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름 / 닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-m9-Saz">
-                                <rect key="frame" x="153" y="349" width="87" height="20.333333333333314"/>
+                                <rect key="frame" x="153" y="393" width="87" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kdp-lo-xyI">
-                                <rect key="frame" x="0.0" y="379.33333333333331" width="393" height="169.99999999999994"/>
+                                <rect key="frame" x="0.0" y="423.33333333333331" width="393" height="169.99999999999994"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAP-Qc-UfQ">
                                         <rect key="frame" x="30" y="51" width="100" height="99"/>
@@ -141,7 +141,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rbM-OQ-tmv">
-                                <rect key="frame" x="10" y="590.33333333333337" width="373" height="160"/>
+                                <rect key="frame" x="10" y="634.33333333333337" width="373" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="E8n-VH-8gn"/>
                                 </constraints>
@@ -154,7 +154,7 @@
                                 <cells/>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고객센터" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="db8-sY-KfP">
-                                <rect key="frame" x="24" y="559.33333333333337" width="345" height="21"/>
+                                <rect key="frame" x="24" y="603.33333333333337" width="345" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="un7-GZ-6MD"/>
                                 </constraints>
@@ -188,6 +188,7 @@
                             <constraint firstItem="LmP-zx-Mkm" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="tyo-pY-VYF"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Lic-ab-RVi"/>
                     <connections>
                         <outlet property="logout" destination="OnV-sV-f9T" id="zcj-Vx-Kx9"/>
                         <outlet property="myInforMationManageMent" destination="cd7-uP-G3t" id="uRc-zU-rq4"/>
@@ -207,7 +208,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="1057.2519083969464" y="-27.464788732394368"/>
+        </scene>
+        <!--My Page InformationVC-->
+        <scene sceneID="PM7-2X-RkO">
+            <objects>
+                <viewController id="CX1-R0-4gS" customClass="MyPageInformationVC" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A05-bD-wmA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="kW3-z9-oXn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W78-x5-eIQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1894" y="-27"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hlb-mM-87V">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Xy-ch-M7O" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y0x-RT-acg">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="ve1-vh-mvz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FO3-5Y-vTL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="185" y="-27"/>
         </scene>
     </scenes>
     <resources>
@@ -215,13 +249,13 @@
         <image name="person.fill.badge.plus" catalog="system" width="128" height="126"/>
         <image name="ticket" catalog="system" width="128" height="86"/>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
