@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		544E456C2BD9F10F002F2F1E /* MypageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E456B2BD9F10F002F2F1E /* MypageData.swift */; };
 		544E456E2BD9F171002F2F1E /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 544E456D2BD9F171002F2F1E /* MyPage.storyboard */; };
-		544E45702BD9F192002F2F1E /* MyPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E456F2BD9F192002F2F1E /* MyPageController.swift */; };
+		544E45702BD9F192002F2F1E /* MyPageLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E456F2BD9F192002F2F1E /* MyPageLoginController.swift */; };
 		544E45722BD9F1A2002F2F1E /* CustomerServiceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E45712BD9F1A2002F2F1E /* CustomerServiceViewCell.swift */; };
 		544E45742BD9F1BA002F2F1E /* CustomerServiceViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 544E45732BD9F1BA002F2F1E /* CustomerServiceViewCell.xib */; };
 		54AFB23B2BDA42F800FEDA8F /* MyPageInformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AFB23A2BDA42F800FEDA8F /* MyPageInformationVC.swift */; };
@@ -63,7 +63,7 @@
 /* Begin PBXFileReference section */
 		544E456B2BD9F10F002F2F1E /* MypageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageData.swift; sourceTree = "<group>"; };
 		544E456D2BD9F171002F2F1E /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
-		544E456F2BD9F192002F2F1E /* MyPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageController.swift; sourceTree = "<group>"; };
+		544E456F2BD9F192002F2F1E /* MyPageLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageLoginController.swift; sourceTree = "<group>"; };
 		544E45712BD9F1A2002F2F1E /* CustomerServiceViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerServiceViewCell.swift; sourceTree = "<group>"; };
 		544E45732BD9F1BA002F2F1E /* CustomerServiceViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerServiceViewCell.xib; sourceTree = "<group>"; };
 		54AFB23A2BDA42F800FEDA8F /* MyPageInformationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageInformationVC.swift; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 				AB4A13552BD94D9400B39808 /* MainPageVC.swift */,
 				85AC102F2BD64CAF00C00DCF /* ViewController.swift */,
 				CCD2A25F2BD9F5CC0001FEC4 /* DetailViewController.swift */,
-				544E456F2BD9F192002F2F1E /* MyPageController.swift */,
+				544E456F2BD9F192002F2F1E /* MyPageLoginController.swift */,
 				85AC10442BD749B000C00DCF /* LoginViewController.swift */,
 				85AC10492BD7971300C00DCF /* SignUpViewController.swift */,
 				AB4A13572BD9F2A900B39808 /* SearchPageVC.swift */,
@@ -485,7 +485,7 @@
 			files = (
 				CCD2A2602BD9F5CC0001FEC4 /* DetailViewController.swift in Sources */,
 				544E45722BD9F1A2002F2F1E /* CustomerServiceViewCell.swift in Sources */,
-				544E45702BD9F192002F2F1E /* MyPageController.swift in Sources */,
+				544E45702BD9F192002F2F1E /* MyPageLoginController.swift in Sources */,
 				544E456C2BD9F10F002F2F1E /* MypageData.swift in Sources */,
 				85AC104A2BD7971300C00DCF /* SignUpViewController.swift in Sources */,
 				AB4A13582BD9F2A900B39808 /* SearchPageVC.swift in Sources */,

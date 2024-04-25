@@ -8,12 +8,10 @@
 import Foundation
 import UIKit
 
-class MyPageInformationVC: UINavigationController {
+class MyPageInformationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // NavigationController 초기화 및 설정
-        let pushVC = self.storyboard?.instantiateViewController(withIdentifier: "secondViewControllerID")
 
-        self.navigationController?.pushViewController(pushVC!, animated: true)
     }
 }
+
