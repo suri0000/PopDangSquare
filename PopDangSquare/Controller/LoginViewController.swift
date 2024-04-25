@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
     passwordTextField.delegate = self
     
     configureTextField()
+    getuserInfo()
   }
   
   // 화면 아무데나 터치하면 키보드 내려가게
@@ -35,6 +36,16 @@ class LoginViewController: UIViewController {
   func configureTextField() {
     emailTextField.setTextField(string: "이메일을 입력해주세요")
     passwordTextField.setTextField(string: "비밀번호를 입력해주세요")
+  }
+  
+  // userID, userPassword 가져오기
+  func getUserInfo() {
+    guard let email = UserDefaults.standard.string(forKey: "userID") else { return }
+    guard let password = UserDefaults.standard.string(forKey: "userPassword") else { return }
+  }
+  
+  func login() {
+    
   }
   
 }
