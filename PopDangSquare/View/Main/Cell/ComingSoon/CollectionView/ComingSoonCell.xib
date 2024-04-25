@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="235" height="287"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hf5-gF-IbS">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hf5-gF-IbS">
                         <rect key="frame" x="0.0" y="0.0" width="235" height="286.66666666666669"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
                     </imageView>
@@ -25,14 +25,10 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="hf5-gF-IbS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5gd-gS-qFK"/>
-                <constraint firstAttribute="bottom" secondItem="hf5-gF-IbS" secondAttribute="bottom" id="6x5-U7-sls"/>
-                <constraint firstItem="hf5-gF-IbS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="R9v-Oi-fzd"/>
-                <constraint firstAttribute="trailing" secondItem="hf5-gF-IbS" secondAttribute="trailing" id="YpQ-9C-eE9"/>
-                <constraint firstAttribute="trailing" secondItem="hf5-gF-IbS" secondAttribute="trailing" id="ijY-DK-eqL"/>
-                <constraint firstItem="hf5-gF-IbS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nSO-3D-RcG"/>
-                <constraint firstAttribute="bottom" secondItem="hf5-gF-IbS" secondAttribute="bottom" id="vRh-ao-i2P"/>
-                <constraint firstItem="hf5-gF-IbS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vww-44-ZLa"/>
+                <constraint firstItem="hf5-gF-IbS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="QFe-fv-w0g"/>
+                <constraint firstAttribute="bottom" secondItem="hf5-gF-IbS" secondAttribute="bottom" id="SgG-Aq-hl6"/>
+                <constraint firstAttribute="trailing" secondItem="hf5-gF-IbS" secondAttribute="trailing" id="Y4e-Vs-ffX"/>
+                <constraint firstItem="hf5-gF-IbS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jDV-i1-Ugg"/>
             </constraints>
             <size key="customSize" width="235" height="287"/>
             <connections>

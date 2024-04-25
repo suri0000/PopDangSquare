@@ -9,8 +9,9 @@ import UIKit
 
 class MovieChartTableViewCell: UITableViewCell {
     
-    var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var pageControl: UIPageControl!
     let imageNames = ["heart.fill", "pencil", "trash"].compactMap { UIImage(systemName: $0) }
     
     override func layoutSubviews() {
@@ -26,8 +27,8 @@ class MovieChartTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal // 가로 스크롤 설정
-        layout.itemSize = CGSize(width: collectionView.frame.width, height: 200) // 셀 크기 설정
-        layout.minimumLineSpacing = 5 // 셀 간 최소 간격 설정
+        layout.itemSize = CGSize(width: 360, height: 200) // 셀 크기 설정
+        layout.minimumLineSpacing = 0 // 셀 간 최소 간격 설정
         collectionView.setCollectionViewLayout(layout, animated: false)
         
         collectionView.dataSource = self

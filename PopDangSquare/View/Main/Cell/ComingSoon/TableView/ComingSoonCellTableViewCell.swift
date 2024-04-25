@@ -12,21 +12,35 @@ class ComingSoonCellTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var pageControl: UIPageControl!
+    let dummyImages: [UIImage] = [
+        "heart.fill", "pencil", "trash"
+    ].compactMap { UIImage(systemName: $0) }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.backgroundColor = .clear
+        collectionView.backgroundColor = .clear
+        collectionView.layer.cornerRadius = 10
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 12, right: 0))
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .none
-        self.backgroundColor = .clear
-        collectionView.layer.cornerRadius = 10
-        collectionView.isScrollEnabled = false
+        // 콜렉션뷰 스크롤 설정
+        collectionView.isScrollEnabled = true // 스크롤 활성화
+        // 콜렉션뷰 레이아웃 설정
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal // 가로 스크롤 설정
+        layout.itemSize = CGSize(width: 360, height: 400) // 셀 크기 설정
+        layout.minimumLineSpacing = 0 // 셀 간 최소 간격 설정
+        collectionView.setCollectionViewLayout(layout, animated: false)
+        
+        collectionView.isPagingEnabled = true // 페이징 활성화
+        
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UINib(nibName: "ComingSoonCell", bundle: nil), forCellWithReuseIdentifier : "ComingSoonCell")
+        collectionView.register(UINib(nibName: "ComingSoonCell", bundle: nil), forCellWithReuseIdentifier: "ComingSoonCell")
         
         setupPageControl()
-        
-//        self.layer.cornerRadius = 10 // 원하는 둥근 모서리의 반지름 값을 설정하세요.
-//            self.clipsToBounds = true 
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -42,7 +56,7 @@ class ComingSoonCellTableViewCell: UITableViewCell {
         
         // UIPageControl 인스턴스 생성
         pageControl = UIPageControl()
-        pageControl.numberOfPages = 4
+        pageControl.numberOfPages = dummyImages.count
         pageControl.currentPage = 0
         pageControl.tintColor = UIColor.red
         pageControl.pageIndicatorTintColor = UIColor.lightGray
@@ -65,17 +79,28 @@ class ComingSoonCellTableViewCell: UITableViewCell {
 
 extension ComingSoonCellTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return dummyImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ComingSoonCell", for: indexPath) as! ComingSoonCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ComingSoonCell", for: indexPath) as? ComingSoonCell else {
+            fatalError("Unable to dequeue cell")
+        }
         
-        //        cell.configure(with: model[indexPath.row])
+        let image = dummyImages[indexPath.item]
+        cell.posterView.image = image
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 300)
+        return CGSize(width: 400, height: 400)
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let width = scrollView.frame.width
+        let pageIndex = Int(scrollView.contentOffset.x / width)
+        pageControl.currentPage = pageIndex
+    }
+    
 }

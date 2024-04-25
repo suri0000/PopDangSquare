@@ -56,7 +56,7 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
         case 2:
             return 200
         case 3:
-            return 350
+            return 400
         default:
             return 80
         }
@@ -76,8 +76,8 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
                 guard let strongSelf = self else { return }
                 let storyboard = UIStoryboard(name: "DetailView", bundle: nil)
                 if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-                    // 네비게이션 컨트롤러를 통한 화면 전환
-                    strongSelf.navigationController?.pushViewController(detailViewController, animated: true)
+                    // show 메소드를 사용하여 화면 전환
+                    strongSelf.show(detailViewController, sender: nil)
                 }
             }
 
