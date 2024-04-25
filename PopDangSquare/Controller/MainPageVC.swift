@@ -38,6 +38,14 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
+    // 섹션 푸터 뷰를 투명한 UIView로 설정하여 셀 사이에 간격을 추가
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    // 섹션 푸터 높이를 설정하여 셀 사이의 간격 조절
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 20 // 원하는 간격
+    }
     //TableView Height 설정
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {

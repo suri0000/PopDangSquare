@@ -15,19 +15,15 @@ class MovieChartTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        // 셀의 contentView의 모서리를 둥글게 처리
-        collectionView.layer.cornerRadius = 10
-        collectionView.layer.masksToBounds = true
-
-        // 셀의 backgroundColor를 .clear로 설정하고,
         collectionView.backgroundColor = .clear
+        collectionView.layer.cornerRadius = 10
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 12, right: 0))
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = UIColor.clear
         // 콜렉션뷰 레이아웃 설정
+        self.selectionStyle = .none
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal // 가로 스크롤 설정
         layout.itemSize = CGSize(width: collectionView.frame.width, height: 200) // 셀 크기 설정

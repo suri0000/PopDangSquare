@@ -28,8 +28,15 @@ class NowPlayingTableViewCell: UITableViewCell {
         collectionView.reloadData()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        collectionView.backgroundColor = .clear
+//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0))
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
         self.backgroundColor = UIColor.clear // 셀 배경을 투명하게
         let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
 //        layout?.itemSize = CGSize(width: 100, height: 100) // 적절한 크기로 조정하세요.
