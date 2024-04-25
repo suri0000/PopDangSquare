@@ -13,7 +13,16 @@ class MovieChartTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     let imageNames = ["heart.fill", "pencil", "trash"].compactMap { UIImage(systemName: $0) }
     
-    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // 셀의 contentView의 모서리를 둥글게 처리
+        collectionView.layer.cornerRadius = 10
+        collectionView.layer.masksToBounds = true
+
+        // 셀의 backgroundColor를 .clear로 설정하고,
+        collectionView.backgroundColor = .clear
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
