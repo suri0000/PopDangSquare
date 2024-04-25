@@ -111,11 +111,10 @@
 		85AC10412BD6591100C00DCF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AB4A13622BD9F2CC00B39808 /* Cell */,
+				AB4A13712BDA08DF00B39808 /* Login */,
+				AB4A13722BDA08FB00B39808 /* Search */,
 				85AC10312BD64CAF00C00DCF /* Main.storyboard */,
 				85AC10362BD64CB100C00DCF /* LaunchScreen.storyboard */,
-				85AC10422BD680E000C00DCF /* LoginView.storyboard */,
-				AB4A13592BD9F2B700B39808 /* SearchPage.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +161,23 @@
 				AB4A13612BD9F2CC00B39808 /* SearchResult */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		AB4A13712BDA08DF00B39808 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				85AC10422BD680E000C00DCF /* LoginView.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		AB4A13722BDA08FB00B39808 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				AB4A13622BD9F2CC00B39808 /* Cell */,
+				AB4A13592BD9F2B700B39808 /* SearchPage.storyboard */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
