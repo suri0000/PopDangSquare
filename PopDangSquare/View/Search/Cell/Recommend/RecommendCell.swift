@@ -8,10 +8,20 @@
 import UIKit
 
 class RecommendCell: UITableViewCell {
-
+    @IBOutlet weak var posterImage: UIImageView!
+    @IBOutlet weak var detailButton: UIButton!
+    
+    @IBAction func detailButtonTapped(_ sender: Any) {
+        print("detailButtonTapped")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        posterImage.layer.cornerRadius = 10
+        posterImage.layer.masksToBounds = true
+        self.backgroundColor = .clear
+        detailButton.layer.cornerRadius = 10
+        detailButton.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,9 +16,42 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ruT-RK-vK2">
+                        <rect key="frame" x="16" y="8" width="288" height="144"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjf-BD-atY">
+                        <rect key="frame" x="205" y="93" width="83" height="35"/>
+                        <color key="backgroundColor" red="0.090196078430000007" green="0.10980392160000001" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="구경하기"/>
+                        <connections>
+                            <action selector="detailButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vnI-pE-GS0"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ruT-RK-vK2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="0BY-ja-96M"/>
+                    <constraint firstAttribute="bottom" secondItem="ruT-RK-vK2" secondAttribute="bottom" constant="8" id="EdT-V1-OGn"/>
+                    <constraint firstAttribute="bottom" secondItem="cjf-BD-atY" secondAttribute="bottom" constant="32" id="G2O-QI-sTf"/>
+                    <constraint firstAttribute="trailing" secondItem="ruT-RK-vK2" secondAttribute="trailing" constant="16" id="Z0x-ll-VkZ"/>
+                    <constraint firstAttribute="trailing" secondItem="cjf-BD-atY" secondAttribute="trailing" constant="32" id="ta4-K7-Png"/>
+                    <constraint firstItem="ruT-RK-vK2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="zA2-Qa-wH1"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="detailButton" destination="cjf-BD-atY" id="B19-eZ-g2p"/>
+                <outlet property="posterImage" destination="ruT-RK-vK2" id="Bmh-ad-qXY"/>
+            </connections>
             <point key="canvasLocation" x="94.656488549618317" y="29.577464788732396"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

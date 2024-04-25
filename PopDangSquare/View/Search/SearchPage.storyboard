@@ -39,7 +39,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이런 영화도 좋아요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="up3-IW-onb">
-                                        <rect key="frame" x="8" y="8" width="154" height="24"/>
+                                        <rect key="frame" x="16" y="8" width="154" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -74,11 +74,11 @@
                     </view>
                     <connections>
                         <outlet property="detailedResultLabel" destination="iCM-IZ-mVn" id="j9S-R8-6F9"/>
+                        <outlet property="firstTableView" destination="Kjo-vt-dIL" id="Ydg-gG-l6I"/>
                         <outlet property="recommendView" destination="U97-JW-v9I" id="Y7A-J2-8cs"/>
                         <outlet property="searchBar" destination="fQO-9j-CkM" id="n66-PW-zsJ"/>
                         <outlet property="searchResult" destination="V5d-qY-wuO" id="Gjg-kP-L37"/>
                         <outlet property="secondTableView" destination="FKQ-fK-WEm" id="df0-HC-xMm"/>
-                        <outlet property="tableView" destination="Kjo-vt-dIL" id="Ydg-gG-l6I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
