@@ -7,6 +7,9 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
     var myPageData:[MypageData] = MypageData.mypage
     
     // UI요소들
+    @IBOutlet weak var reservationDetailsView: UIView!
+    @IBOutlet weak var myInfoView: UIView!
+    @IBOutlet weak var wishlistView: UIView!
     @IBOutlet weak var myInforMationManageMentbutton: UIButton!
     @IBOutlet weak var wishHistorybutton: UIButton!
     @IBOutlet weak var reservationDetailsbutton: UIButton!
@@ -37,24 +40,44 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         profileImage.layer.shadowOpacity = 0.5 // 그림자 투명도
         profileImage.layer.shadowOffset = CGSize(width: 0, height: 2) // 그림자의 위치 및 크기 조절
         profileImage.layer.shadowRadius = 4 // 그림자의 반경 조절
-
-        // 버튼 모양 변경 및 이미지 설정
+        
+        // 퀵메뉴 버튼 모양 변경 및 이미지 설정
         for button in [myInforMationManageMent, wishHistory, reserVationDetails] {
             button?.layer.masksToBounds = true
             button?.layer.cornerRadius = (button?.frame.width ?? 0) / 2
             button?.setImage(UIImage(named: "your_image_name"), for: .normal) // 이미지 설정
         }
         
+        // 퀵메뉴 wishHistorybutton 설정
+        wishHistorybutton.setBackgroundImage(UIImage(), for: .normal) // 배경 이미지를 투명한 이미지로 설정
+
+        // reservationDetailsbutton 설정
+        reservationDetailsbutton.setBackgroundImage(UIImage(), for: .normal) // 배경 이미지를 투명한 이미지로 설정
+
+        // myInforMationManageMentbutton 설정
+        myInforMationManageMentbutton.setBackgroundImage(UIImage(), for: .normal) // 배경 이미지를 투명한 이미지로 설정
+        
+        // 퀵메뉴 wishHistorybutton 설정
+        wishHistorybutton.setTitle("", for: .normal) // 텍스트 없애기
+        
+        // reservationDetailsbutton 설정
+        reservationDetailsbutton.setTitle("", for: .normal) // 텍스트 없애기
+        
+        // myInforMationManageMentbutton 설정
+        myInforMationManageMentbutton.setTitle("", for: .normal) // 텍스트 없애기
+        
         // quickMenuView 디자인 설정
-        quickMenuView.layer.cornerRadius = 15 // 원하는 둥근 정도 설정
-        quickMenuView.layer.borderColor = UIColor.black.cgColor // 검은색 테두리
-        quickMenuView.layer.borderWidth = 3 // 테두리 두께
+        quickMenuView.layer.cornerRadius = 40 // 원하는 둥근 정도 설정
         quickMenuView.layer.shadowColor = UIColor.black.cgColor // 그림자 색상
         quickMenuView.layer.shadowOpacity = 0.5 // 그림자 투명도
         quickMenuView.layer.shadowOffset = CGSize(width: 0, height: 2) // 그림자의 위치 및 크기 조절
         quickMenuView.layer.shadowRadius = 4 // 그림자의 반경 조절
         quickMenuView.clipsToBounds = false // 그림자가 잘리지 않도록 설정
         
+        // quickMenuView 각 뷰를 원형으로 설정
+        myInfoView.layer.cornerRadius = myInfoView.frame.size.width / 2
+        wishlistView.layer.cornerRadius = wishlistView.frame.size.width / 2
+        reservationDetailsView.layer.cornerRadius = reservationDetailsView.frame.size.width / 2
         
         // Service Collview의 데이터 소스 및 델리게이트 설정
         serviceCollview.dataSource = self
@@ -96,13 +119,12 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         if collectionView == serviceCollview {
             
             return CGSize(width: 392, height: 160)
-            
             // Service Collview의 셀 크기 설정
         }
         return CGSize.zero
     }
     
-    // 각 CollectionView의 라인 간격 설정
+    // 각 콜렉션의 라인 간격을 설정한 부분
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == serviceCollview {
             return 0 // Service Collview의 라인 간격 설정
@@ -110,7 +132,7 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         return 0
     }
     
-    // 왼쪽 인셋 설정
+    // 콜렉션 뷰의 왼쪽 인셋 설정한 부분
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView == serviceCollview {
             return UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 0) // 왼쪽에 30포인트의 인셋 추가
