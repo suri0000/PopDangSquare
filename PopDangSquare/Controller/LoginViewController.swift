@@ -17,11 +17,11 @@ class LoginViewController: UIViewController {
     configureTextField()
   }
   
-//  @IBAction func signUpButtonTapped(_ sender: Any) {
+  @IBAction func signUpButtonTapped(_ sender: Any) {
 //    let signUpViewContoller = SignUpViewController()
 //    
 //    navigationController?.pushViewController(signUpViewContoller, animated: true)
-//  }
+  }
   
   func configureTextField() {
     emailTextField.setTextField(string: "이메일을 입력해주세요")
