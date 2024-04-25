@@ -171,20 +171,13 @@
 		85AC10412BD6591100C00DCF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AB4A13432BD94D7800B39808 /* Cell */,
-				544E456D2BD9F171002F2F1E /* MyPage.storyboard */,
+				AB4A136E2BDA083900B39808 /* Login */,
+				AB4A136D2BDA078C00B39808 /* MyPage */,
+				AB4A136C2BDA078700B39808 /* Detail */,
+				AB4A136B2BDA074400B39808 /* Search */,
+				AB4A136A2BDA073C00B39808 /* Main */,
 				85AC10312BD64CAF00C00DCF /* Main.storyboard */,
 				85AC10362BD64CB100C00DCF /* LaunchScreen.storyboard */,
-				AB4A13682BDA017000B39808 /* MainPage.storyboard */,
-				CCD2A2572BD9F5AF0001FEC4 /* DetailHeaderReusableView.swift */,
-				CCD2A2552BD9F5AF0001FEC4 /* DetailReviewCell.swift */,
-				CCD2A2582BD9F5AF0001FEC4 /* DetailReviewCell.xib */,
-				CCD2A2532BD9F5AF0001FEC4 /* DetailView.storyboard */,
-				CCD2A2562BD9F5AF0001FEC4 /* DetailViewCell.swift */,
-				CCD2A2542BD9F5AF0001FEC4 /* DetailViewCell.xib */,
-				544E45732BD9F1BA002F2F1E /* CustomerServiceViewCell.xib */,
-				544E45712BD9F1A2002F2F1E /* CustomerServiceViewCell.swift */,
-				85AC10422BD680E000C00DCF /* LoginView.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,15 +281,62 @@
 			path = NowPlaying;
 			sourceTree = "<group>";
 		};
-		AB4A13432BD94D7800B39808 /* Cell */ = {
+		AB4A136A2BDA073C00B39808 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				AB4A132E2BD94D7800B39808 /* ComingSoon */,
-				AB4A13322BD94D7800B39808 /* logoCell */,
-				AB4A13392BD94D7800B39808 /* MovieChart */,
-				AB4A13402BD94D7800B39808 /* NowPlaying */,
+				AB4A13682BDA017000B39808 /* MainPage.storyboard */,
+				AB4A13702BDA086600B39808 /* Cell */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		AB4A136B2BDA074400B39808 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		AB4A136C2BDA078700B39808 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				CCD2A2572BD9F5AF0001FEC4 /* DetailHeaderReusableView.swift */,
+				CCD2A2552BD9F5AF0001FEC4 /* DetailReviewCell.swift */,
+				CCD2A2582BD9F5AF0001FEC4 /* DetailReviewCell.xib */,
+				CCD2A2532BD9F5AF0001FEC4 /* DetailView.storyboard */,
+				CCD2A2562BD9F5AF0001FEC4 /* DetailViewCell.swift */,
+				CCD2A2542BD9F5AF0001FEC4 /* DetailViewCell.xib */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		AB4A136D2BDA078C00B39808 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				544E456D2BD9F171002F2F1E /* MyPage.storyboard */,
+				544E45732BD9F1BA002F2F1E /* CustomerServiceViewCell.xib */,
+				544E45712BD9F1A2002F2F1E /* CustomerServiceViewCell.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		AB4A136E2BDA083900B39808 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				85AC10422BD680E000C00DCF /* LoginView.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		AB4A13702BDA086600B39808 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
 				AB4A13412BD94D7800B39808 /* MainPageableViewCell.swift */,
 				AB4A13422BD94D7800B39808 /* MainPageableViewCell.xib */,
+				AB4A13402BD94D7800B39808 /* NowPlaying */,
+				AB4A13392BD94D7800B39808 /* MovieChart */,
+				AB4A13322BD94D7800B39808 /* logoCell */,
+				AB4A132E2BD94D7800B39808 /* ComingSoon */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
