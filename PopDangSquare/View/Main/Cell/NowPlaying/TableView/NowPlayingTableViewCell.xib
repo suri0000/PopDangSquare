@@ -16,9 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="295"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="현재 상영중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OP4-Sl-l24">
-                        <rect key="frame" x="8" y="3" width="91" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 상영중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OP4-Sl-l24">
+                        <rect key="frame" x="16" y="5" width="91" height="24"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -39,6 +38,9 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="gKV-3O-y6B" secondAttribute="trailing" constant="16" id="00r-zJ-ilb"/>
                     <constraint firstItem="gKV-3O-y6B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Q6O-JN-BaO"/>
+                    <constraint firstAttribute="trailing" secondItem="OP4-Sl-l24" secondAttribute="trailing" constant="213" id="StL-lz-2LC"/>
+                    <constraint firstItem="OP4-Sl-l24" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="UYr-d1-Mve"/>
+                    <constraint firstItem="OP4-Sl-l24" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="bDy-2a-6DJ"/>
                     <constraint firstItem="gKV-3O-y6B" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="32" id="jOh-OD-TSY"/>
                 </constraints>
             </tableViewCellContentView>

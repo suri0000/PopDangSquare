@@ -39,8 +39,6 @@ class NowPlayingTableViewCell: UITableViewCell {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "NowPlayingCell", bundle: nil), forCellWithReuseIdentifier : "NowPlayingCell")
-        
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
