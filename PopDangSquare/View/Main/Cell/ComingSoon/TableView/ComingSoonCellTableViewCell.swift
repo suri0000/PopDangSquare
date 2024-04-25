@@ -22,6 +22,9 @@ class ComingSoonCellTableViewCell: UITableViewCell {
         collectionView.register(UINib(nibName: "ComingSoonCell", bundle: nil), forCellWithReuseIdentifier : "ComingSoonCell")
         
         setupPageControl()
+        
+//        self.layer.cornerRadius = 10 // 원하는 둥근 모서리의 반지름 값을 설정하세요.
+//            self.clipsToBounds = true 
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

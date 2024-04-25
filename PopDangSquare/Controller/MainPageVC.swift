@@ -17,6 +17,7 @@ class MainPageVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
+        tableView.separatorStyle = .none
         // logoCellTableViewCell register
         tableView.register(UINib(nibName: "LogoCellTableViewCell", bundle: nil), forCellReuseIdentifier: "LogoCellTableViewCell")
         
@@ -43,7 +44,7 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 150
         case 1:
-            return 280
+            return 260
         case 2:
             return 200
         case 3:

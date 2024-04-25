@@ -19,6 +19,7 @@ class MovieChartCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // contentView 모서리 설정
+        
         chartImage.layer.cornerRadius = 10
         chartImage.layer.masksToBounds = true
     }

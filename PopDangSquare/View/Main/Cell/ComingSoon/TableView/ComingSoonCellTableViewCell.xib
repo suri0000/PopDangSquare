@@ -25,7 +25,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="CCU-Te-vzN">
-                        <rect key="frame" x="0.0" y="44" width="320" height="307"/>
+                        <rect key="frame" x="16" y="44" width="288" height="291"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JGL-FJ-e0T">
                             <size key="itemSize" width="128" height="300"/>
@@ -37,9 +37,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="CCU-Te-vzN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="44" id="DkC-og-QGf"/>
-                    <constraint firstAttribute="bottom" secondItem="CCU-Te-vzN" secondAttribute="bottom" id="S9M-VY-uMP"/>
-                    <constraint firstAttribute="trailing" secondItem="CCU-Te-vzN" secondAttribute="trailing" id="e2Q-qi-8hB"/>
-                    <constraint firstItem="CCU-Te-vzN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sRp-FZ-mF3"/>
+                    <constraint firstAttribute="bottom" secondItem="CCU-Te-vzN" secondAttribute="bottom" constant="16" id="S9M-VY-uMP"/>
+                    <constraint firstAttribute="trailing" secondItem="CCU-Te-vzN" secondAttribute="trailing" constant="16" id="e2Q-qi-8hB"/>
+                    <constraint firstItem="CCU-Te-vzN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="sRp-FZ-mF3"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

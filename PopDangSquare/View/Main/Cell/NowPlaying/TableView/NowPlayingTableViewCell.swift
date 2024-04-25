@@ -30,12 +30,11 @@ class NowPlayingTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.backgroundColor = UIColor.clear
+        self.backgroundColor = UIColor.clear // 셀 배경을 투명하게
         let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
 //        layout?.itemSize = CGSize(width: 100, height: 100) // 적절한 크기로 조정하세요.
-        layout?.minimumInteritemSpacing = 10 // 항목 간 최소 간격
-        layout?.minimumLineSpacing = 10 // 줄 간 최소 간격
+//        layout?.minimumInteritemSpacing = 10 // 항목 간 최소 간격
+//        layout?.minimumLineSpacing = 10 // 줄 간 최소 간격
         
         collectionView.dataSource = self
         collectionView.delegate = self

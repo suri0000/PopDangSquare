@@ -12,6 +12,7 @@ class NowPlayingCell: UICollectionViewCell {
     @IBOutlet weak var purchaseButton: UIButton!
     @IBOutlet weak var moviePosterView: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var runTimeLabel: UILabel!
     
     var onPurchaseButtonTapped: (() -> Void)?
     
