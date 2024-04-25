@@ -73,7 +73,7 @@
                                             <constraint firstAttribute="height" constant="34" id="ycC-XW-a3E"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="one-time-code"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -179,7 +179,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="9iU-p5-MSr">
             <objects>
-                <viewController id="ZIw-16-lf2" customClass="SignUpViewController" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="ZIw-16-lf2" customClass="SignUpViewController" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lsr-zq-eKp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -14,8 +14,17 @@ class LoginViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    emailTextField.delegate = self
+    passwordTextField.delegate = self
+    
     configureTextField()
   }
+  
+  // 화면 아무데나 터치하면 키보드 내려가게
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+           self.view.endEditing(true)
+     }
   
   @IBAction func signUpButtonTapped(_ sender: Any) {
 //    let signUpViewContoller = SignUpViewController()
@@ -28,4 +37,11 @@ class LoginViewController: UIViewController {
     passwordTextField.setTextField(string: "비밀번호를 입력해주세요")
   }
   
+}
+
+extension LoginViewController: UITextFieldDelegate {
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
 }

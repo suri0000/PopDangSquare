@@ -66,16 +66,15 @@ class SignUpViewController: UIViewController {
     
     self.presentingViewController?.dismiss(animated: true)
   }
-     
-     // 사용자 정보 입력이 안 됐을 때 Alert
-     func showAlert(message: String) {
-       let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-       let okAction = UIAlertAction(title: "확인", style: .default)
-       
-       alert.addAction(okAction)
-       present(alert, animated: true)
-     }
   
+  // 사용자 정보 입력이 안 됐을 때 Alert
+  func showAlert(message: String) {
+    let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+    let okAction = UIAlertAction(title: "확인", style: .default)
+    
+    alert.addAction(okAction)
+    present(alert, animated: true)
+  }
   
   // MARK: - Keyboard 관련 UI 설정
   
