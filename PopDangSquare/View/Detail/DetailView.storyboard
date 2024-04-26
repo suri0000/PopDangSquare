@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Detail View Controller-->
+        <!--예매하기-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="DetailViewController" id="Y6W-OH-hqX" customClass="DetailViewController" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gBL-50-XlE">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vxf-Ck-jLQ">
                                     <size key="itemSize" width="393" height="387"/>
@@ -38,7 +38,9 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gBL-50-XlE" secondAttribute="trailing" id="Hkg-L1-USF"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="예매하기" image="movieclapper" catalog="system" id="mld-bf-nuf"/>
                     <navigationItem key="navigationItem" id="bIi-eU-Cgh"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="detailCollView" destination="gBL-50-XlE" id="mzJ-Vu-4GT"/>
                     </connections>
@@ -67,6 +69,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="movieclapper" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
