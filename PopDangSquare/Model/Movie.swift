@@ -22,7 +22,3 @@ struct Movie: Decodable {
         case voteAverage = "vote_average"
     }
 }
-
-struct ApiResponse: Decodable {
-    let results: [Movie]
-}
