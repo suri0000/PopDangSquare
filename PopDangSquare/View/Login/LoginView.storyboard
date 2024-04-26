@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -73,7 +74,7 @@
                                             <constraint firstAttribute="height" constant="34" id="ycC-XW-a3E"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="one-time-code"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -95,6 +96,9 @@
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                     <color key="baseBackgroundColor" red="0.95294117647058818" green="0.74509803921568629" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="sl3-1r-wSZ"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cM7-Ts-PnP">
                                 <rect key="frame" x="164.33333333333334" y="535" width="64.666666666666657" height="59"/>
@@ -137,8 +141,19 @@
                                     <color key="baseForegroundColor" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="signUpButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZMr-bY-4SG"/>
                                     <segue destination="ZIw-16-lf2" kind="show" id="0bh-13-hHX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04p-mj-spO">
+                                <rect key="frame" x="40" y="402.66666666666669" width="108" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" 자동 로그인">
+                                    <imageReference key="image" image="circle" catalog="system" symbolScale="small"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                    <color key="baseForegroundColor" red="0.46274509800000002" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="autoLoginButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="r81-lW-0HD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -146,12 +161,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="p2m-mv-OjP" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="1Pc-GV-NTP"/>
+                            <constraint firstItem="04p-mj-spO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="5bc-h1-vIF"/>
                             <constraint firstItem="vfm-J1-YJv" firstAttribute="top" secondItem="grz-7j-Eqg" secondAttribute="bottom" constant="21" id="Cir-Ap-q9B"/>
                             <constraint firstItem="cM7-Ts-PnP" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Cso-Lc-cw9"/>
                             <constraint firstItem="p2m-mv-OjP" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="HDZ-co-8BR"/>
                             <constraint firstItem="p2m-mv-OjP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="120" id="HoS-Up-CbI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="grz-7j-Eqg" secondAttribute="trailing" constant="52" id="LDZ-MK-sWq"/>
                             <constraint firstItem="asW-Zz-hm5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="52" id="LUA-6Y-iXr"/>
+                            <constraint firstItem="04p-mj-spO" firstAttribute="top" secondItem="vfm-J1-YJv" secondAttribute="bottom" constant="3" id="Sct-Gw-o9n"/>
                             <constraint firstItem="vfm-J1-YJv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="52" id="Ug3-1O-foS"/>
                             <constraint firstItem="ZGf-8A-XFI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="52" id="Upi-8N-BVN"/>
                             <constraint firstItem="7sM-mg-S7Y" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="VHc-aY-Lfh"/>
@@ -168,6 +185,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="GPh-QL-6uu"/>
                     <connections>
+                        <outlet property="autoLoginButton" destination="04p-mj-spO" id="hQE-oj-qqj"/>
                         <outlet property="emailTextField" destination="673-8I-MgU" id="2eV-7M-BMF"/>
                         <outlet property="passwordTextField" destination="o6y-JQ-MVK" id="vBo-SL-okF"/>
                     </connections>
@@ -179,7 +197,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="9iU-p5-MSr">
             <objects>
-                <viewController id="ZIw-16-lf2" customClass="SignUpViewController" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="ZIw-16-lf2" customClass="SignUpViewController" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lsr-zq-eKp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -423,6 +441,7 @@
     </scenes>
     <resources>
         <image name="apple.logo" catalog="system" width="105" height="128"/>
+        <image name="circle" catalog="system" width="128" height="123"/>
         <image name="logo" width="152" height="126"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

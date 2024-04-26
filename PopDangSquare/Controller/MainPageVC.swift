@@ -14,8 +14,10 @@ class MainPageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 테이블뷰 관련
-        // 옵셔널 바인딩을 사용하여 안전하게 처리
-        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = UIColor.clear
+        tableView.separatorStyle = .none
         // logoCellTableViewCell register
         tableView.register(UINib(nibName: "LogoCellTableViewCell", bundle: nil), forCellReuseIdentifier: "LogoCellTableViewCell")
         
@@ -49,11 +51,11 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 150
         case 1:
-            return 280
+            return 260
         case 2:
             return 200
         case 3:
-            return 350
+            return 400
         default:
             return 80
         }
@@ -68,6 +70,16 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell", for: indexPath) as! NowPlayingTableViewCell
             cell.configure()
+            // 클로저 구현
+            cell.onMovieBooked = { [weak self] movie in
+                guard let strongSelf = self else { return }
+                let storyboard = UIStoryboard(name: "DetailView", bundle: nil)
+                if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+                    // show 메소드를 사용하여 화면 전환
+                    strongSelf.show(detailViewController, sender: nil)
+                }
+            }
+
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieChartTableViewCell", for: indexPath) as! MovieChartTableViewCell
