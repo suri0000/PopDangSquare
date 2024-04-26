@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main PageVC-->
+        <!--홈-->
         <scene sceneID="Pk0-Qp-E7k">
             <objects>
                 <viewController storyboardIdentifier="MainPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bfp-yV-yHU" customClass="MainPageVC" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,8 +29,10 @@
                             <constraint firstItem="2HN-MW-75t" firstAttribute="leading" secondItem="jAN-vN-dT6" secondAttribute="leading" id="pR3-GB-8kz"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" selectedImage="house" id="wJt-fe-VHX"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="tableView" destination="2HN-MW-75t" id="Qta-bj-krd"/>
+                        <outlet property="tableView" destination="2HN-MW-75t" id="HV3-2J-PhJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tfi-cI-E9b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -38,4 +40,7 @@
             <point key="canvasLocation" x="70.992366412213741" y="-7.042253521126761"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="house" catalog="system" width="128" height="104"/>
+    </resources>
 </document>

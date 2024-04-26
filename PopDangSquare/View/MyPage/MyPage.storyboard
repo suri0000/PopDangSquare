@@ -11,7 +11,7 @@
         <!--My Page Login Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" userLabel="My Page Login Controller" customClass="MyPageLoginController" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPage" id="Y6W-OH-hqX" userLabel="My Page Login Controller" customClass="MyPageLoginController" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -199,7 +199,12 @@
                             <constraint firstItem="LmP-zx-Mkm" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="tyo-pY-VYF"/>
                         </constraints>
                     </view>
+<<<<<<< HEAD
                     <navigationItem key="navigationItem" id="Lic-ab-RVi"/>
+=======
+                    <tabBarItem key="tabBarItem" title="마이페이지" image="line.3.horizontal" catalog="system" id="2r9-HH-8Yo"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+>>>>>>> develop
                     <connections>
                         <outlet property="loginLogout" destination="OnV-sV-f9T" id="aqS-Go-B5V"/>
                         <outlet property="myInfoView" destination="est-6Z-ELU" id="cQD-OG-OcZ"/>
@@ -598,10 +603,14 @@
     <resources>
         <image name="exclamationmark.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="eyeglasses" catalog="system" width="128" height="55"/>
+<<<<<<< HEAD
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="greaterthan" catalog="system" width="128" height="108"/>
         <image name="pencil.line" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+=======
+        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
+>>>>>>> develop
         <image name="person.fill.badge.plus" catalog="system" width="128" height="126"/>
         <image name="ticket" catalog="system" width="128" height="86"/>
         <systemColor name="opaqueSeparatorColor">
@@ -612,9 +621,12 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+<<<<<<< HEAD
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+=======
+>>>>>>> develop
         </systemColor>
     </resources>
 </document>
