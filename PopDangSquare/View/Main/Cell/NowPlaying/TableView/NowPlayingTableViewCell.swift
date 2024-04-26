@@ -23,15 +23,16 @@ class NowPlayingTableViewCell: UITableViewCell {
     
     func fetchMovies() {
         NowPlayingManager.shared.fetchMovies { [weak self] (nowPlayings, error) in
-            DispatchQueue.main.async {
-                if let nowPlayings = nowPlayings {
-                    self?.movies = nowPlayings
-                    self?.collectionView.reloadData()
-                } else if let error = error {
-                    print("Error fetching movies: \(error)")
+                DispatchQueue.main.async {
+                    if let nowPlayings = nowPlayings {
+                        // 최대 10개의 요소만 선택하여 movies 배열에 할당
+                        self?.movies = Array(nowPlayings.prefix(10))
+                        self?.collectionView.reloadData()
+                    } else if let error = error {
+                        print("Error fetching movies: \(error)")
+                    }
                 }
             }
-        }
     }
     
     override func awakeFromNib() {
