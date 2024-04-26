@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,9 +18,8 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-Sm-DBn">
-                        <rect key="frame" x="0.0" y="29" width="250" height="85"/>
+                        <rect key="frame" x="0.0" y="27" width="250" height="89"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
-                        <imageReference key="image" image="tray.full" catalog="system" symbolScale="default"/>
                     </imageView>
                 </subviews>
             </view>
@@ -40,7 +38,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="tray.full" catalog="system" width="128" height="88"/>
         <systemColor name="systemTealColor">
             <color red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

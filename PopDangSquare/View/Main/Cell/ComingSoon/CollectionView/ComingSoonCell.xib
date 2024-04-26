@@ -17,8 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="235" height="287"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hf5-gF-IbS">
-                        <rect key="frame" x="0.0" y="0.0" width="235" height="286.66666666666669"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hf5-gF-IbS">
+                        <rect key="frame" x="0.0" y="0.0" width="235" height="287"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
                     </imageView>
                 </subviews>
@@ -38,7 +38,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
