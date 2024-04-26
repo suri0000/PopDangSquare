@@ -61,7 +61,6 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             loginLogout.setTitle("로그인", for: .normal)
         }
         
-        
         // 프로필 이미지를 동그랗게 만들기
         profileImage.layer.masksToBounds = true
         profileImage.layer.cornerRadius = profileImage.frame.width / 2
