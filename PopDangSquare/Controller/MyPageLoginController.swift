@@ -53,6 +53,15 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             profileImage.image = UIImage(systemName: "person.fill")
         }
         
+        // 로그인 여부에 따라 버튼 텍스트 설정
+        let LoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
+        if isLoggedIn {
+            loginLogout.setTitle("로그아웃", for: .normal)
+        } else {
+            loginLogout.setTitle("로그인", for: .normal)
+        }
+        
+        
         // 프로필 이미지를 동그랗게 만들기
         profileImage.layer.masksToBounds = true
         profileImage.layer.cornerRadius = profileImage.frame.width / 2
@@ -140,6 +149,25 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             }
         }
     }
+    
+    @IBAction func loginLogoutButtonTapped(_ sender: UIButton) {
+        // 로그인 여부 확인
+            let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
+            
+            // 로그인되어 있다면 로그아웃 처리
+            if isLoggedIn {
+                // 로그아웃 처리
+                UserDefaults.standard.set(false, forKey: "isLoggedIn")
+                // 로그아웃 후 화면 갱신
+                viewDidLoad()
+            } else {
+                // 로그인 페이지로 이동하는 등의 로그인 처리를 수행
+                // 로그인 페이지로 이동
+                let loginVC = LoginViewController()
+                present(loginVC, animated: true, completion: nil)
+            }
+        }
+    
     
     // MARK: - UICollectionViewDataSource
     
