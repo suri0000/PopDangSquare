@@ -65,6 +65,8 @@
 		CCD2A2772BDAA3140001FEC4 /* DetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2A2562BD9F5AF0001FEC4 /* DetailViewCell.swift */; };
 		CCD2A2782BDAA3340001FEC4 /* DetailActorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A26E2BDA8E430001FEC4 /* DetailActorCell.xib */; };
 		CCD2A2792BDAA34E0001FEC4 /* DetailTrailerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A2722BDA8E620001FEC4 /* DetailTrailerCell.xib */; };
+		CCF1E59F2BDBB98200867ABC /* ReserveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1E59E2BDBB98200867ABC /* ReserveViewController.swift */; };
+		CCF1E5A22BDBB9DE00867ABC /* ReserveView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCF1E5A12BDBB9DE00867ABC /* ReserveView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +130,8 @@
 		CCD2A26E2BDA8E430001FEC4 /* DetailActorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailActorCell.xib; sourceTree = "<group>"; };
 		CCD2A2712BDA8E620001FEC4 /* DetailTrailerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTrailerCell.swift; sourceTree = "<group>"; };
 		CCD2A2722BDA8E620001FEC4 /* DetailTrailerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTrailerCell.xib; sourceTree = "<group>"; };
+		CCF1E59E2BDBB98200867ABC /* ReserveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveViewController.swift; sourceTree = "<group>"; };
+		CCF1E5A12BDBB9DE00867ABC /* ReserveView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReserveView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +200,7 @@
 				85AC10442BD749B000C00DCF /* LoginViewController.swift */,
 				85AC10492BD7971300C00DCF /* SignUpViewController.swift */,
 				AB4A13572BD9F2A900B39808 /* SearchPageVC.swift */,
+				CCF1E59E2BDBB98200867ABC /* ReserveViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				AB4A136D2BDA078C00B39808 /* MyPage */,
 				AB4A136C2BDA078700B39808 /* Detail */,
 				AB4A136A2BDA073C00B39808 /* Main */,
+				CCF1E5A02BDBB9AE00867ABC /* Reserve */,
 				85AC10312BD64CAF00C00DCF /* Main.storyboard */,
 				85AC10362BD64CB100C00DCF /* LaunchScreen.storyboard */,
 			);
@@ -423,6 +429,14 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		CCF1E5A02BDBB9AE00867ABC /* Reserve */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1E5A12BDBB9DE00867ABC /* ReserveView.storyboard */,
+			);
+			path = Reserve;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -481,6 +495,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCF1E5A22BDBB9DE00867ABC /* ReserveView.storyboard in Resources */,
 				85AC10352BD64CB100C00DCF /* Assets.xcassets in Resources */,
 				CCD2A2682BDA56410001FEC4 /* DetailHeaderReusableView.xib in Resources */,
 				AB4A13472BD94D7800B39808 /* ComingSoonCellTableViewCell.xib in Resources */,
@@ -520,6 +535,7 @@
 				544E45702BD9F192002F2F1E /* MyPageLoginController.swift in Sources */,
 				CCD2A2772BDAA3140001FEC4 /* DetailViewCell.swift in Sources */,
 				544E45702BD9F192002F2F1E /* MyPageLoginController.swift in Sources */,
+				CCF1E59F2BDBB98200867ABC /* ReserveViewController.swift in Sources */,
 				544E456C2BD9F10F002F2F1E /* MypageData.swift in Sources */,
 				85AC104A2BD7971300C00DCF /* SignUpViewController.swift in Sources */,
 				AB4A13582BD9F2A900B39808 /* SearchPageVC.swift in Sources */,
