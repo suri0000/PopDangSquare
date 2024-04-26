@@ -11,6 +11,9 @@ class LoginViewController: UIViewController {
   
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
+  @IBOutlet weak var autoLoginButton: UIButton!
+  
+  var isAutoLoginButtonPressed = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,12 +55,25 @@ class LoginViewController: UIViewController {
     
   }
   
+  @IBAction func autoLoginButtonTapped(_ sender: UIButton) {
+    isAutoLoginButtonPressed.toggle()
+    
+    if isAutoLoginButtonPressed == false {
+      sender.setImage(UIImage(systemName: "circle"), for: .normal)
+      sender.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(scale: .small), forImageIn: .normal)
+      
+    } else {
+      sender.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+      sender.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(scale: .small), forImageIn: .normal)
+    }
+  }
+  
   func configureTextField() {
     emailTextField.setTextField(string: "이메일을 입력해 주세요")
     passwordTextField.setTextField(string: "비밀번호를 입력해 주세요")
   }
   
-  // 로그인 성공시 마이페이지로 화면 전환, 일단은 대충 구현해 놓아서 나중에 네비게이션으로 변경 필요(탭바 생기면)
+  // 로그인 성공시 마이페이지로 화면 전환, 일단은 대충 구현해 놓아서 나중에 네비게이션으로 변경 필요
   func successLogin() {
     let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
     
