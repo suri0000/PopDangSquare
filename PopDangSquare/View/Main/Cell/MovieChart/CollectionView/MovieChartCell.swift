@@ -12,9 +12,17 @@ class MovieChartCell: UICollectionViewCell {
     @IBOutlet weak var chartImage: UIImageView!
     
     // 이미지 이름을 받아서 이미지 뷰에 설정하는 메소드
-//    func configureImage(with imageName: String) {
-//        chartImage.image = UIImage(named: imageName)
-//    }
+    func configure(with movie: Popular) {
+        if let posterPath = movie.posterPath, let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    DispatchQueue.main.async { [self] in
+                        chartImage.image = UIImage(data: data)
+                    }
+                }
+            }.resume()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

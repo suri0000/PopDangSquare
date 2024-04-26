@@ -12,7 +12,7 @@ class MovieChartTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var pageControl: UIPageControl!
-    let imageNames = ["heart.fill", "pencil", "trash"].compactMap { UIImage(systemName: $0) }
+    var movies: [Popular] = [] // 영화 데이터를 저장할 배열
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -29,29 +29,29 @@ class MovieChartTableViewCell: UITableViewCell {
         layout.scrollDirection = .horizontal // 가로 스크롤 설정
         layout.itemSize = CGSize(width: 360, height: 200) // 셀 크기 설정
         layout.minimumLineSpacing = 0 // 셀 간 최소 간격 설정
-        collectionView.setCollectionViewLayout(layout, animated: false)
         
+        collectionView.setCollectionViewLayout(layout, animated: false)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "MovieChartCell", bundle: nil), forCellWithReuseIdentifier: "MovieChartCell")
-        
         collectionView.isPagingEnabled = true // 페이징 활성화
         
         setupPageControl()
+        
+        // 영화 데이터 불러오기
+        fetchMovies()
     }
     
     func setupPageControl() {
-        // 좌측 및 상단 마진 설정
         let leftMargin: CGFloat = -9
         let topMargin: CGFloat = 30
         pageControl = UIPageControl(frame: CGRect(x: leftMargin, y: collectionView.frame.minY + topMargin, width: 100, height: 20))
-        pageControl.numberOfPages = imageNames.count
+        pageControl.numberOfPages = movies.count
         pageControl.currentPage = 0
         pageControl.tintColor = UIColor.red
         pageControl.pageIndicatorTintColor = UIColor.lightGray
         pageControl.currentPageIndicatorTintColor = UIColor.black
         self.contentView.addSubview(pageControl)
-        // pageControl을 뷰의 좌측 상단으로 이동
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             pageControl.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: leftMargin),
@@ -60,19 +60,32 @@ class MovieChartTableViewCell: UITableViewCell {
         ])
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func fetchMovies() {
+        PopularManager.shared.fetchMovies { [weak self] (movies, error) in
+            DispatchQueue.main.async {
+                if let movies = movies {
+                    // 배열에서 최대 5개의 요소만 남깁니다.
+                    let firstFiveMovies = Array(movies.prefix(5))
+                    self?.movies = firstFiveMovies
+                    self?.collectionView.reloadData()
+                    self?.pageControl.numberOfPages = firstFiveMovies.count
+                } else if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }
 
 extension MovieChartTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageNames.count
+        return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieChartCell", for: indexPath) as! MovieChartCell
-        cell.chartImage.image = imageNames[indexPath.row]
+        let movie = movies[indexPath.row]
+        cell.configure(with: movie)
         return cell
     }
     
