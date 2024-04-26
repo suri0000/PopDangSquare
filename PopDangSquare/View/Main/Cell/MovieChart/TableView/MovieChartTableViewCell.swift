@@ -13,6 +13,17 @@ class MovieChartTableViewCell: UITableViewCell {
     
     var pageControl: UIPageControl!
     var movies: [Popular] = [] // 영화 데이터를 저장할 배열
+    var autoScrollTimer: Timer? // 자동 스크롤을 위한 타이머
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        selectionStyle = .none
+        
+        configureCollectionView()
+        setupPageControl()
+        fetchMovies()
+        startAutoScroll()
+    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -22,19 +33,10 @@ class MovieChartTableViewCell: UITableViewCell {
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 12, right: 0))
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        selectionStyle = .none
-        
-        configureCollectionView()
-        setupPageControl()
-        fetchMovies()
-    }
-    
     private func configureCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 360, height: 200)
+        layout.itemSize = CGSize(width: 360, height: 220)
         layout.minimumLineSpacing = 0
         
         collectionView.setCollectionViewLayout(layout, animated: false)
@@ -80,41 +82,88 @@ class MovieChartTableViewCell: UITableViewCell {
             }
         }
     }
+    
+    // 자동 스크롤 시작
+    private func startAutoScroll() {
+        autoScrollTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scrollToNextItem), userInfo: nil, repeats: true)
+    }
+    
+    // 다음 아이템으로 스크롤
+    @objc private func scrollToNextItem() {
+        let currentPageIndex = pageControl.currentPage
+        let nextPageIndex = currentPageIndex + 1
+        
+        if nextPageIndex < movies.count {
+            collectionView.scrollToItem(at: IndexPath(item: nextPageIndex, section: 0), at: .centeredHorizontally, animated: true)
+            pageControl.currentPage = nextPageIndex
+        } else {
+            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+            pageControl.currentPage = 0
+        }
+    }
+    
+    // 타이머 해제
+    deinit {
+        autoScrollTimer?.invalidate()
+        autoScrollTimer = nil
+    }
 }
 
-extension MovieChartTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
-    
+// MARK: - UICollectionViewDataSource
+extension MovieChartTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieChartCell", for: indexPath) as? MovieChartCell else {
-            fatalError("Unable to dequeue MovieChartCell")
+            fatalError("Unable to dequeue MovieCollectionViewCell.")
         }
         
-        let movie = movies[indexPath.row]
+        // Configure the cell
+        let movie = movies[indexPath.item]
         cell.configure(with: movie)
         
         return cell
     }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let width = scrollView.frame.width
-        let pageIndex = Int(scrollView.contentOffset.x / width)
-        pageControl.currentPage = pageIndex
+}
 
-        // 총 페이지 수를 계산합니다.
-        let maxPageIndex = movies.count - 1
-
-        // 만약 현재 페이지가 마지막 페이지이고 사용자가 더 스크롤하려고 하면 첫 페이지로 이동합니다.
-        if pageIndex == maxPageIndex && scrollView.contentOffset.x > scrollView.frame.size.width * CGFloat(maxPageIndex) {
-            // 첫 페이지로 스크롤 위치를 조정합니다.
-            scrollView.scrollRectToVisible(CGRect(x: 0, y: 0, width: width, height: scrollView.frame.height), animated: false)
-            // 페이지 컨트롤의 현재 페이지를 업데이트합니다.
-            pageControl.currentPage = 0
-        }
+// MARK: - UICollectionViewDelegateFlowLayout
+extension MovieChartTableViewCell: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // Return the cell size
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        // Set the spacing between rows
+        return 0
+    }
 }
+
+// MARK: - UIScrollViewDelegate
+extension MovieChartTableViewCell: UIScrollViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        // User begins dragging, stop the timer
+        autoScrollTimer?.invalidate()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        // User ends dragging, restart the timer
+        startAutoScroll()
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        // Update page control when user manually scrolls
+        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
+        pageControl.currentPage = Int(pageNumber)
+    }
+
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        // Update page control when automatic scrolling occurs
+        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
+        pageControl.currentPage = Int(pageNumber)
+    }
+}
+
 
