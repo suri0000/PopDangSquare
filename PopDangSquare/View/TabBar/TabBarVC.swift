@@ -12,13 +12,17 @@ class TabBarVC: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let tabBar = self.tabBarController?.tabBar {
-            let appearance = UITabBarAppearance()
-            appearance.configureWithTransparentBackground()
-            tabBar.standardAppearance = appearance
-            if #available(iOS 15.0, *) {
-                tabBar.scrollEdgeAppearance = tabBar.standardAppearance
-            }
+        // 탭바 인스턴스 직접 접근
+        let tabBar = self.tabBar
+        let appearance = UITabBarAppearance()
+        
+        // 하얀색 배경으로 설정
+        appearance.backgroundColor = .white
+        
+        tabBar.standardAppearance = appearance
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = tabBar.standardAppearance
         }
     }
 }
+

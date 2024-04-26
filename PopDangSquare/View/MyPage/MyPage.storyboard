@@ -188,7 +188,7 @@
                             <constraint firstItem="LmP-zx-Mkm" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="tyo-pY-VYF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="마이페이지" image="line.3.horizontal" catalog="system" id="2r9-HH-8Yo"/>
+                    <tabBarItem key="tabBarItem" title="마이페이지" image="person" catalog="system" id="2r9-HH-8Yo"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="logout" destination="OnV-sV-f9T" id="zcj-Vx-Kx9"/>
@@ -214,7 +214,7 @@
     </scenes>
     <resources>
         <image name="eyeglasses" catalog="system" width="128" height="55"/>
-        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
+        <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.fill.badge.plus" catalog="system" width="128" height="126"/>
         <image name="ticket" catalog="system" width="128" height="86"/>
         <systemColor name="opaqueSeparatorColor">

@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,29 +16,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Cnn-1I-3cs">
-                        <rect key="frame" x="0.0" y="16" width="320" height="128"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QCH-bu-ASE">
-                            <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                    </collectionView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U7k-f4-zaW">
+                        <rect key="frame" x="16" y="8" width="288" height="144"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Lz-Qq-ptn">
+                        <rect key="frame" x="205" y="101" width="83" height="35"/>
+                        <color key="backgroundColor" red="0.090196078430000007" green="0.10980392160000001" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="예매하기"/>
+                        <connections>
+                            <action selector="bookButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="XZR-05-qbK"/>
+                        </connections>
+                    </button>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="U7k-f4-zaW" secondAttribute="bottom" constant="8" id="At2-uu-wkT"/>
+                    <constraint firstAttribute="trailing" secondItem="U7k-f4-zaW" secondAttribute="trailing" constant="16" id="SJS-qo-OPB"/>
+                    <constraint firstAttribute="bottom" secondItem="1Lz-Qq-ptn" secondAttribute="bottom" constant="24" id="cD7-cs-Ci1"/>
+                    <constraint firstItem="U7k-f4-zaW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="fE4-FU-CS4"/>
+                    <constraint firstAttribute="trailing" secondItem="1Lz-Qq-ptn" secondAttribute="trailing" constant="32" id="oTD-xV-FcE"/>
+                    <constraint firstItem="U7k-f4-zaW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="q0j-Nh-k1d"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="collectionView" destination="Cnn-1I-3cs" id="IGM-t1-scz"/>
+                <outlet property="bookButton" destination="1Lz-Qq-ptn" id="koE-44-rdM"/>
+                <outlet property="posterImage" destination="U7k-f4-zaW" id="xcO-OL-s78"/>
             </connections>
             <point key="canvasLocation" x="129.7709923664122" y="49.295774647887328"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>
