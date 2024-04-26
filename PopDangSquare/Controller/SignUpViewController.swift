@@ -33,20 +33,52 @@ class SignUpViewController: UIViewController {
   }
   
   func configureTextField() {
-    nameTextField.setTextField(string: "성함을 입력해주세요")
-    emailTextField.setTextField(string: "이메일을 입력해주세요")
-    passwordTextField.setTextField(string: "영문, 숫자 조합 6자리 이상 입력해주세요")
-    verifyPasswordTextField.setTextField(string: "비밀번호를 한 번 더 입력해주세요")
+    nameTextField.setTextField(string: "성함을 입력해 주세요")
+    emailTextField.setTextField(string: "이메일을 입력해 주세요")
+    passwordTextField.setTextField(string: "영문, 숫자 조합 6자리 이상 입력해 주세요")
+    verifyPasswordTextField.setTextField(string: "비밀번호를 한 번 더 입력해 주세요")
   }
   
   @IBAction func signUpButtonTapped(_ sender: Any) {
-    guard let userName = nameTextField.text,
-          let email = emailTextField.text,
-          let password = passwordTextField.text else { return }
+    guard let name = nameTextField.text, name.isEmpty == false else {
+      showAlert(message: "이름을 입력해 주세요")
+      return
+    }
     
-    UserDefaults.standard.set(userName, forKey: "userName")
-    UserDefaults.standard.set(email, forKey: "userID")
-    UserDefaults.standard.set(password, forKey: "userPassword")
+    guard let email = emailTextField.text, email.isEmpty == false else {
+      showAlert(message: "Email을 입력해 주세요")
+      return
+    }
+    
+    guard let password = passwordTextField.text, password.isEmpty == false else {
+      showAlert(message: "비밀번호를 입력해 주세요")
+      return
+    }
+    
+    guard let verifyPassword = verifyPasswordTextField.text, verifyPassword.isEmpty == false else {
+      showAlert(message: "비밀번호 확인을 진행해 주세요")
+      return
+    }
+    
+    UserDefaults.standard.set(name, forKey: UserDefaultsKeys.userName.rawValue)
+    UserDefaults.standard.set(email, forKey: UserDefaultsKeys.userID.rawValue)
+    UserDefaults.standard.set(password, forKey: UserDefaultsKeys.userPassword.rawValue)
+    
+    self.presentingViewController?.dismiss(animated: true)
+  }
+  
+  // 사용자 정보 입력이 안 됐을 때 Alert
+  func showAlert(message: String) {
+    // 현재 뷰 컨트롤러가 윈도우에 추가되었는지 확인
+    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+      if let window = windowScene.windows.first {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        
+        alert.addAction(okAction)
+        window.rootViewController?.present(alert, animated: true)
+      }
+    }
   }
   
   // MARK: - Keyboard 관련 UI 설정

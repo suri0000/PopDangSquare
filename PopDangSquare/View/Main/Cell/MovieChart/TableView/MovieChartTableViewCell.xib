@@ -27,9 +27,8 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="무비차트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNe-oH-cIm">
-                        <rect key="frame" x="7" y="1" width="70" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="무비차트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNe-oH-cIm">
+                        <rect key="frame" x="16" y="5" width="70" height="24"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -37,8 +36,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Gl9-mT-JKE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="EU7-55-TPi"/>
+                    <constraint firstItem="JNe-oH-cIm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="HJn-ES-XRC"/>
                     <constraint firstItem="Gl9-mT-JKE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Msl-bX-qG1"/>
                     <constraint firstAttribute="trailing" secondItem="Gl9-mT-JKE" secondAttribute="trailing" constant="16" id="nRL-Ed-8GK"/>
+                    <constraint firstItem="JNe-oH-cIm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="pwX-eo-XEk"/>
+                    <constraint firstAttribute="trailing" secondItem="JNe-oH-cIm" secondAttribute="trailing" constant="234" id="s6H-mk-zVr"/>
                     <constraint firstAttribute="bottom" secondItem="Gl9-mT-JKE" secondAttribute="bottom" constant="16" id="ujK-rt-FeU"/>
                 </constraints>
             </tableViewCellContentView>
