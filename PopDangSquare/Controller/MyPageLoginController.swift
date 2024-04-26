@@ -153,19 +153,24 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         // 로그인 여부 확인
             let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
             
-            // 로그인되어 있다면 로그아웃 처리
+        // 로그인되어 있다면 로그아웃 처리
             if isLoggedIn {
                 // 로그아웃 처리
                 UserDefaults.standard.set(false, forKey: "isLoggedIn")
                 // 로그아웃 후 화면 갱신
-                viewDidLoad()
+                // 여기에 화면 갱신 코드를 추가하세요.
             } else {
                 // 로그인 페이지로 이동하는 등의 로그인 처리를 수행
                 // 로그인 페이지로 이동
-                let loginVC = LoginViewController()
-                present(loginVC, animated: true, completion: nil)
+                let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
+                guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController else {
+                    return
+                }
+                navigationController?.pushViewController(loginVC, animated: true)
             }
         }
+    
+    
     // MARK: - UserDefaults-myinfo
     @IBAction func myInforMationManageMentButtonTapped(_ sender: UIButton) {
         let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
