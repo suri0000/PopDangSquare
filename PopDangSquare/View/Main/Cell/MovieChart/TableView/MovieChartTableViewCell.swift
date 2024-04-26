@@ -103,6 +103,18 @@ extension MovieChartTableViewCell: UICollectionViewDataSource, UICollectionViewD
         let width = scrollView.frame.width
         let pageIndex = Int(scrollView.contentOffset.x / width)
         pageControl.currentPage = pageIndex
+
+        // 총 페이지 수를 계산합니다.
+        let maxPageIndex = movies.count - 1
+
+        // 만약 현재 페이지가 마지막 페이지이고 사용자가 더 스크롤하려고 하면 첫 페이지로 이동합니다.
+        if pageIndex == maxPageIndex && scrollView.contentOffset.x > scrollView.frame.size.width * CGFloat(maxPageIndex) {
+            // 첫 페이지로 스크롤 위치를 조정합니다.
+            scrollView.scrollRectToVisible(CGRect(x: 0, y: 0, width: width, height: scrollView.frame.height), animated: false)
+            // 페이지 컨트롤의 현재 페이지를 업데이트합니다.
+            pageControl.currentPage = 0
+        }
     }
+
 }
 
