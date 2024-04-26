@@ -47,6 +47,8 @@
 		AB4A13652BD9F2CC00B39808 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A135E2BD9F2CC00B39808 /* SearchResultTableViewCell.swift */; };
 		AB4A13662BD9F2CC00B39808 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4A135F2BD9F2CC00B39808 /* SearchResultTableViewCell.xib */; };
 		AB4A13692BDA017000B39808 /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4A13682BDA017000B39808 /* MainPage.storyboard */; };
+		CCD09FE02BDB2E6F005A63BC /* ReserveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD09FDF2BDB2E6F005A63BC /* ReserveViewController.swift */; };
+		CCD09FE22BDB2ECD005A63BC /* ReserveView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCD09FE12BDB2ECD005A63BC /* ReserveView.storyboard */; };
 		CCD2A2592BD9F5AF0001FEC4 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A2532BD9F5AF0001FEC4 /* DetailView.storyboard */; };
 		CCD2A25A2BD9F5AF0001FEC4 /* DetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A2542BD9F5AF0001FEC4 /* DetailViewCell.xib */; };
 		CCD2A25B2BD9F5AF0001FEC4 /* DetailReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2A2552BD9F5AF0001FEC4 /* DetailReviewCell.swift */; };
@@ -109,6 +111,8 @@
 		AB4A135E2BD9F2CC00B39808 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		AB4A135F2BD9F2CC00B39808 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 		AB4A13682BDA017000B39808 /* MainPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainPage.storyboard; sourceTree = "<group>"; };
+		CCD09FDF2BDB2E6F005A63BC /* ReserveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveViewController.swift; sourceTree = "<group>"; };
+		CCD09FE12BDB2ECD005A63BC /* ReserveView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReserveView.storyboard; sourceTree = "<group>"; };
 		CCD2A2532BD9F5AF0001FEC4 /* DetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		CCD2A2542BD9F5AF0001FEC4 /* DetailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewCell.xib; sourceTree = "<group>"; };
 		CCD2A2552BD9F5AF0001FEC4 /* DetailReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailReviewCell.swift; sourceTree = "<group>"; };
@@ -191,6 +195,7 @@
 				CCD2A25F2BD9F5CC0001FEC4 /* DetailViewController.swift */,
 				544E456F2BD9F192002F2F1E /* MyPageController.swift */,
 				85AC10442BD749B000C00DCF /* LoginViewController.swift */,
+				CCD09FDF2BDB2E6F005A63BC /* ReserveViewController.swift */,
 				85AC10492BD7971300C00DCF /* SignUpViewController.swift */,
 				AB4A13572BD9F2A900B39808 /* SearchPageVC.swift */,
 			);
@@ -200,6 +205,7 @@
 		85AC10412BD6591100C00DCF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CCD09FDE2BDB2D72005A63BC /* Reserve */,
 				AB4A13722BDA08FB00B39808 /* Search */,
 				AB4A136E2BDA083900B39808 /* Login */,
 				AB4A136D2BDA078C00B39808 /* MyPage */,
@@ -412,6 +418,14 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		CCD09FDE2BDB2D72005A63BC /* Reserve */ = {
+			isa = PBXGroup;
+			children = (
+				CCD09FE12BDB2ECD005A63BC /* ReserveView.storyboard */,
+			);
+			path = Reserve;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -470,6 +484,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCD09FE22BDB2ECD005A63BC /* ReserveView.storyboard in Resources */,
 				85AC10352BD64CB100C00DCF /* Assets.xcassets in Resources */,
 				CCD2A2682BDA56410001FEC4 /* DetailHeaderReusableView.xib in Resources */,
 				AB4A13472BD94D7800B39808 /* ComingSoonCellTableViewCell.xib in Resources */,
@@ -533,6 +548,7 @@
 				AB4A13632BD9F2CC00B39808 /* SearchResultCell.swift in Sources */,
 				AB4A13482BD94D7800B39808 /* LogoCellTableViewCell.swift in Sources */,
 				CCD2A2642BD9F5DA0001FEC4 /* DetailData.swift in Sources */,
+				CCD09FE02BDB2E6F005A63BC /* ReserveViewController.swift in Sources */,
 				CCD2A25B2BD9F5AF0001FEC4 /* DetailReviewCell.swift in Sources */,
 				85AC102E2BD64CAF00C00DCF /* SceneDelegate.swift in Sources */,
 				AB4A13562BD94D9400B39808 /* MainPageVC.swift in Sources */,
