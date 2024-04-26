@@ -11,10 +11,9 @@ class ComingSoonCellTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var upcomings: [Upcoming] = [] // 수정됨: 실제 데이터 모델을 사용
     var pageControl: UIPageControl!
-    let dummyImages: [UIImage] = [
-        "heart.fill", "pencil", "trash"
-    ].compactMap { UIImage(systemName: $0) }
+
     override func layoutSubviews() {
         super.layoutSubviews()
         self.backgroundColor = .clear
@@ -41,22 +40,34 @@ class ComingSoonCellTableViewCell: UITableViewCell {
         collectionView.register(UINib(nibName: "ComingSoonCell", bundle: nil), forCellWithReuseIdentifier: "ComingSoonCell")
         
         setupPageControl()
+        fetchUpcomings() // 추가됨: 데이터 불러오기
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
+    // 데이터 불러오기 함수 추가
+    func fetchUpcomings() {
+        UpcomingManager.shared.fetchUpcomings { [weak self] (upcomings, error) in
+            DispatchQueue.main.async {
+                if let upcomings = upcomings {
+                    // 배열에서 최대 5개의 요소만 남깁니다.
+                    let firstFiveUpcomings = Array(upcomings.prefix(5))
+                    self?.upcomings = firstFiveUpcomings
+                    self?.collectionView.reloadData()
+                    self?.pageControl.numberOfPages = firstFiveUpcomings.count
+                } else if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
     
     func setupPageControl() {
         // 좌측 및 상단 마진 설정
-        let leftMargin: CGFloat = -9 // 원하는 좌측 마진 값으로 조정
-        let topMargin: CGFloat = 50  // 원하는 상단 마진 값으로 조정
+        let leftMargin: CGFloat = -9
+        let topMargin: CGFloat = 50
         
         // UIPageControl 인스턴스 생성
         pageControl = UIPageControl()
-        pageControl.numberOfPages = dummyImages.count
+        pageControl.numberOfPages = upcomings.count // 수정됨: 실제 데이터 모델을 사용
         pageControl.currentPage = 0
         pageControl.tintColor = UIColor.red
         pageControl.pageIndicatorTintColor = UIColor.lightGray
@@ -77,30 +88,41 @@ class ComingSoonCellTableViewCell: UITableViewCell {
     
 }
 
-extension ComingSoonCellTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+extension ComingSoonCellTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    // 섹션 당 아이템의 개수를 설정합니다.
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dummyImages.count
+        // upcomings 배열의 길이를 반환하여 실제 데이터의 개수를 반영합니다.
+        return upcomings.count
     }
     
+    // 콜렉션 뷰 셀을 구성합니다.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // "ComingSoonCell" 식별자를 사용하여 셀을 재사용 큐에서 가져옵니다.
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ComingSoonCell", for: indexPath) as? ComingSoonCell else {
             fatalError("Unable to dequeue cell")
         }
         
-        let image = dummyImages[indexPath.item]
-        cell.posterView.image = image
+        // upcomings 배열에서 해당 인덱스의 데이터를 가져와 셀에 반영합니다.
+        let upcoming = upcomings[indexPath.item]
+        cell.configure(with: upcoming) // configure 메서드는 ComingSoonCell에 구현된 메서드라고 가정합니다.
         
         return cell
     }
     
+    // 콜렉션 뷰 셀의 크기를 설정합니다.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 400, height: 400)
+        // 모든 셀이 동일한 크기를 가지도록 설정합니다.
+        return CGSize(width: 360, height: 400)
     }
     
+    // 사용자가 스크롤할 때 호출되는 메서드입니다.
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // 스크롤 위치에 따라 페이지 컨트롤의 현재 페이지를 업데이트합니다.
         let width = scrollView.frame.width
         let pageIndex = Int(scrollView.contentOffset.x / width)
         pageControl.currentPage = pageIndex
     }
     
 }
+
