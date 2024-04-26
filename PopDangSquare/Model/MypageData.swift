@@ -6,6 +6,6 @@ struct MypageData {
 }
 extension MypageData {
     static let mypage : [MypageData] = [
-        MypageData(quickMenuNameLable: "테스트", serviceLable: "테스트" ),
-        MypageData(quickMenuNameLable: "테스트", serviceLable: "테스트" )]
+        MypageData(quickMenuNameLable: "QUICK MENU", serviceLable: "QUICK MENU" ),
+        MypageData(quickMenuNameLable: "QUICK MENU", serviceLable: "QUICK MENU" )]
 }

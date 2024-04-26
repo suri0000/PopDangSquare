@@ -31,7 +31,7 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         quickMenuNameLable.text = MypageData.mypage[0].quickMenuNameLable
         
         // 로그인 여부 확인
-        let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
+        let isLoggedIn = UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
         
         // 배경 이미지 설정
         if isLoggedIn {
@@ -42,7 +42,7 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         // 프로필 이미지 설정
         if isLoggedIn {
             // 로그인된 경우 사용자 지정 이미지 또는 기본 이미지 설정
-            if let profileImagePath = UserDefaults.standard.string(forKey: "profileImagePath") {
+            if let profileImagePath = UserDefaults.standard.string(forKey: UserDefaultsKeys.profileImagePath.rawValue) {
                 profileImage.image = UIImage(named: profileImagePath)
             } else {
                 // 프로필 이미지가 없는 경우 기본 이미지로 설정
@@ -54,7 +54,6 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         }
         
         // 로그인 여부에 따라 버튼 텍스트 설정
-        let LoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
         if isLoggedIn {
             loginLogout.setTitle("로그아웃", for: .normal)
         } else {
@@ -130,7 +129,7 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
                 // 여기서부터 사용자 정보를 가져오는 코드를 작성
                 // 예로, 사용자의 이름, 프로필 이미지 경로 등을 가져옴
                 let profileImagePath = "path_to_profile_image"
-                if let userName = UserDefaults.standard.string(forKey: "userName") {
+                if let userName = UserDefaults.standard.string(forKey: UserDefaultsKeys.userID.rawValue) {
                     // 사용자 이름 설정
                     myPageNameLable.text = userName
                 } else {
@@ -139,8 +138,8 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
                 }
                 
                 // 프로필 이미지 설정
-                if let profileImage = UIImage(named: profileImagePath) {
-                    self.profileImage.image = profileImage
+                if let profileImagePath = UserDefaults.standard.string(forKey: UserDefaultsKeys.profileImagePath.rawValue) {
+                    profileImage.image = UIImage(named: profileImagePath)
                 } else {
                     // 프로필 이미지를 가져오지 못한 경우 기본 이미지 설정
                     self.profileImage.image = UIImage(named: "default_profile_image")
@@ -151,34 +150,34 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
     
     @IBAction func loginLogoutButtonTapped(_ sender: UIButton) {
         // 로그인 여부 확인
-            let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
-            
+        let isLoggedIn = UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
+        
         // 로그인되어 있다면 로그아웃 처리
-            if isLoggedIn {
-                // 로그아웃 처리
-                UserDefaults.standard.set(false, forKey: "isLoggedIn")
-                // 로그아웃 후 화면 갱신
-                // 여기에 화면 갱신 코드를 추가하세요.
-            } else {
-                // 로그인 페이지로 이동하는 등의 로그인 처리를 수행
-                // 로그인 페이지로 이동
-                let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
-                guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController else {
-                    return
-                }
-                navigationController?.pushViewController(loginVC, animated: true)
+        if isLoggedIn {
+            // 로그아웃 처리
+            UserDefaults.standard.set(false, forKey: UserDefaultsKeys.isLoggedIn.rawValue)
+            // 로그아웃 후 화면 갱신
+            // 여기에 화면 갱신 코드를 추가하세요.
+        } else {
+            // 로그인 페이지로 이동하는 등의 로그인 처리를 수행
+            // 로그인 페이지로 이동
+            let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
+            guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController else {
+                return
             }
+            navigationController?.pushViewController(loginVC, animated: true)
         }
+    }
     
     
     // MARK: - UserDefaults-myinfo
     @IBAction func myInforMationManageMentButtonTapped(_ sender: UIButton) {
-        let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
+        let isLoggedIn = UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
         
         // 로그인되어 있는 경우
         if isLoggedIn {
             // MyPageInformationVC로 세그를 수행하도록 코드 추가
-            performSegue(withIdentifier: "YourSegueIdentifier", sender: self)
+            performSegue(withIdentifier: "LoginView", sender: self)
         } else {
             // 로그인이 필요한 알림 표시
             let alert = UIAlertController(title: "로그인 필요", message: "이 기능을 이용하려면 로그인이 필요합니다. 로그인 하시겠습니까?", preferredStyle: .alert)
@@ -195,7 +194,7 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             present(alert, animated: true, completion: nil)
         }
     }
-
+    
     
     // MARK: - UICollectionViewDataSource
     
