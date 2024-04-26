@@ -32,13 +32,11 @@ class ComingSoonCellTableViewCell: UITableViewCell {
         layout.itemSize = CGSize(width: 360, height: 400) // 셀 크기 설정
         layout.minimumLineSpacing = 0 // 셀 간 최소 간격 설정
         collectionView.setCollectionViewLayout(layout, animated: false)
-        
         collectionView.isPagingEnabled = true // 페이징 활성화
-        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "ComingSoonCell", bundle: nil), forCellWithReuseIdentifier: "ComingSoonCell")
-        
+        self.selectionStyle = .none
         setupPageControl()
         fetchUpcomings() // 추가됨: 데이터 불러오기
     }
