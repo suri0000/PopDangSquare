@@ -22,7 +22,6 @@ class LoginViewController: UIViewController {
     passwordTextField.delegate = self
     
     configureTextField()
-    print(UserDefaults.standard.string(forKey: "userPassword"))
   }
   
   // 화면 아무데나 터치하면 키보드 내려가게
@@ -31,8 +30,8 @@ class LoginViewController: UIViewController {
      }
   
   @IBAction func loginButtonTapped(_ sender: Any) {
-    guard let userEmail = UserDefaults.standard.string(forKey: "userID") else { return }
-    guard let userPassword = UserDefaults.standard.string(forKey: "userPassword") else { return }
+    guard let userEmail = UserDefaults.standard.string(forKey: UserDefaultsKeys.userID.rawValue) else { return }
+    guard let userPassword = UserDefaults.standard.string(forKey: UserDefaultsKeys.userPassword.rawValue) else { return }
     
     guard let signUpViewController = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController else { return }
     
@@ -48,6 +47,7 @@ class LoginViewController: UIViewController {
     
     if userEmail == enteredEmail && userPassword == enteredPassword {
       successLogin()
+      UserDefaults.standard.set(isAutoLoginButtonPressed, forKey: UserDefaultsKeys.autoLogin.rawValue)
     } else if userEmail != enteredEmail {
       signUpViewController.showAlert(message: "이메일이 일치하지 않습니다.")
     } else if userPassword != enteredPassword {

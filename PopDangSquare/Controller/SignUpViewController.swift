@@ -60,9 +60,9 @@ class SignUpViewController: UIViewController {
       return
     }
     
-    UserDefaults.standard.set(name, forKey: "userName")
-    UserDefaults.standard.set(email, forKey: "userID")
-    UserDefaults.standard.set(password, forKey: "userPassword")
+    UserDefaults.standard.set(name, forKey: UserDefaultsKeys.userName.rawValue)
+    UserDefaults.standard.set(email, forKey: UserDefaultsKeys.userID.rawValue)
+    UserDefaults.standard.set(password, forKey: UserDefaultsKeys.userPassword.rawValue)
     
     self.presentingViewController?.dismiss(animated: true)
   }
