@@ -17,6 +17,7 @@ class MainPageVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
+        tableView.separatorStyle = .none
         // logoCellTableViewCell register
         tableView.register(UINib(nibName: "LogoCellTableViewCell", bundle: nil), forCellReuseIdentifier: "LogoCellTableViewCell")
         
@@ -28,6 +29,13 @@ class MainPageVC: UIViewController {
         
         // ComingSoonCellTableViewCell register
         tableView.register(UINib(nibName: "ComingSoonCellTableViewCell", bundle: nil), forCellReuseIdentifier: "ComingSoonCellTableViewCell")
+        if let tableView = tableView {
+            tableView.delegate = self
+            tableView.dataSource = self
+        } else {
+            print("tableView가 nil입니다. IBOutlet 연결을 확인하세요.")
+        }
+        tableView.backgroundColor = UIColor.clear
     }
     
 }
@@ -43,11 +51,11 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 150
         case 1:
-            return 280
+            return 260
         case 2:
             return 200
         case 3:
-            return 350
+            return 400
         default:
             return 80
         }
@@ -62,6 +70,16 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell", for: indexPath) as! NowPlayingTableViewCell
             cell.configure()
+            // 클로저 구현
+            cell.onMovieBooked = { [weak self] movie in
+                guard let strongSelf = self else { return }
+                let storyboard = UIStoryboard(name: "DetailView", bundle: nil)
+                if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+                    // show 메소드를 사용하여 화면 전환
+                    strongSelf.show(detailViewController, sender: nil)
+                }
+            }
+
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieChartTableViewCell", for: indexPath) as! MovieChartTableViewCell

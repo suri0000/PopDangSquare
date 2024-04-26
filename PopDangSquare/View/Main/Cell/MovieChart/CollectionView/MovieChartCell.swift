@@ -18,9 +18,26 @@ class MovieChartCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // contentView 모서리 설정
-        chartImage.layer.cornerRadius = 10
-        chartImage.layer.masksToBounds = true
+        setupShadow()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        updateShadowPath()
+    }
+    
+    /// 그림자 설정을 위한 메서드입니다.
+    private func setupShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 4
+        layer.shadowOpacity = 0.5
+        layer.masksToBounds = false
+    }
+    
+    /// 그림자 경로를 셀의 최종 크기에 맞게 업데이트합니다.
+    private func updateShadowPath() {
+        layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
     }
     
     

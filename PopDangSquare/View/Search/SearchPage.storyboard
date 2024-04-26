@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search PageVC-->
+        <!--검색-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="SearchPageVC" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchPage" id="Y6W-OH-hqX" customClass="SearchPageVC" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,6 +53,8 @@
                             <constraint firstItem="fQO-9j-CkM" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="q4u-wf-LHd"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="a22-96-uje"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="detailedResultLabel" destination="iCM-IZ-mVn" id="j9S-R8-6F9"/>
                         <outlet property="searchBar" destination="fQO-9j-CkM" id="n66-PW-zsJ"/>
@@ -66,6 +68,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
