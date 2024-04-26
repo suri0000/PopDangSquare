@@ -16,7 +16,7 @@ class TabBarVC: UITabBarController {
         let tabBar = self.tabBar
         let appearance = UITabBarAppearance()
         
-        // 투명 배경 대신 하얀색 배경으로 설정
+        // 하얀색 배경으로 설정
         appearance.backgroundColor = .white
         
         tabBar.standardAppearance = appearance
