@@ -15,6 +15,7 @@ class MainPageVC: UIViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
     }
     
     private func registerTableViewCells() {

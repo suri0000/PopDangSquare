@@ -41,7 +41,6 @@ class NowPlayingTableViewCell: UITableViewCell {
         self.backgroundColor = UIColor.clear // 셀 배경을 투명하게
         collectionView.backgroundColor = .clear
         collectionView.layer.cornerRadius = 10
-        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "NowPlayingCell", bundle: nil), forCellWithReuseIdentifier: "NowPlayingCell")
