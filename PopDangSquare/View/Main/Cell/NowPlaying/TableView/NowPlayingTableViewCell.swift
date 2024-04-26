@@ -7,10 +7,6 @@
 
 import UIKit
 
-struct Movie {
-    var title: String
-}
-
 class NowPlayingTableViewCell: UITableViewCell {
     
     @IBOutlet var collectionView: UICollectionView!
@@ -18,17 +14,6 @@ class NowPlayingTableViewCell: UITableViewCell {
     var movies = [Movie]()
     // MainPage로 데이터를 전달할 클로저
     var onMovieBooked: ((Movie) -> Void)?
-    
-    func configure() {
-        movies = [
-            Movie(title: "영화 1"),
-            Movie(title: "영화 2"),
-            Movie(title: "영화 3"),
-            Movie(title: "영화 4")
-            // 더 많은 아이템 추가...
-        ]
-        collectionView.reloadData()
-    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -41,7 +26,7 @@ class NowPlayingTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         self.backgroundColor = UIColor.clear // 셀 배경을 투명하게
         collectionView.layer.cornerRadius = 10
-        let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        let _ = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
 //        layout?.itemSize = CGSize(width: 100, height: 100) // 적절한 크기로 조정하세요.
 //        layout?.minimumInteritemSpacing = 10 // 항목 간 최소 간격
 //        layout?.minimumLineSpacing = 10 // 줄 간 최소 간격
