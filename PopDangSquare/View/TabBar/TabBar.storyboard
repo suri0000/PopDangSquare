@@ -29,20 +29,20 @@
         <!--DetailViewController-->
         <scene sceneID="fe5-L7-ugh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kgb-wt-Gth" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardIdentifier="DetailViewController" storyboardName="DetailView" referencedIdentifier="DetailViewController" id="zMa-5i-vEr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="3nz-VQ-SMY"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kgb-wt-Gth" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3096.1832061068703" y="27.464788732394368"/>
         </scene>
         <!--MyPage-->
         <scene sceneID="AIv-tR-hoE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RO3-uE-ffl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="MyPage" referencedIdentifier="MyPage" id="Sfq-u0-JtE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="3oZ-C7-mbN"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RO3-uE-ffl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3403.0534351145038" y="27.464788732394368"/>
         </scene>
@@ -52,6 +52,7 @@
                 <tabBarController storyboardIdentifier="TabBar" automaticallyAdjustsScrollViewInsets="NO" id="Dab-GQ-sNl" customClass="TabBarVC" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EvH-83-WkO">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
