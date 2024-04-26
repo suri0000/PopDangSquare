@@ -605,6 +605,7 @@
         <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="pencil.line" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.fill.badge.plus" catalog="system" width="128" height="126"/>
         <image name="ticket" catalog="system" width="128" height="86"/>
         <systemColor name="opaqueSeparatorColor">
