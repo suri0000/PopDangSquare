@@ -17,16 +17,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 상영중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OP4-Sl-l24">
-                        <rect key="frame" x="16" y="5" width="91" height="24"/>
+                        <rect key="frame" x="16" y="16" width="91" height="24"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gKV-3O-y6B">
-                        <rect key="frame" x="16" y="32" width="288" height="250"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="250" id="vKM-Y1-NYa"/>
-                        </constraints>
+                        <rect key="frame" x="16" y="43" width="288" height="244"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="A3U-lk-QK3">
                             <size key="itemSize" width="150" height="200"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -37,11 +34,12 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="gKV-3O-y6B" secondAttribute="trailing" constant="16" id="00r-zJ-ilb"/>
-                    <constraint firstItem="gKV-3O-y6B" firstAttribute="top" secondItem="OP4-Sl-l24" secondAttribute="bottom" constant="3" id="2Za-P5-1wC"/>
                     <constraint firstItem="gKV-3O-y6B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Q6O-JN-BaO"/>
                     <constraint firstAttribute="trailing" secondItem="OP4-Sl-l24" secondAttribute="trailing" constant="213" id="StL-lz-2LC"/>
                     <constraint firstItem="OP4-Sl-l24" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="UYr-d1-Mve"/>
-                    <constraint firstItem="OP4-Sl-l24" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="bDy-2a-6DJ"/>
+                    <constraint firstItem="OP4-Sl-l24" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="bDy-2a-6DJ"/>
+                    <constraint firstAttribute="bottom" secondItem="gKV-3O-y6B" secondAttribute="bottom" constant="8" id="fiK-LO-tgf"/>
+                    <constraint firstItem="gKV-3O-y6B" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="43" id="xj5-mY-h09"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
