@@ -38,8 +38,6 @@
 		AB4A13502BD94D7800B39808 /* NowPlayingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4A133B2BD94D7800B39808 /* NowPlayingCell.xib */; };
 		AB4A13512BD94D7800B39808 /* NowPlayingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A133D2BD94D7800B39808 /* NowPlayingTableViewCell.swift */; };
 		AB4A13522BD94D7800B39808 /* NowPlayingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4A133E2BD94D7800B39808 /* NowPlayingTableViewCell.xib */; };
-		AB4A13532BD94D7800B39808 /* MainPageableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A13412BD94D7800B39808 /* MainPageableViewCell.swift */; };
-		AB4A13542BD94D7800B39808 /* MainPageableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4A13422BD94D7800B39808 /* MainPageableViewCell.xib */; };
 		AB4A13562BD94D9400B39808 /* MainPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A13552BD94D9400B39808 /* MainPageVC.swift */; };
 		AB4A13582BD9F2A900B39808 /* SearchPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A13572BD9F2A900B39808 /* SearchPageVC.swift */; };
 		AB4A135A2BD9F2B700B39808 /* SearchPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4A13592BD9F2B700B39808 /* SearchPage.storyboard */; };
@@ -94,8 +92,6 @@
 		AB4A133B2BD94D7800B39808 /* NowPlayingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NowPlayingCell.xib; sourceTree = "<group>"; };
 		AB4A133D2BD94D7800B39808 /* NowPlayingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingTableViewCell.swift; sourceTree = "<group>"; };
 		AB4A133E2BD94D7800B39808 /* NowPlayingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NowPlayingTableViewCell.xib; sourceTree = "<group>"; };
-		AB4A13412BD94D7800B39808 /* MainPageableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageableViewCell.swift; sourceTree = "<group>"; };
-		AB4A13422BD94D7800B39808 /* MainPageableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainPageableViewCell.xib; sourceTree = "<group>"; };
 		AB4A13552BD94D9400B39808 /* MainPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageVC.swift; sourceTree = "<group>"; };
 		AB4A13572BD9F2A900B39808 /* SearchPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPageVC.swift; sourceTree = "<group>"; };
 		AB4A13592BD9F2B700B39808 /* SearchPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchPage.storyboard; sourceTree = "<group>"; };
@@ -375,8 +371,6 @@
 		AB4A13702BDA086600B39808 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				AB4A13412BD94D7800B39808 /* MainPageableViewCell.swift */,
-				AB4A13422BD94D7800B39808 /* MainPageableViewCell.xib */,
 				AB4A13402BD94D7800B39808 /* NowPlaying */,
 				AB4A13392BD94D7800B39808 /* MovieChart */,
 				AB4A13322BD94D7800B39808 /* logoCell */,
@@ -471,7 +465,6 @@
 				AB4A13662BD9F2CC00B39808 /* SearchResultTableViewCell.xib in Resources */,
 				AB4A13642BD9F2CC00B39808 /* SearchResultCell.xib in Resources */,
 				AB4A135A2BD9F2B700B39808 /* SearchPage.storyboard in Resources */,
-				AB4A13542BD94D7800B39808 /* MainPageableViewCell.xib in Resources */,
 				AB4A13502BD94D7800B39808 /* NowPlayingCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,7 +489,6 @@
 				CCD2A2662BD9F5DA0001FEC4 /* ReviewData.swift in Sources */,
 				85AC10302BD64CAF00C00DCF /* ViewController.swift in Sources */,
 				AB4A134F2BD94D7800B39808 /* NowPlayingCell.swift in Sources */,
-				AB4A13532BD94D7800B39808 /* MainPageableViewCell.swift in Sources */,
 				AB4A134D2BD94D7800B39808 /* MovieChartTableViewCell.swift in Sources */,
 				AB4A13512BD94D7800B39808 /* NowPlayingTableViewCell.swift in Sources */,
 				AB4A134B2BD94D7800B39808 /* MovieChartCell.swift in Sources */,
