@@ -80,7 +80,7 @@ class ComingSoonCellTableViewCell: UITableViewCell {
             pageControl.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: leftMargin),
             pageControl.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: topMargin),
             pageControl.heightAnchor.constraint(equalToConstant: 20),
-            pageControl.widthAnchor.constraint(equalToConstant: 100) // 필요에 따라 너비 조정
+            pageControl.widthAnchor.constraint(equalToConstant: 170)
         ])
     }
     

@@ -61,7 +61,8 @@ class MovieChartTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             pageControl.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: leftMargin),
             pageControl.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topMargin),
-            pageControl.heightAnchor.constraint(equalToConstant: 20)
+            pageControl.heightAnchor.constraint(equalToConstant: 30),
+            pageControl.widthAnchor.constraint(equalToConstant: 170)
         ])
     }
     
