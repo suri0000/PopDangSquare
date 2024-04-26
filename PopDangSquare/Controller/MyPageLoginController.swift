@@ -6,7 +6,7 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
     
     var myPageData:[MypageData] = MypageData.mypage
     
-    // UI요소들
+    // MARK: - UI 요소
     @IBOutlet weak var reservationDetailsView: UIView!
     @IBOutlet weak var myInfoView: UIView!
     @IBOutlet weak var wishlistView: UIView!
@@ -26,6 +26,9 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var serviceCollview: UICollectionView!
     
     override func viewDidLoad() {
+        // 사용자 정보 가져와서 UI 업데이트
+        updateUIForLoginStatus(UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue))
+        
         super.viewDidLoad()
         // 마이페이지 이름 설정
         quickMenuNameLable.text = MypageData.mypage[0].quickMenuNameLable
@@ -157,7 +160,7 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             // 로그아웃 처리
             UserDefaults.standard.set(false, forKey: UserDefaultsKeys.isLoggedIn.rawValue)
             // 로그아웃 후 화면 갱신
-            // 여기에 화면 갱신 코드를 추가하세요.
+            updateUIForLoginStatus(false)
         } else {
             // 로그인 페이지로 이동하는 등의 로그인 처리를 수행
             // 로그인 페이지로 이동
@@ -169,6 +172,40 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
     
+    // 로그인 상태에 따라 UI 업데이트 함수
+    func updateUIForLoginStatus(_ isLoggedIn: Bool) {
+        if isLoggedIn {
+            // 로그인 상태일 때의 UI 설정
+            myPagebg.image = UIImage(named: "logged_in_background_image")
+            loginLogout.setTitle("로그아웃", for: .normal)
+            // 사용자 정보 업데이트
+            fetchUserInfo()
+        } else {
+            // 로그인 상태가 아닐 때의 UI 설정
+            myPagebg.backgroundColor = UIColor.green
+            loginLogout.setTitle("로그인", for: .normal)
+            // 로그인 상태가 아닐 때의 UI 설정
+            myPageNameLable.text = "손님"
+            profileImage.image = UIImage(systemName: "person.fill")
+        }
+    }
+    // 사용자 정보를 가져오고 UI 업데이트하는 함수
+    func fetchUserInfo() {
+        let isLoggedIn = UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
+        if isLoggedIn {
+            if let userName = UserDefaults.standard.string(forKey: UserDefaultsKeys.userName.rawValue) {
+                myPageNameLable.text = userName
+            }
+            if let profileImagePath = UserDefaults.standard.string(forKey: UserDefaultsKeys.profileImagePath.rawValue) {
+                profileImage.image = UIImage(named: profileImagePath)
+            } else {
+                profileImage.image = UIImage(named: "default_profile_image")
+            }
+        } else {
+            myPageNameLable.text = "손님"
+            profileImage.image = UIImage(systemName: "person.fill")
+        }
+    }
     
     // MARK: - UserDefaults-myinfo
     @IBAction func myInforMationManageMentButtonTapped(_ sender: UIButton) {
