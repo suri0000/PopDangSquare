@@ -39,7 +39,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="홍길동" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-m9-Saz">
-                                <rect key="frame" x="153" y="393" width="87" height="21"/>
+                                <rect key="frame" x="120" y="393" width="153" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -178,12 +178,12 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="hXc-m9-Saz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="153" id="7ce-OO-3ok"/>
+                            <constraint firstItem="hXc-m9-Saz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="120" id="7ce-OO-3ok"/>
                             <constraint firstItem="LmP-zx-Mkm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9Gv-WM-sCc"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OnV-sV-f9T" secondAttribute="trailing" constant="10" id="Aw1-8P-rNQ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="db8-sY-KfP" secondAttribute="trailing" constant="24" id="D7g-iv-feh"/>
                             <constraint firstItem="Ywk-hc-SeM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="100" id="Hh6-1y-SSI"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hXc-m9-Saz" secondAttribute="trailing" constant="153" id="Oqe-dY-MaW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hXc-m9-Saz" secondAttribute="trailing" constant="120" id="Oqe-dY-MaW"/>
                             <constraint firstItem="LmP-zx-Mkm" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="RZE-3h-sKM"/>
                             <constraint firstItem="Ywk-hc-SeM" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="80" id="UPm-oC-Env"/>
                             <constraint firstItem="Kdp-lo-xyI" firstAttribute="top" secondItem="hXc-m9-Saz" secondAttribute="bottom" constant="10" id="UbC-x2-BtI"/>
@@ -500,7 +500,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTm-a6-ugg">
-                                <rect key="frame" x="150" y="627" width="100" height="35"/>
+                                <rect key="frame" x="150" y="627" width="100" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="수정완료"/>
                                 <connections>

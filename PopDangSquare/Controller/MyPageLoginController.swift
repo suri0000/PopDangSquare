@@ -122,32 +122,6 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             
             // 커스텀 셀을 콜렉션 뷰에 등록
             serviceCollview.register(UINib(nibName: "CustomerServiceViewCell", bundle: nil), forCellWithReuseIdentifier: "customerServiceViewCell")
-            
-            // 사용자 정보 가져와서 UI 업데이트
-            fetchUserInfo()
-            
-            // MARK: - UserDefaults 설정해봄
-            // 사용자 정보를 가져와서 UI 업데이트하는 함수
-            func fetchUserInfo() {
-                // 여기서부터 사용자 정보를 가져오는 코드를 작성
-                // 예로, 사용자의 이름, 프로필 이미지 경로 등을 가져옴
-                let profileImagePath = "path_to_profile_image"
-                if let userName = UserDefaults.standard.string(forKey: UserDefaultsKeys.userID.rawValue) {
-                    // 사용자 이름 설정
-                    myPageNameLable.text = userName
-                } else {
-                    // UserDefaults에 사용자 이름이 없는 경우 기본값 사용
-                    myPageNameLable.text = "홍길동"
-                }
-                
-                // 프로필 이미지 설정
-                if let profileImagePath = UserDefaults.standard.string(forKey: UserDefaultsKeys.profileImagePath.rawValue) {
-                    profileImage.image = UIImage(named: profileImagePath)
-                } else {
-                    // 프로필 이미지를 가져오지 못한 경우 기본 이미지 설정
-                    self.profileImage.image = UIImage(named: "default_profile_image")
-                }
-            }
         }
     }
     
@@ -185,11 +159,12 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             myPagebg.backgroundColor = UIColor.green
             loginLogout.setTitle("로그인", for: .normal)
             // 로그인 상태가 아닐 때의 UI 설정
-            myPageNameLable.text = "손님"
-            profileImage.image = UIImage(systemName: "person.fill")
+            myPageNameLable.text = "로그인이 필요합니다."
+            profileImage.image = UIImage(systemName: "xmark.fill")
         }
     }
-    // 사용자 정보를 가져오고 UI 업데이트하는 함수
+    
+    // 사용자 정보를 가져오고 UI를 업데이트하는 함수
     func fetchUserInfo() {
         let isLoggedIn = UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
         if isLoggedIn {
@@ -202,26 +177,35 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
                 profileImage.image = UIImage(named: "default_profile_image")
             }
         } else {
-            myPageNameLable.text = "손님"
+            myPageNameLable.text = "사용자"
             profileImage.image = UIImage(systemName: "person.fill")
         }
     }
     
-    // MARK: - UserDefaults-myinfo
+    // MARK: - 회원정보 수정
     @IBAction func myInforMationManageMentButtonTapped(_ sender: UIButton) {
         let isLoggedIn = UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
         
         // 로그인되어 있는 경우
         if isLoggedIn {
-            // MyPageInformationVC로 세그를 수행하도록 코드 추가
-            performSegue(withIdentifier: "LoginView", sender: self)
+            // 로그인 화면으로 이동
+            let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+            guard let myPageVC = storyboard.instantiateViewController(withIdentifier: "MyPageInformationVC") as? MyPageInformationVC else {
+                return
+            }
+            navigationController?.pushViewController(myPageVC, animated: true)
         } else {
             // 로그인이 필요한 알림 표시
-            let alert = UIAlertController(title: "로그인 필요", message: "이 기능을 이용하려면 로그인이 필요합니다. 로그인 하시겠습니까?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "로그인 필요", message: "내 정보를 이용하시려면 로그인이 필요합니다. 로그인 하시겠습니까?", preferredStyle: .alert)
             let loginAction = UIAlertAction(title: "로그인", style: .default) { _ in
                 // 로그인 화면으로 이동
-                let loginVC = LoginViewController()
-                self.present(loginVC, animated: true, completion: nil)
+                let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
+                guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController else {
+                    return
+                }
+                let navController = UINavigationController(rootViewController: loginVC)
+                navController.modalPresentationStyle = .fullScreen
+                self.present(navController, animated: true, completion: nil)
             }
             let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
             
@@ -231,7 +215,6 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             present(alert, animated: true, completion: nil)
         }
     }
-    
     
     // MARK: - UICollectionViewDataSource
     

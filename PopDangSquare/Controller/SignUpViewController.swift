@@ -90,7 +90,8 @@ class SignUpViewController: UIViewController {
         // 로그인 상태 변경
         NotificationCenter.default.post(name: Notification.Name("UserDidSignUp"), object: nil)
         
-        self.presentingViewController?.dismiss(animated: true)
+        // Navigation Controller에서 이전 화면으로 이동
+            navigationController?.popViewController(animated: true)
     }
     
     // 사용자 정보 입력이 안 됐을 때 Alert
@@ -214,7 +215,7 @@ extension SignUpViewController: UITextFieldDelegate {
     
     // 비밀번호 확인
     func verifyPassword(pwd: String) -> Bool {
-        passwordTextField.text == verifyPasswordTextField.text ? true : false
+        return passwordTextField.text == pwd
     }
     
 }
