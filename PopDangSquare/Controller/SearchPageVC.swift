@@ -9,29 +9,38 @@ import UIKit
 
 class SearchPageVC: UIViewController, UISearchBarDelegate {
     
+    @IBOutlet weak var recommendView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchResult: UILabel!
     @IBOutlet weak var detailedResultLabel: UILabel! // 검색 결과를 보여줄 라벨
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var firstTableView: UITableView!
+    @IBOutlet weak var secondTableView: UITableView!
     
     let dummyData = ["Apple", "Banana", "Snack", "Chocolate", "Ice Cream"] // 더미 데이터 배열
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // 테이블뷰 관련
-        tableView.delegate = self
-        tableView.dataSource = self
+        firstTableView.delegate = self
+        firstTableView.dataSource = self
+        secondTableView.delegate = self
+        secondTableView.dataSource = self
         
+        firstTableView.backgroundColor = .clear
+        firstTableView.separatorStyle = .none
+        
+        secondTableView.backgroundColor = .clear
+        secondTableView.separatorStyle = .none
+        recommendView.backgroundColor = .clear
         // SearchResultTableViewCell register
-        tableView.register(UINib(nibName: "SearchResultTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchResultTableViewCell")
-        
+        firstTableView.register(UINib(nibName: "SearchResultTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchResultTableViewCell")
+        secondTableView.register(UINib(nibName: "RecommendCell", bundle: nil), forCellReuseIdentifier: "RecommendCell")
         // UI디자인 관련 추후 함수로 정리 예정
         searchBar.searchBarStyle = .minimal
         searchBar.searchTextField.backgroundColor = .white
         searchResult.isHidden = true
         detailedResultLabel.isHidden = true // 초기에는 결과 라벨을 숨김
-        tableView.isHidden = true
+        firstTableView.isHidden = true
         searchBar.delegate = self
     }
     
@@ -51,39 +60,58 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
                 // 모든 일치하는 항목을 detailedResultLabel에 표시
                 detailedResultLabel.text = "Matching items: \(matchingItems.joined(separator: ", "))"
                 detailedResultLabel.isHidden = false
-                tableView.isHidden = false // 검색된 결과가 있으므로 tableView를 보이게 함
+                firstTableView.isHidden = false // 검색된 결과가 있으므로 tableView를 보이게 함
             } else {
                 // 검색된 결과가 없을 경우
                 searchResult.text = "죄송합니다. \(searchText)으로 검색된 결과를 찾을 수가 없습니다."
                 detailedResultLabel.isHidden = true
-                tableView.isHidden = true // 검색된 결과가 없으므로 tableView를 숨김
+                firstTableView.isHidden = true // 검색된 결과가 없으므로 tableView를 숨김
             }
         } else {
             searchResult.isHidden = true
             detailedResultLabel.isHidden = true
-            tableView.isHidden = true // 검색어가 비어있으므로 tableView를 숨김
+            firstTableView.isHidden = true // 검색어가 비어있으므로 tableView를 숨김
         }
     }
-
-    
 }
-
 
 extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
     //TableView Section 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if tableView == firstTableView {
+            // 첫 번째 테이블뷰의 로우 개수 반환
+            return 1 // 예를 들어 dummyData 배열의 크기를 반환합니다.
+        }
+        if tableView == secondTableView {
+            // 두 번째 테이블뷰의 로우 개수 반환
+            return 5 // 두 번째 테이블뷰에 표시할 로우의 개수를 반환합니다.
+        }
+        return 0 // 둘 중 어느 것도 아니면 0 반환
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell", for: indexPath) as? SearchResultTableViewCell else {
-            // 셀 타입 캐스팅에 실패한 경우 기본 UITableViewCell 반환
-            return UITableViewCell()
+        if tableView == firstTableView,
+            // 첫 번째 테이블뷰의 셀 구성
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell", for: indexPath) as? SearchResultTableViewCell {
+            return cell
         }
-        
-        return cell
+        if tableView == secondTableView,
+            // 두 번째 테이블뷰의 셀 구성
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RecommendCell", for: indexPath) as? RecommendCell {
+            return cell
+        }
+        return UITableViewCell() // 둘 중 어느 것도 아니면 기본 UITableViewCell 반환
     }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150// 적절한 셀의 높이로 설정하세요.
+        if tableView == firstTableView {
+            return 150 // 첫 번째 테이블뷰의 셀 높이
+        }
+        if tableView == secondTableView {
+            return 150 // 두 번째 테이블뷰의 셀 높이
+        }
+        return 44 // 기본값
     }
+    
 }

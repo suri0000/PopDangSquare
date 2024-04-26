@@ -20,7 +20,7 @@
                         <rect key="frame" x="31" y="9" width="240" height="128"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0YW-aJ-chK">
-                                <rect key="frame" x="8" y="10" width="42" height="21"/>
+                                <rect key="frame" x="8" y="9.9999999999999982" width="42" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -32,23 +32,36 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55e-TY-bEx">
-                                <rect key="frame" x="10" y="54.000000000000007" width="220" height="20.333333333333336"/>
+                                <rect key="frame" x="3" y="45.333333333333336" width="234" height="20.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oiy-l7-CQL">
+                                <rect key="frame" x="172.66666666666666" y="91" width="59.333333333333343" height="26"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="...더보기">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="moreTextTapped2:" destination="gTV-IL-0wX" eventType="touchUpInside" id="VAT-30-1mf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.75294125079999996" green="0.75294119120000003" blue="0.75294119120000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="55e-TY-bEx" secondAttribute="trailing" constant="10" id="0GX-ye-vEu"/>
-                            <constraint firstItem="55e-TY-bEx" firstAttribute="centerY" secondItem="ASX-qJ-NFV" secondAttribute="centerY" id="2F0-0b-yKL"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="55e-TY-bEx" secondAttribute="trailing" constant="3" id="0GX-ye-vEu"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="55e-TY-bEx" secondAttribute="bottom" constant="3" id="46D-v9-YJZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Oiy-l7-CQL" secondAttribute="bottom" constant="11" id="7PB-oT-MEc"/>
+                            <constraint firstItem="55e-TY-bEx" firstAttribute="centerX" secondItem="ASX-qJ-NFV" secondAttribute="centerX" id="8qu-Wb-o6c"/>
                             <constraint firstItem="0YW-aJ-chK" firstAttribute="leading" secondItem="ASX-qJ-NFV" secondAttribute="leading" constant="8" id="EjK-Qn-YLX"/>
                             <constraint firstAttribute="trailing" secondItem="plR-Lz-i23" secondAttribute="trailing" constant="8" id="UAz-qM-k2A"/>
                             <constraint firstItem="plR-Lz-i23" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0YW-aJ-chK" secondAttribute="trailing" constant="10" id="Ydy-VA-kjY"/>
                             <constraint firstItem="plR-Lz-i23" firstAttribute="top" secondItem="ASX-qJ-NFV" secondAttribute="top" constant="10" id="e5z-Ud-6Q4"/>
                             <constraint firstItem="0YW-aJ-chK" firstAttribute="top" secondItem="ASX-qJ-NFV" secondAttribute="top" constant="10" id="gdb-FM-IUJ"/>
-                            <constraint firstItem="55e-TY-bEx" firstAttribute="centerX" secondItem="ASX-qJ-NFV" secondAttribute="centerX" id="mRe-PJ-nWS"/>
-                            <constraint firstItem="55e-TY-bEx" firstAttribute="leading" secondItem="ASX-qJ-NFV" secondAttribute="leading" constant="10" id="vso-Wd-uB8"/>
+                            <constraint firstItem="55e-TY-bEx" firstAttribute="top" secondItem="0YW-aJ-chK" secondAttribute="bottom" constant="15" id="rMh-I0-uXo"/>
+                            <constraint firstItem="55e-TY-bEx" firstAttribute="leading" secondItem="ASX-qJ-NFV" secondAttribute="leading" constant="3" id="vso-Wd-uB8"/>
+                            <constraint firstAttribute="trailing" secondItem="Oiy-l7-CQL" secondAttribute="trailing" constant="8" id="wjq-fn-gJh"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -63,6 +76,7 @@
             <size key="customSize" width="302" height="147"/>
             <connections>
                 <outlet property="detailDateLabel" destination="plR-Lz-i23" id="C4p-fv-DJ2"/>
+                <outlet property="detailMoreTextBtn2" destination="Oiy-l7-CQL" id="rLD-1S-YhL"/>
                 <outlet property="detailReviewLabel" destination="55e-TY-bEx" id="t8J-br-g7W"/>
                 <outlet property="detailReviewView" destination="ASX-qJ-NFV" id="xfg-oj-YN0"/>
                 <outlet property="detailStarsLabel" destination="0YW-aJ-chK" id="K8M-kj-50C"/>
