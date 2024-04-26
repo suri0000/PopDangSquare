@@ -1,23 +1,19 @@
-//
-//  MyPageInformationVC.swift
-//  PopDangSquare
-//
-//  Created by Developer_P on 4/25/24.
-//
-
+// MyPageInformationVC
+// 내정보 수정 (선택사항)
 import Foundation
 import UIKit
 
 class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    // 마이페이지 배경 연결부
+    // MARK: - UI 요소
+    // 마이페이지 배경 연결
     @IBOutlet weak var myPageInfoBackgroundImage: UIImageView!
     @IBOutlet weak var myPageInfoBackgroundButton: UIButton!
     
-    // 마이페이지 프로필 연결부
+    // 마이페이지 프로필 연결
     @IBOutlet weak var myPageInfoPorfileImage: UIImageView!
     @IBOutlet weak var myPageInfoProfileButton: UIButton!
     
-    // 마이페이지 레이블 연결부
+    // 마이페이지 레이블 연결
     @IBOutlet weak var myPageInfoNameLable: UILabel!
     
     @IBOutlet weak var myPageInfoNameModify: UIButton!
@@ -25,13 +21,18 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var myPageInfoEmailModify: UIButton!
     @IBOutlet weak var myPageInfoPasswordModify: UIButton!
     
-    // 마이페이지 수정 완료 연결부
+    // 마이페이지 수정 완료 연결
     @IBOutlet weak var myPageModifyButton: UIButton!
     
+    // MARK: - viewDidLoad Start
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 배경 이미지를 원형으로 만들기
+        configureProfileImage() // #1
+        fetchUserInfo()// #2
+    }
+    // MARK: - viewDidLoad End
+    // #1 배경 이미지를 원형으로 만들기
+    private func configureProfileImage() {
         myPageInfoPorfileImage.layer.cornerRadius = myPageInfoPorfileImage.frame.size.width / 2
         myPageInfoPorfileImage.clipsToBounds = true
         
@@ -44,11 +45,9 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
         myPageInfoPorfileImage.layer.shadowOpacity = 0.5
         myPageInfoPorfileImage.layer.shadowOffset = CGSize(width: 0, height: 2)
         myPageInfoPorfileImage.layer.shadowRadius = 4
-        
-        // 사용자 정보 가져오기
-        fetchUserInfo()
     }
-    // 사용자 정보 가져와서 UI 업데이트하는 함수
+    
+    // #2 사용자 정보 가져와서 UI 업데이트
     func fetchUserInfo() {
         if let userName = UserDefaults.standard.string(forKey: UserDefaultsKeys.userName.rawValue),
            let userID = UserDefaults.standard.string(forKey: UserDefaultsKeys.userID.rawValue),

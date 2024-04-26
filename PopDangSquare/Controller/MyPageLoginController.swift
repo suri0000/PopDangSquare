@@ -4,8 +4,6 @@ import UIKit
 
 class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var myPageData:[MypageData] = MypageData.mypage
-    
     // MARK: - UI 요소
     @IBOutlet weak var reservationDetailsView: UIView!
     @IBOutlet weak var myInfoView: UIView!
@@ -24,14 +22,17 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var quickMenuNameLable: UILabel!
     @IBOutlet weak var serviceLable: UILabel!
     @IBOutlet weak var serviceCollview: UICollectionView!
-    
+    // MARK: - viewDidLoad 시작
     override func viewDidLoad() {
-        // 사용자 정보 가져와서 UI 업데이트
-        updateUIForLoginStatus(UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue))
-        
         super.viewDidLoad()
-        // 마이페이지 이름 설정
-        quickMenuNameLable.text = MypageData.mypage[0].quickMenuNameLable
+        updateUI()
+        configureProfileImage()
+        configureQuickMenu()
+    }
+    // MARK: - 내부사항
+    //#1 사용자 정보 가져와서 UI 업데이트
+    private func updateUI() {
+        updateUIForLoginStatus(UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue))
         
         // 로그인 여부 확인
         let isLoggedIn = UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
@@ -62,19 +63,24 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         } else {
             loginLogout.setTitle("로그인", for: .normal)
         }
-        
-        // 프로필 이미지를 동그랗게 만들기
+    }
+    
+    // #2 프로필 이미지 모양 및 그림자 설정
+    private func configureProfileImage() {
+        // 이미지를 동그랗게 만들기
         profileImage.layer.masksToBounds = true
         profileImage.layer.cornerRadius = profileImage.frame.width / 2
         
         // 그림자 설정
-        profileImage.layer.masksToBounds = false // masksToBounds를 false로 설정하여 이미지의 그림자가 잘 표시되도록 합니다.
-        profileImage.layer.shadowColor = UIColor.black.cgColor // 그림자 색상
-        profileImage.layer.shadowOpacity = 0.5 // 그림자 투명도
-        profileImage.layer.shadowOffset = CGSize(width: 0, height: 2) // 그림자의 위치 및 크기 조절
-        profileImage.layer.shadowRadius = 4 // 그림자의 반경 조절
-        
-        // 퀵메뉴 버튼 모양 변경 및 이미지 설정
+        profileImage.layer.masksToBounds = false
+        profileImage.layer.shadowColor = UIColor.black.cgColor
+        profileImage.layer.shadowOpacity = 0.5
+        profileImage.layer.shadowOffset = CGSize(width: 0, height: 2)
+        profileImage.layer.shadowRadius = 4
+    }
+    
+    // #3 퀵메뉴 버튼 모양 변경 및 이미지 설정
+    private func configureQuickMenu() {
         for button in [myInforMationManageMent, wishHistory, reserVationDetails] {
             button?.layer.masksToBounds = true
             button?.layer.cornerRadius = (button?.frame.width ?? 0) / 2
@@ -124,7 +130,6 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             serviceCollview.register(UINib(nibName: "CustomerServiceViewCell", bundle: nil), forCellWithReuseIdentifier: "customerServiceViewCell")
         }
     }
-    
     @IBAction func loginLogoutButtonTapped(_ sender: UIButton) {
         // 로그인 여부 확인
         let isLoggedIn = UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
