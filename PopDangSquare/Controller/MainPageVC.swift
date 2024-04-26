@@ -1,10 +1,3 @@
-//
-//  MainPageVC.swift
-//  PopDangSquare
-//
-//  Created by 한철희 on 4/23/24.
-//
-
 import UIKit
 
 class MainPageVC: UIViewController {
@@ -13,31 +6,29 @@ class MainPageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 테이블뷰 관련
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.backgroundColor = UIColor.clear
-        tableView.separatorStyle = .none
-        // logoCellTableViewCell register
-        tableView.register(UINib(nibName: "LogoCellTableViewCell", bundle: nil), forCellReuseIdentifier: "LogoCellTableViewCell")
-        
-        // NowPlayingTableViewCell register
-        tableView.register(UINib(nibName: "NowPlayingTableViewCell", bundle: nil), forCellReuseIdentifier: "NowPlayingTableViewCell")
-        
-        // MovieChartTableViewCell register
-        tableView.register(UINib(nibName: "MovieChartTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieChartTableViewCell")
-        
-        // ComingSoonCellTableViewCell register
-        tableView.register(UINib(nibName: "ComingSoonCellTableViewCell", bundle: nil), forCellReuseIdentifier: "ComingSoonCellTableViewCell")
-        if let tableView = tableView {
-            tableView.delegate = self
-            tableView.dataSource = self
-        } else {
-            print("tableView가 nil입니다. IBOutlet 연결을 확인하세요.")
-        }
-        tableView.backgroundColor = UIColor.clear
+        setupTableView()
+        registerTableViewCells()
     }
     
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
+    }
+    
+    private func registerTableViewCells() {
+        let cellIdentifiers = [
+            "LogoCellTableViewCell",
+            "NowPlayingTableViewCell",
+            "MovieChartTableViewCell",
+            "ComingSoonCellTableViewCell"
+        ]
+        
+        cellIdentifiers.forEach { identifier in
+            tableView.register(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
+        }
+    }
 }
 
 extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
@@ -65,21 +56,17 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "LogoCellTableViewCell", for: indexPath) as! LogoCellTableViewCell
-            // 추가적인 셀 설정이 필요할 경우 여기에 코드 추가
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell", for: indexPath) as! NowPlayingTableViewCell
             cell.configure()
-            // 클로저 구현
             cell.onMovieBooked = { [weak self] movie in
                 guard let strongSelf = self else { return }
                 let storyboard = UIStoryboard(name: "DetailView", bundle: nil)
                 if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-                    // show 메소드를 사용하여 화면 전환
                     strongSelf.show(detailViewController, sender: nil)
                 }
             }
-
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieChartTableViewCell", for: indexPath) as! MovieChartTableViewCell
