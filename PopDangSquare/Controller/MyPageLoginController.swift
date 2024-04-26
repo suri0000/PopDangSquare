@@ -166,7 +166,31 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
                 present(loginVC, animated: true, completion: nil)
             }
         }
-    
+    // MARK: - UserDefaults-myinfo
+    @IBAction func myInforMationManageMentButtonTapped(_ sender: UIButton) {
+        let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
+        
+        // 로그인되어 있는 경우
+        if isLoggedIn {
+            // MyPageInformationVC로 세그를 수행하도록 코드 추가
+            performSegue(withIdentifier: "YourSegueIdentifier", sender: self)
+        } else {
+            // 로그인이 필요한 알림 표시
+            let alert = UIAlertController(title: "로그인 필요", message: "이 기능을 이용하려면 로그인이 필요합니다. 로그인 하시겠습니까?", preferredStyle: .alert)
+            let loginAction = UIAlertAction(title: "로그인", style: .default) { _ in
+                // 로그인 화면으로 이동
+                let loginVC = LoginViewController()
+                self.present(loginVC, animated: true, completion: nil)
+            }
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            
+            alert.addAction(loginAction)
+            alert.addAction(cancelAction)
+            
+            present(alert, animated: true, completion: nil)
+        }
+    }
+
     
     // MARK: - UICollectionViewDataSource
     
