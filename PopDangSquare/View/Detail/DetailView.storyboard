@@ -42,7 +42,7 @@
                     <navigationItem key="navigationItem" id="bIi-eU-Cgh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="detailCollView" destination="gBL-50-XlE" id="mzJ-Vu-4GT"/>
+                        <outlet property="detailCollView" destination="gBL-50-XlE" id="Nr0-UH-kVy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
