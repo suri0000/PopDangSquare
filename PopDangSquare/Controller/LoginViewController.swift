@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
     passwordTextField.delegate = self
     
     configureTextField()
+    print(UserDefaults.standard.string(forKey: "userPassword"))
   }
   
   // 화면 아무데나 터치하면 키보드 내려가게
@@ -40,7 +41,7 @@ class LoginViewController: UIViewController {
       return
     }
     
-    guard let enteredPassword = emailTextField.text, enteredPassword.isEmpty == false else {
+    guard let enteredPassword = passwordTextField.text, enteredPassword.isEmpty == false else {
       signUpViewController.showAlert(message: "비밀번호를 입력해 주세요")
       return
     }
@@ -77,7 +78,7 @@ class LoginViewController: UIViewController {
   func successLogin() {
     let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
     
-    guard let myPageLoginController = storyboard.instantiateViewController(withIdentifier: "MyPageLoginController") as? MyPageLoginController else { return }
+    guard let myPageLoginController = storyboard.instantiateViewController(withIdentifier: "MyPage") as? MyPageLoginController else { return }
     
     // 화면 전환 애니메이션 설정
     myPageLoginController.modalTransitionStyle = .crossDissolve
