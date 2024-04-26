@@ -1,5 +1,5 @@
 //
-//  Movie.swift
+//  NowPlaying.swift
 //  PopDangSquare
 //
 //  Created by 한철희 on 4/26/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Movie: Decodable {
+struct NowPlaying: Decodable {
     let originalTitle: String
     let title: String
     let overview: String
@@ -21,4 +21,8 @@ struct Movie: Decodable {
         case posterPath = "poster_path"
         case voteAverage = "vote_average"
     }
+}
+
+struct NowPlayingResponse: Decodable {
+    let results: [NowPlaying]
 }

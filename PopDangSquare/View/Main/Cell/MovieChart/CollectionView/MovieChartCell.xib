@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-Sm-DBn">
-                        <rect key="frame" x="0.0" y="2" width="250" height="140"/>
+                        <rect key="frame" x="0.0" y="29" width="250" height="85"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <imageReference key="image" image="tray.full" catalog="system" symbolScale="default"/>
                     </imageView>
@@ -27,10 +27,10 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Aga-Sm-DBn" secondAttribute="bottom" symbolic="YES" id="9OF-m9-V03"/>
-                <constraint firstAttribute="trailing" secondItem="Aga-Sm-DBn" secondAttribute="trailing" id="f8L-Jy-qck"/>
-                <constraint firstItem="Aga-Sm-DBn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qBa-sX-njb"/>
-                <constraint firstItem="Aga-Sm-DBn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tts-Cg-cVB"/>
+                <constraint firstItem="Aga-Sm-DBn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KFd-00-rJ8"/>
+                <constraint firstItem="Aga-Sm-DBn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="27" id="TSS-En-pgf"/>
+                <constraint firstAttribute="bottom" secondItem="Aga-Sm-DBn" secondAttribute="bottom" constant="28" id="mlj-AP-CD6"/>
+                <constraint firstAttribute="trailing" secondItem="Aga-Sm-DBn" secondAttribute="trailing" id="pWs-co-d0u"/>
             </constraints>
             <size key="customSize" width="250" height="144"/>
             <connections>

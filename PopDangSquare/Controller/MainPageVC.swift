@@ -10,15 +10,9 @@ import UIKit
 class MainPageVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    let movieManager = MovieManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task {
-            let movieManager = MovieManager()
-            await movieManager.fetchMovies()
-        }
-
         // 테이블뷰 관련
         tableView.delegate = self
         tableView.dataSource = self
@@ -75,8 +69,7 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell", for: indexPath) as! NowPlayingTableViewCell
-//            cell.configure()
-
+            cell.configure()
             // 클로저 구현
             cell.onMovieBooked = { [weak self] movie in
                 guard let strongSelf = self else { return }
