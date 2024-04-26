@@ -29,6 +29,13 @@ class MainPageVC: UIViewController {
         
         // ComingSoonCellTableViewCell register
         tableView.register(UINib(nibName: "ComingSoonCellTableViewCell", bundle: nil), forCellReuseIdentifier: "ComingSoonCellTableViewCell")
+        if let tableView = tableView {
+            tableView.delegate = self
+            tableView.dataSource = self
+        } else {
+            print("tableView가 nil입니다. IBOutlet 연결을 확인하세요.")
+        }
+        tableView.backgroundColor = UIColor.clear
     }
     
 }
