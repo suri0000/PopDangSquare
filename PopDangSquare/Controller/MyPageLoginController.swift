@@ -188,12 +188,13 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         
         // 로그인되어 있는 경우
         if isLoggedIn {
-            // 로그인 화면으로 이동
+            // InfoVC로 이동
             let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
-            guard let myPageVC = storyboard.instantiateViewController(withIdentifier: "MyPageInformationVC") as? MyPageInformationVC else {
-                return
+            if let infoVC = storyboard.instantiateViewController(withIdentifier: "InfoVC") as? MyPageInformationVC {
+                navigationController?.pushViewController(infoVC, animated: true)
+            } else {
+                print("Failed to instantiate InfoVC")
             }
-            navigationController?.pushViewController(myPageVC, animated: true)
         } else {
             // 로그인이 필요한 알림 표시
             let alert = UIAlertController(title: "로그인 필요", message: "내 정보를 이용하시려면 로그인이 필요합니다. 로그인 하시겠습니까?", preferredStyle: .alert)

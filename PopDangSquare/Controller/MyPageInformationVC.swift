@@ -48,14 +48,23 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
         // 사용자 정보 가져오기
         fetchUserInfo()
     }
-    
     // 사용자 정보 가져와서 UI 업데이트하는 함수
     func fetchUserInfo() {
-        if let userName = UserDefaults.standard.string(forKey: "userName"),
-           let userEmail = UserDefaults.standard.string(forKey: "userEmail") {
+        if let userName = UserDefaults.standard.string(forKey: UserDefaultsKeys.userName.rawValue),
+           let userID = UserDefaults.standard.string(forKey: UserDefaultsKeys.userID.rawValue),
+           let profileImagePath = UserDefaults.standard.string(forKey: UserDefaultsKeys.profileImagePath.rawValue),
+           let backgroundImagePath = UserDefaults.standard.string(forKey: UserDefaultsKeys.BackgroundImagePath.rawValue) {
             // 사용자 이름 및 이메일 설정
             myPageInfoNameLable.text = userName // 이 부분 수정
-            myPageInfoEmailLable.text = userEmail
+            myPageInfoEmailLable.text = userID // 여기도 수정
+            
+            // 프로필 이미지 및 배경 이미지 설정
+            if let profileImage = UIImage(named: profileImagePath) {
+                myPageInfoPorfileImage.image = profileImage
+            }
+            if let backgroundImage = UIImage(named: backgroundImagePath) {
+                myPageInfoBackgroundImage.image = backgroundImage
+            }
         }
     }
     
@@ -65,25 +74,37 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
+        imagePicker.modalPresentationStyle = .fullScreen // 전체 화면으로 이미지 피커를 표시
         present(imagePicker, animated: true, completion: nil)
-    }
-    
-    // 이미지 선택 완료 시 호출되는 메서드
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let selectedImage = info[.originalImage] as? UIImage {
-            myPageInfoBackgroundImage.image = selectedImage
-        }
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    // 이미지 선택 취소 시 호출되는 메서드
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
     }
     
     // 프로필 이미지 수정하기
     @IBAction func myPageChangeProfileImage(_ sender: UIButton) {
         // 프로필 이미지 변경 로직 구현
+        let profileimagePicker = UIImagePickerController()
+        profileimagePicker.delegate = self
+        profileimagePicker.sourceType = .photoLibrary
+        profileimagePicker.modalPresentationStyle = .fullScreen // 전체 화면으로 이미지 피커를 표시
+        present(profileimagePicker, animated: true, completion: nil)
+    }
+    
+    // 이미지 선택 완료 시 호출되는 메서드
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[.originalImage] as? UIImage {
+            // sender의 태그를 기반으로 선택된 이미지를 적절한 이미지 뷰에 할당
+            if let buttonTag = picker.view?.tag {
+                if buttonTag == 1 {
+                    myPageInfoBackgroundImage.image = selectedImage
+                    // 배경 이미지를 UserDefaults에 저장
+                    UserDefaults.standard.set("BackgroundImagePath", forKey: UserDefaultsKeys.BackgroundImagePath.rawValue)
+                } else if buttonTag == 2 {
+                    myPageInfoPorfileImage.image = selectedImage
+                    // 프로필 이미지를 UserDefaults에 저장
+                    UserDefaults.standard.set("ProfileImagePath", forKey: UserDefaultsKeys.profileImagePath.rawValue)
+                }
+            }
+        }
+        picker.dismiss(animated: true, completion: nil)
     }
     
     // 비밀번호 수정하기
@@ -95,8 +116,8 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
         // 수정된 정보를 UserDefaults에 저장
         if let modifiedName = myPageInfoNameLable.text,
            let modifiedEmail = myPageInfoEmailLable.text {
-            UserDefaults.standard.set(modifiedName, forKey: "userName")
-            UserDefaults.standard.set(modifiedEmail, forKey: "userEmail")
+            UserDefaults.standard.set(modifiedName, forKey: UserDefaultsKeys.userName.rawValue)
+            UserDefaults.standard.set(modifiedEmail, forKey: UserDefaultsKeys.userID.rawValue)
         }
         
         // MyPageLoginController의 인스턴스 가져오기
@@ -118,4 +139,3 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
         present(alert, animated: true, completion: nil)
     }
 }
-
