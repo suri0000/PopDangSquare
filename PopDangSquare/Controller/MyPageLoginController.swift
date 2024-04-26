@@ -19,7 +19,7 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var quickMenuView: UIView!
     @IBOutlet weak var myPageNameLable: UILabel!
     @IBOutlet weak var myPagebg: UIImageView!
-    @IBOutlet weak var logout: UIButton!
+    @IBOutlet weak var loginLogout: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var quickMenuNameLable: UILabel!
     @IBOutlet weak var serviceLable: UILabel!
@@ -29,6 +29,29 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         super.viewDidLoad()
         // 마이페이지 이름 설정
         quickMenuNameLable.text = MypageData.mypage[0].quickMenuNameLable
+        
+        // 로그인 여부 확인
+        let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
+        
+        // 배경 이미지 설정
+        if isLoggedIn {
+            myPagebg.image = UIImage(named: "logged_in_background_image")
+        } else {
+            myPagebg.backgroundColor = UIColor.green // 로그인 안된 경우 초록 배경
+        }
+        // 프로필 이미지 설정
+        if isLoggedIn {
+            // 로그인된 경우 사용자 지정 이미지 또는 기본 이미지 설정
+            if let profileImagePath = UserDefaults.standard.string(forKey: "profileImagePath") {
+                profileImage.image = UIImage(named: profileImagePath)
+            } else {
+                // 프로필 이미지가 없는 경우 기본 이미지로 설정
+                profileImage.image = UIImage(systemName: "person.fill")
+            }
+        } else {
+            // 로그인 안된 경우 기본 이미지로 설정
+            profileImage.image = UIImage(systemName: "person.fill")
+        }
         
         // 프로필 이미지를 동그랗게 만들기
         profileImage.layer.masksToBounds = true
@@ -91,19 +114,21 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             serviceCollview.register(UINib(nibName: "CustomerServiceViewCell", bundle: nil), forCellWithReuseIdentifier: "customerServiceViewCell")
             
             // 사용자 정보 가져와서 UI 업데이트
-                fetchUserInfo()
+            fetchUserInfo()
             
             // MARK: - UserDefaults 설정해봄
             // 사용자 정보를 가져와서 UI 업데이트하는 함수
             func fetchUserInfo() {
                 // 여기서부터 사용자 정보를 가져오는 코드를 작성
                 // 예로, 사용자의 이름, 프로필 이미지 경로 등을 가져옴
-                
-                let userName = "John Doe"
                 let profileImagePath = "path_to_profile_image"
-                
-                // 사용자 이름 설정
-                myPageNameLable.text = userName
+                if let userName = UserDefaults.standard.string(forKey: "userName") {
+                    // 사용자 이름 설정
+                    myPageNameLable.text = userName
+                } else {
+                    // UserDefaults에 사용자 이름이 없는 경우 기본값 사용
+                    myPageNameLable.text = "홍길동"
+                }
                 
                 // 프로필 이미지 설정
                 if let profileImage = UIImage(named: profileImagePath) {

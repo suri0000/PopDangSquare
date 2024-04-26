@@ -24,9 +24,9 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OnV-sV-f9T">
-                                <rect key="frame" x="300" y="113" width="83" height="35"/>
+                                <rect key="frame" x="251" y="113" width="132" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="로그아웃"/>
+                                <buttonConfiguration key="configuration" style="plain" title="로그인/로그아웃"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ywk-hc-SeM">
                                 <rect key="frame" x="100" y="183" width="193" height="200"/>
@@ -35,14 +35,14 @@
                                     <constraint firstAttribute="height" constant="200" id="M9k-9e-u3y"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름 / 닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-m9-Saz">
-                                <rect key="frame" x="153" y="393" width="87" height="20.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="홍길동" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-m9-Saz">
+                                <rect key="frame" x="153" y="393" width="87" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kdp-lo-xyI">
-                                <rect key="frame" x="0.0" y="423.33333333333331" width="393" height="169.99999999999994"/>
+                                <rect key="frame" x="0.0" y="424" width="393" height="170"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QUICK MENU" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlV-VS-ANP" userLabel="Quick Menu Name Lable">
                                         <rect key="frame" x="25" y="15" width="343" height="21"/>
@@ -149,7 +149,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rbM-OQ-tmv">
-                                <rect key="frame" x="10" y="634.33333333333337" width="373" height="160"/>
+                                <rect key="frame" x="10" y="635" width="373" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="E8n-VH-8gn"/>
                                 </constraints>
@@ -162,7 +162,7 @@
                                 <cells/>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="고객센터" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="db8-sY-KfP">
-                                <rect key="frame" x="24" y="603.33333333333337" width="345" height="21"/>
+                                <rect key="frame" x="24" y="604" width="345" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="un7-GZ-6MD"/>
                                 </constraints>
@@ -198,7 +198,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Lic-ab-RVi"/>
                     <connections>
-                        <outlet property="logout" destination="OnV-sV-f9T" id="zcj-Vx-Kx9"/>
+                        <outlet property="loginLogout" destination="OnV-sV-f9T" id="aqS-Go-B5V"/>
                         <outlet property="myInfoView" destination="est-6Z-ELU" id="cQD-OG-OcZ"/>
                         <outlet property="myInforMationManageMent" destination="cd7-uP-G3t" id="uRc-zU-rq4"/>
                         <outlet property="myInforMationManageMentbutton" destination="cd7-uP-G3t" id="RoC-Nx-VMQ"/>
@@ -507,6 +507,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kW3-z9-oXn" firstAttribute="trailing" secondItem="iTm-a6-ugg" secondAttribute="trailing" constant="150" id="0Uk-ZE-BHN"/>
+                            <constraint firstItem="KGK-uz-buE" firstAttribute="top" secondItem="QW2-qL-Yau" secondAttribute="bottom" constant="54" id="2y8-u2-zFJ"/>
                             <constraint firstItem="QW2-qL-Yau" firstAttribute="top" secondItem="VRw-xg-tN8" secondAttribute="bottom" constant="100" id="3p7-hb-df9"/>
                             <constraint firstItem="kW3-z9-oXn" firstAttribute="trailing" secondItem="ZoP-O0-Ao7" secondAttribute="trailing" constant="30" id="4qM-eR-U68"/>
                             <constraint firstItem="kW3-z9-oXn" firstAttribute="trailing" secondItem="1Df-5I-KW9" secondAttribute="trailing" constant="100" id="51h-e3-XdS"/>

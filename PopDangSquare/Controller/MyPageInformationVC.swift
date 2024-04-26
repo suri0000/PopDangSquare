@@ -80,27 +80,6 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    //        let imagePicker = UIImagePickerController()
-    //        imagePicker.delegate = self
-    //        imagePicker.sourceType = .photoLibrary
-    //        present(imagePicker, animated: true, completion: nil)
-    //
-    //        // 이미지 선택 완료 시 호출되는 메서드
-    //        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    //            // 선택한 이미지를 가져와서 배경 이미지뷰에 설정
-    //            if let selectedImage = info[.originalImage] as? UIImage {
-    //                myPageInfoBackgroundImage.image = selectedImage
-    //            }
-    //            // 이미지 선택 알럿 닫기
-    //            picker.dismiss(animated: true, completion: nil)
-    //        }
-    //
-    //        // 이미지 선택 취소 시 호출되는 메서드
-    //        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-    //            // 이미지 선택 알럿 닫기
-    //            picker.dismiss(animated: true, completion: nil)
-    //        }
-    //    }
     
     // 프로필 이미지 수정하기
     @IBAction func myPageChangeProfileImage(_ sender: UIButton) {
