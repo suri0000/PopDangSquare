@@ -44,10 +44,13 @@
 		AB4A13652BD9F2CC00B39808 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4A135E2BD9F2CC00B39808 /* SearchResultTableViewCell.swift */; };
 		AB4A13662BD9F2CC00B39808 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4A135F2BD9F2CC00B39808 /* SearchResultTableViewCell.xib */; };
 		AB4A13692BDA017000B39808 /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4A13682BDA017000B39808 /* MainPage.storyboard */; };
-		ABD0254D2BDAC8CD00DBF952 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD0254B2BDAC8CD00DBF952 /* RecommendCell.swift */; };
-		ABD0254E2BDAC8CD00DBF952 /* RecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD0254C2BDAC8CD00DBF952 /* RecommendCell.xib */; };
 		ABD025472BDA67A100DBF952 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABD025462BDA67A100DBF952 /* TabBar.storyboard */; };
 		ABD025492BDA6B5600DBF952 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD025482BDA6B5600DBF952 /* TabBarVC.swift */; };
+		ABD0254D2BDAC8CD00DBF952 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD0254B2BDAC8CD00DBF952 /* RecommendCell.swift */; };
+		ABD0254E2BDAC8CD00DBF952 /* RecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD0254C2BDAC8CD00DBF952 /* RecommendCell.xib */; };
+		CC3415E72BDBF98600C44A38 /* ReserveViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC3415E62BDBF98600C44A38 /* ReserveViews.storyboard */; };
+		CC3415EA2BDC035900C44A38 /* ReserveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC3415E92BDC035900C44A38 /* ReserveCell.xib */; };
+		CC3415EB2BDC035900C44A38 /* ReserveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3415E82BDC035900C44A38 /* ReserveCell.swift */; };
 		CCD2A2592BD9F5AF0001FEC4 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A2532BD9F5AF0001FEC4 /* DetailView.storyboard */; };
 		CCD2A25A2BD9F5AF0001FEC4 /* DetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A2542BD9F5AF0001FEC4 /* DetailViewCell.xib */; };
 		CCD2A25B2BD9F5AF0001FEC4 /* DetailReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2A2552BD9F5AF0001FEC4 /* DetailReviewCell.swift */; };
@@ -66,7 +69,6 @@
 		CCD2A2782BDAA3340001FEC4 /* DetailActorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A26E2BDA8E430001FEC4 /* DetailActorCell.xib */; };
 		CCD2A2792BDAA34E0001FEC4 /* DetailTrailerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A2722BDA8E620001FEC4 /* DetailTrailerCell.xib */; };
 		CCF1E59F2BDBB98200867ABC /* ReserveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1E59E2BDBB98200867ABC /* ReserveViewController.swift */; };
-		CCF1E5A22BDBB9DE00867ABC /* ReserveView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCF1E5A12BDBB9DE00867ABC /* ReserveView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,10 +111,13 @@
 		AB4A135E2BD9F2CC00B39808 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		AB4A135F2BD9F2CC00B39808 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 		AB4A13682BDA017000B39808 /* MainPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainPage.storyboard; sourceTree = "<group>"; };
-		ABD0254B2BDAC8CD00DBF952 /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
-		ABD0254C2BDAC8CD00DBF952 /* RecommendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendCell.xib; sourceTree = "<group>"; };
 		ABD025462BDA67A100DBF952 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		ABD025482BDA6B5600DBF952 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		ABD0254B2BDAC8CD00DBF952 /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
+		ABD0254C2BDAC8CD00DBF952 /* RecommendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendCell.xib; sourceTree = "<group>"; };
+		CC3415E62BDBF98600C44A38 /* ReserveViews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReserveViews.storyboard; sourceTree = "<group>"; };
+		CC3415E82BDC035900C44A38 /* ReserveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveCell.swift; sourceTree = "<group>"; };
+		CC3415E92BDC035900C44A38 /* ReserveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReserveCell.xib; sourceTree = "<group>"; };
 		CCD2A2532BD9F5AF0001FEC4 /* DetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		CCD2A2542BD9F5AF0001FEC4 /* DetailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewCell.xib; sourceTree = "<group>"; };
 		CCD2A2552BD9F5AF0001FEC4 /* DetailReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailReviewCell.swift; sourceTree = "<group>"; };
@@ -131,7 +136,6 @@
 		CCD2A2712BDA8E620001FEC4 /* DetailTrailerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTrailerCell.swift; sourceTree = "<group>"; };
 		CCD2A2722BDA8E620001FEC4 /* DetailTrailerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTrailerCell.xib; sourceTree = "<group>"; };
 		CCF1E59E2BDBB98200867ABC /* ReserveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveViewController.swift; sourceTree = "<group>"; };
-		CCF1E5A12BDBB9DE00867ABC /* ReserveView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReserveView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,15 +415,6 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		ABD0254A2BDAC8A600DBF952 /* Recommend */ = {
-			isa = PBXGroup;
-			children = (
-				ABD0254B2BDAC8CD00DBF952 /* RecommendCell.swift */,
-				ABD0254C2BDAC8CD00DBF952 /* RecommendCell.xib */,
-			);
-			path = Recommend;
-            sourceTree = "<group>";
-        };
 		ABD025452BDA548B00DBF952 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,10 +424,21 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		ABD0254A2BDAC8A600DBF952 /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				ABD0254B2BDAC8CD00DBF952 /* RecommendCell.swift */,
+				ABD0254C2BDAC8CD00DBF952 /* RecommendCell.xib */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
 		CCF1E5A02BDBB9AE00867ABC /* Reserve */ = {
 			isa = PBXGroup;
 			children = (
-				CCF1E5A12BDBB9DE00867ABC /* ReserveView.storyboard */,
+				CC3415E62BDBF98600C44A38 /* ReserveViews.storyboard */,
+				CC3415E82BDC035900C44A38 /* ReserveCell.swift */,
+				CC3415E92BDC035900C44A38 /* ReserveCell.xib */,
 			);
 			path = Reserve;
 			sourceTree = "<group>";
@@ -495,7 +501,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCF1E5A22BDBB9DE00867ABC /* ReserveView.storyboard in Resources */,
 				85AC10352BD64CB100C00DCF /* Assets.xcassets in Resources */,
 				CCD2A2682BDA56410001FEC4 /* DetailHeaderReusableView.xib in Resources */,
 				AB4A13472BD94D7800B39808 /* ComingSoonCellTableViewCell.xib in Resources */,
@@ -506,6 +511,8 @@
 				AB4A13522BD94D7800B39808 /* NowPlayingTableViewCell.xib in Resources */,
 				AB4A13492BD94D7800B39808 /* LogoCellTableViewCell.xib in Resources */,
 				AB4A13692BDA017000B39808 /* MainPage.storyboard in Resources */,
+				CC3415EA2BDC035900C44A38 /* ReserveCell.xib in Resources */,
+				CC3415E72BDBF98600C44A38 /* ReserveViews.storyboard in Resources */,
 				AB4A134C2BD94D7800B39808 /* MovieChartCell.xib in Resources */,
 				85AC10332BD64CAF00C00DCF /* Base in Resources */,
 				CCD2A25E2BD9F5AF0001FEC4 /* DetailReviewCell.xib in Resources */,
@@ -516,7 +523,6 @@
 				ABD0254E2BDAC8CD00DBF952 /* RecommendCell.xib in Resources */,
 				AB4A13662BD9F2CC00B39808 /* SearchResultTableViewCell.xib in Resources */,
 				CCD2A2782BDAA3340001FEC4 /* DetailActorCell.xib in Resources */,
-				AB4A13642BD9F2CC00B39808 /* SearchResultCell.xib in Resources */,
 				CCD2A2792BDAA34E0001FEC4 /* DetailTrailerCell.xib in Resources */,
 				AB4A135A2BD9F2B700B39808 /* SearchPage.storyboard in Resources */,
 				ABD025472BDA67A100DBF952 /* TabBar.storyboard in Resources */,
@@ -554,6 +560,7 @@
 				CCD2A26A2BDA8B1E0001FEC4 /* ActorData.swift in Sources */,
 				AB4A13462BD94D7800B39808 /* ComingSoonCellTableViewCell.swift in Sources */,
 				85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */,
+				CC3415EB2BDC035900C44A38 /* ReserveCell.swift in Sources */,
 				CCD2A26C2BDA8DC30001FEC4 /* TrailerData.swift in Sources */,
 				CCD2A2752BDAA2F90001FEC4 /* DetailActorCell.swift in Sources */,
 				AB4A13652BD9F2CC00B39808 /* SearchResultTableViewCell.swift in Sources */,
@@ -723,7 +730,7 @@
 				INFOPLIST_FILE = PopDangSquare/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = ReserveViews;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -751,7 +758,7 @@
 				INFOPLIST_FILE = PopDangSquare/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = ReserveViews;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
