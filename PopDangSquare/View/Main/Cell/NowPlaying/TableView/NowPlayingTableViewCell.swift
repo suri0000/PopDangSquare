@@ -55,7 +55,6 @@ class NowPlayingTableViewCell: UITableViewCell, NowPlayingCellDelegate {
     }
 }
 
-// UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout 확장
 extension NowPlayingTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count

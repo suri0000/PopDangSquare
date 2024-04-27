@@ -32,27 +32,13 @@ class MainPageVC: UIViewController {
     }
 }
 
-extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
-    //TableView Section 개수
+extension MainPageVC: UITableViewDataSource {
+    // TableView Section 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
-    //TableView Height 설정
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0:
-            return 150
-        case 1:
-            return 260
-        case 2:
-            return 250
-        case 3:
-            return 400
-        default:
-            return 80
-        }
-    }
-    //TableViewCell 설정
+    
+    // TableViewCell 설정
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
@@ -81,6 +67,25 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
+extension MainPageVC: UITableViewDelegate {
+    // TableView Height 설정
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return 150
+        case 1:
+            return 260
+        case 2:
+            return 250
+        case 3:
+            return 400
+        default:
+            return 80
+        }
+    }
+}
+
 
 extension MainPageVC: NowPlayingTableViewCellDelegate {
     func didTapPosterImageInCell() {
