@@ -17,6 +17,7 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var secondTableView: UITableView!
     
     // Popular 데이터 구조를 저장한 배열
+    // Recommend 셀에서 활용할 데이터
     var movies: [Popular] = []
     
     let dummyData = ["Apple", "Banana", "Snack", "Chocolate", "Ice Cream"] // 더미 데이터 배열
@@ -26,7 +27,28 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
         setupTableView()
         setupSearchBar()
         setupUI()
+        fetchMovies()
     }
+    
+    private func fetchMovies() {
+        PopularManager.shared.fetchMovies { [weak self] (movies, error) in
+            DispatchQueue.main.async {
+                if let movies = movies {
+                    // 영화 목록을 랜덤하게 섞음
+                    var shuffledMovies = movies.shuffled()
+                    // 섞인 목록에서 처음 5개의 영화만 선택
+                    let randomFiveMovies = Array(shuffledMovies.prefix(5))
+                    self?.movies = randomFiveMovies
+                    // TableView 리로드
+                    self?.secondTableView.reloadData()
+                } else if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+
+
     
     private func setupTableView() {
         firstTableView.delegate = self
@@ -111,6 +133,10 @@ extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
         if tableView == secondTableView,
            // 두 번째 테이블뷰의 셀 구성
            let cell = tableView.dequeueReusableCell(withIdentifier: "RecommendCell", for: indexPath) as? RecommendCell {
+            if indexPath.row < movies.count {
+                let movie = movies[indexPath.row]
+                cell.configure(with: movie)
+            }
             return cell
         }
         return UITableViewCell() // 둘 중 어느 것도 아니면 기본 UITableViewCell 반환
