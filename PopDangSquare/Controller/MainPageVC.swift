@@ -89,9 +89,9 @@ extension MainPageVC: UITableViewDelegate {
 
 extension MainPageVC: NowPlayingTableViewCellDelegate {
     func didTapPosterImageInCell() {
-        let storyboard = UIStoryboard(name: "ReserveViews", bundle: nil)
-        if let reserveViewController = storyboard.instantiateViewController(withIdentifier: "ReserveViewController") as? ReserveViewController {
-            self.present(reserveViewController, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "DetailView", bundle: nil)
+        if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+            self.present(detailViewController, animated: true, completion: nil)
         }
     }
 }
