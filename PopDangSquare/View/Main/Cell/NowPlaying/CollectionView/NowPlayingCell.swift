@@ -21,6 +21,7 @@ class NowPlayingCell: UICollectionViewCell {
         super.awakeFromNib()
         setupButtonAppearance()
         setupShadow()
+        setupTapGestureRecognizer()
     }
     
     override func layoutSubviews() {
@@ -68,5 +69,16 @@ class NowPlayingCell: UICollectionViewCell {
     
     private func updateShadowPath() {
         layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
+    }
+    
+    private func setupTapGestureRecognizer() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(moviePosterTapped))
+        moviePosterView.isUserInteractionEnabled = true // 사용자의 상호작용을 가능하게 함
+        moviePosterView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func moviePosterTapped() {
+        // 포스터 탭 이벤트 처리 로직. 예를 들어, 델리게이트를 통해 상위 뷰 컨트롤러에 이벤트 전달
+        print("Movie poster tapped")
     }
 }
