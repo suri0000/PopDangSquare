@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--검색-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="SearchPage" id="Y6W-OH-hqX" customClass="SearchPageVC" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,7 +65,7 @@
                             <constraint firstItem="fQO-9j-CkM" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="q4u-wf-LHd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="magnifyingglass" catalog="system" id="ocf-tp-2dO"/>
+                    <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="ocf-tp-2dO"/>
                     <navigationItem key="navigationItem" id="7hs-Hr-7v4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
