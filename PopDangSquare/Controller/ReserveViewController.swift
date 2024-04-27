@@ -33,6 +33,9 @@ class ReserveViewController: UIViewController {
         
         // 모달이 표시되었는지 여부를 나타내는 변수
         var isModalDisplayed = false
+    
+        // 선택된 영화 정보를 저장할 변수
+        var selectedMovie: NowPlaying?
         
         // 버튼을 누르면 모달을 표시하는 액션
         @IBAction func buttonTapped(_ sender: UIButton) {
@@ -67,6 +70,11 @@ class ReserveViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             
+            // 선택된 영화 정보를 이용하여 포스터 이미지를 설정합니다.
+                    if let selectedMovie = selectedMovie, let posterPath = selectedMovie.posterPath {
+                        // 예매하기 버튼이 눌린 영화의 포스터 이미지를 받아옵니다.
+                        fetchMoviePosterImage(posterPath: posterPath)
+                    }
             configureCollectionView()
         }
         
@@ -87,6 +95,33 @@ class ReserveViewController: UIViewController {
             layout.minimumInteritemSpacing = 10
             layout.minimumLineSpacing = 10
             reserveCollectionView.collectionViewLayout = layout
+        }
+    
+    // 선택된 영화의 포스터 이미지를 받아오는 함수
+        func fetchMoviePosterImage(posterPath: String) {
+            // posterPath를 이용하여 이미지를 받아오는 코드를 구현합니다.
+            // 예시로는 URL을 사용하여 이미지를 받아오는 방법을 보여줍니다.
+            let posterURL = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")!
+            
+            URLSession.shared.dataTask(with: posterURL) { data, response, error in
+                if let error = error {
+                    print("Error fetching movie poster image: \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let data = data else {
+                    print("No data received while fetching movie poster image")
+                    return
+                }
+                
+                // 받아온 데이터를 이용하여 이미지를 생성합니다.
+                if let posterImage = UIImage(data: data) {
+                    // UI 업데이트는 메인 스레드에서 수행합니다.
+                    DispatchQueue.main.async {
+                        self.reservePosterImage.image = posterImage
+                    }
+                }
+            }.resume()
         }
     }
 
