@@ -28,58 +28,98 @@ class ReserveViewController: UIViewController {
     @IBOutlet weak var reserveDateAndTime: UILabel!
     @IBOutlet weak var reserveLocation: UILabel!
 
-    override func viewDidLoad() {
+    // 모달을 표시할 뷰
+        let modalView = UIView()
         
-        reserveCollectionView.delegate = self
-        reserveCollectionView.dataSource = self
+        // 모달이 표시되었는지 여부를 나타내는 변수
+        var isModalDisplayed = false
         
-//        reserveCollectionView.register(UINib(nibName: "ReserveCell", bundle: nil), forCellWithReuseIdentifier: "ReserveCell")
-        reserveCollectionView.register(UINib(nibName: "ReserveCell", bundle: nil), forCellWithReuseIdentifier: ReserveCell.cellId)
+        // 버튼을 누르면 모달을 표시하는 액션
+        @IBAction func buttonTapped(_ sender: UIButton) {
+            if !isModalDisplayed {
+                // 모달이 표시되지 않았으면 모달을 표시합니다.
+                displayModal()
+            }
+        }
         
-        // UICollectionViewFlowLayout을 사용하여 가로로 스크롤되는 레이아웃 설정
-                let layout = UICollectionViewFlowLayout()
-                layout.scrollDirection = .horizontal
-                layout.minimumInteritemSpacing = 10 // 셀 사이의 최소 간격
-                layout.minimumLineSpacing = 10 // 셀 간의 최소 간격
-                reserveCollectionView.collectionViewLayout = layout
-
+        // 모달을 표시하는 함수
+        func displayModal() {
+            // 모달 뷰의 프레임을 설정합니다.
+            modalView.frame = CGRect(x: 0, y: view.frame.height / 2 + view.safeAreaInsets.top, width: view.frame.width, height: view.frame.height / 2)
+            // 모달 뷰의 배경색을 설정합니다.
+            modalView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+            // 모달 뷰를 슈퍼뷰에 추가합니다.
+            view.addSubview(modalView)
+            
+            // 모달이 표시되었음을 표시합니다.
+            isModalDisplayed = true
+        }
         
-        super.viewDidLoad()
+        // 모달을 숨기는 함수
+        func dismissModal() {
+            // 모달 뷰를 슈퍼뷰에서 제거합니다.
+            modalView.removeFromSuperview()
+            
+            // 모달이 숨겨졌음을 표시합니다.
+            isModalDisplayed = false
+        }
         
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            configureCollectionView()
+        }
+        
+        // MARK: - Configure CollectionView
+        
+        func configureCollectionView() {
+            reserveCollectionView.delegate = self
+            reserveCollectionView.dataSource = self
+            
+            reserveCollectionView.register(UINib(nibName: "ReserveCell", bundle: nil), forCellWithReuseIdentifier: ReserveCell.cellId)
+            
+            configureCollectionViewLayout()
+        }
+        
+        func configureCollectionViewLayout() {
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            layout.minimumInteritemSpacing = 10
+            layout.minimumLineSpacing = 10
+            reserveCollectionView.collectionViewLayout = layout
+        }
     }
-}
 
-// MARK: - UICollectionViewDataSource
+    // MARK: - UICollectionViewDataSource
 
-extension ReserveViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    extension ReserveViewController: UICollectionViewDataSource {
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            return 10
+        }
         
-        return 10
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReserveCell.cellId, for: indexPath) as! ReserveCell
+            
+            // Configure cell
+            
+            return cell
+        }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReserveCell.cellId, for: indexPath) as! ReserveCell
+
+    // MARK: - UICollectionViewDelegateFlowLayout
+
+    extension ReserveViewController: UICollectionViewDelegateFlowLayout {
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            return CGSize(width: 113, height: 50)
+        }
         
-        
-        return cell
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+            return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        }
     }
-}
 
-// MARK: - UICollectionViewDelegateFlowLayout
+    // MARK: - UICollectionViewDelegate
 
-extension ReserveViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-       return CGSize(width: 113, height: 50) // 각 셀의 크기를 지정
+    extension ReserveViewController: UICollectionViewDelegate {
+        // UICollectionViewDelegate methods
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        // 셀 사이의 간격을 설정하는 코드
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) // 상하좌우 간격을 10pt로 설정
-    }
-}
-
-// MARK: - UICollectionViewDelegate
-
-extension ReserveViewController: UICollectionViewDelegate {
-    // 여기에 UICollectionViewDelegate 메서드를 추가할 수 있습니다.
-}
