@@ -7,14 +7,7 @@
 
 import UIKit
 
-class SearchPageVC: UIViewController, UISearchBarDelegate, SearchResultCellDelegate {
-    func bookButtonTapped(cell: SearchResultTableViewCell) {
-        let detailViewStoryboard = UIStoryboard(name: "DetailView", bundle: .main)
-        if let detailViewController = detailViewStoryboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-            self.present(detailViewController, animated: true, completion: nil)
-        }
-    }
-    
+class SearchPageVC: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var recommendView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -149,6 +142,7 @@ extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
            let cell = tableView.dequeueReusableCell(withIdentifier: "RecommendCell", for: indexPath) as? RecommendCell {
             let movie = movies[indexPath.row]
             cell.configure(with: movie)
+            cell.delegate = self
             return cell
         }
         return UITableViewCell() // 둘 중 어느 것도 아니면 기본 UITableViewCell 반환
@@ -172,6 +166,20 @@ extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension SearchPageVC: RecommendCellDelegate {
+    func detailButtonTapped(cell: RecommendCell) {
+        let detailViewStoryboard = UIStoryboard(name: "DetailView", bundle: .main)
+        if let detailViewController = detailViewStoryboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+            self.present(detailViewController, animated: true, completion: nil)
+        }
+    }
+}
 
-
-
+extension SearchPageVC: SearchResultCellDelegate {
+    func bookButtonTapped(cell: SearchResultTableViewCell) {
+        let detailViewStoryboard = UIStoryboard(name: "DetailView", bundle: .main)
+        if let detailViewController = detailViewStoryboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+            self.present(detailViewController, animated: true, completion: nil)
+        }
+    }
+}

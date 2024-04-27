@@ -7,12 +7,20 @@
 
 import UIKit
 
+protocol RecommendCellDelegate: AnyObject {
+    func detailButtonTapped(cell: RecommendCell)
+}
+
 class RecommendCell: UITableViewCell {
+    
+    weak var delegate: RecommendCellDelegate?
+    
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var detailButton: UIButton!
     
     @IBAction func detailButtonTapped(_ sender: Any) {
         print("detailButtonTapped")
+        delegate?.detailButtonTapped(cell: self)
     }
     
     override func awakeFromNib() {
