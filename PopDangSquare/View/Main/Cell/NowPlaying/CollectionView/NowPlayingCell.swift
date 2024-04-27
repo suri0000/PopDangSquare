@@ -9,16 +9,14 @@ import UIKit
 
 class NowPlayingCell: UICollectionViewCell {
     
-    // MARK: - Outlets
     @IBOutlet weak var purchaseButton: UIButton!
     @IBOutlet weak var moviePosterView: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var rateLabel: UILabel!
     
-    // MARK: - Properties
+    var movieNowMain: NowPlaying?
     var onPurchaseButtonTapped: (() -> Void)?
     
-    // MARK: - Lifecycle Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         setupButtonAppearance()
@@ -31,14 +29,11 @@ class NowPlayingCell: UICollectionViewCell {
         updateShadowPath()
     }
     
-    // MARK: - Actions
     @IBAction func purchaseBtnTapped(_ sender: Any) {
         print("purchaseButtonTapped")
-        // TODO: 상세 페이지로 연결해야 함
         onPurchaseButtonTapped?()
     }
     
-    // MARK: - Configuration
     func configure(with movie: NowPlaying) {
         movieTitle.text = movie.title
         rateLabel.text = String(format: "%.1f", movie.voteAverage)
@@ -53,20 +48,16 @@ class NowPlayingCell: UICollectionViewCell {
         }
     }
     
-    // MARK: - Setup Methods
-    /// 버튼의 모서리를 설정합니다.
     private func setupButtonAppearance() {
         purchaseButton.layer.cornerRadius = 8
     }
     
-    /// contentView의 모서리를 설정하고 마스킹합니다.
     private func setupContentViewAppearance() {
         contentView.layer.cornerRadius = 10
         self.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
     }
     
-    /// 그림자 설정을 위한 메서드입니다.
     private func setupShadow() {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -75,7 +66,6 @@ class NowPlayingCell: UICollectionViewCell {
         layer.masksToBounds = false
     }
     
-    /// 그림자 경로를 셀의 최종 크기에 맞게 업데이트합니다.
     private func updateShadowPath() {
         layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
     }
