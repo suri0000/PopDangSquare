@@ -28,3 +28,18 @@ extension ReviewData {
         ReviewData(detailStars: "⭐️⭐️⭐️⭐️", detailDate: "200202", detailReview: "ㅇㅇ")
     ]
 }
+
+// Reviews
+struct Review: Codable {
+  let id: Int?
+  let createdAt: String? // 작성날짜
+  let content: String? // 내용
+  let rating: String? // rating 별점
+  
+  enum CodingKeys: String, CodingKey {
+    case id
+    case createdAt = "created_at"
+    case content
+    case rating
+  }
+}
