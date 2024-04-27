@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--검색-->
+        <!--Item-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="SearchPage" id="Y6W-OH-hqX" customClass="SearchPageVC" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="...으로 검색된 결과입니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5d-qY-wuO">
-                                <rect key="frame" x="34" y="180" width="325" height="30"/>
+                                <rect key="frame" x="16" y="155" width="361" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -53,29 +53,22 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCM-IZ-mVn">
-                                <rect key="frame" x="16" y="416" width="264" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.74509803921568629" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="V5d-qY-wuO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="34" id="OaU-ca-gxy"/>
+                            <constraint firstItem="V5d-qY-wuO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="OaU-ca-gxy"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fQO-9j-CkM" secondAttribute="trailing" constant="16" id="RuQ-rV-IGe"/>
                             <constraint firstItem="fQO-9j-CkM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="cc6-Rh-nli"/>
-                            <constraint firstItem="V5d-qY-wuO" firstAttribute="top" secondItem="fQO-9j-CkM" secondAttribute="bottom" constant="65" id="g0k-Iq-xiL"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="V5d-qY-wuO" secondAttribute="trailing" constant="34" id="p3E-XJ-D9H"/>
+                            <constraint firstItem="V5d-qY-wuO" firstAttribute="top" secondItem="fQO-9j-CkM" secondAttribute="bottom" constant="40" id="g0k-Iq-xiL"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="V5d-qY-wuO" secondAttribute="trailing" constant="16" id="p3E-XJ-D9H"/>
                             <constraint firstItem="fQO-9j-CkM" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="q4u-wf-LHd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="a22-96-uje"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="magnifyingglass" catalog="system" id="ocf-tp-2dO"/>
+                    <navigationItem key="navigationItem" id="7hs-Hr-7v4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="detailedResultLabel" destination="iCM-IZ-mVn" id="j9S-R8-6F9"/>
                         <outlet property="firstTableView" destination="Kjo-vt-dIL" id="Ydg-gG-l6I"/>
                         <outlet property="recommendView" destination="U97-JW-v9I" id="Y7A-J2-8cs"/>
                         <outlet property="searchBar" destination="fQO-9j-CkM" id="n66-PW-zsJ"/>
@@ -85,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54.198473282442748" y="-13.380281690140846"/>
+            <point key="canvasLocation" x="980.91603053435108" y="-13.380281690140846"/>
         </scene>
     </scenes>
     <resources>
