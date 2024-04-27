@@ -63,9 +63,9 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
             cell.configure()
             cell.onMovieBooked = { [weak self] movie in
                 guard let strongSelf = self else { return }
-                let storyboard = UIStoryboard(name: "DetailView", bundle: nil)
-                if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-                    strongSelf.show(detailViewController, sender: nil)
+                let storyboard = UIStoryboard(name: "ReserveViews", bundle: nil)
+                if let reserveViewController = storyboard.instantiateViewController(withIdentifier: "ReserveViewController") as? ReserveViewController {
+                    strongSelf.show(reserveViewController, sender: nil)
                 }
             }
             return cell
