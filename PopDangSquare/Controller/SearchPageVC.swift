@@ -16,11 +16,19 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var firstTableView: UITableView!
     @IBOutlet weak var secondTableView: UITableView!
     
+    // Popular 데이터 구조를 저장한 배열
+    var movies: [Popular] = []
+    
     let dummyData = ["Apple", "Banana", "Snack", "Chocolate", "Ice Cream"] // 더미 데이터 배열
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 테이블뷰 관련
+        setupTableView()
+        setupSearchBar()
+        setupUI()
+    }
+    
+    private func setupTableView() {
         firstTableView.delegate = self
         firstTableView.dataSource = self
         secondTableView.delegate = self
@@ -28,20 +36,25 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
         
         firstTableView.backgroundColor = .clear
         firstTableView.separatorStyle = .none
-        
         secondTableView.backgroundColor = .clear
         secondTableView.separatorStyle = .none
-        recommendView.backgroundColor = .clear
-        // SearchResultTableViewCell register
+        
         firstTableView.register(UINib(nibName: "SearchResultTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchResultTableViewCell")
         secondTableView.register(UINib(nibName: "RecommendCell", bundle: nil), forCellReuseIdentifier: "RecommendCell")
-        // UI디자인 관련 추후 함수로 정리 예정
+        
+        firstTableView.isHidden = true
+    }
+    
+    private func setupSearchBar() {
+        searchBar.delegate = self
         searchBar.searchBarStyle = .minimal
         searchBar.searchTextField.backgroundColor = .white
+    }
+    
+    private func setupUI() {
+        recommendView.backgroundColor = .clear
         searchResult.isHidden = true
-        detailedResultLabel.isHidden = true // 초기에는 결과 라벨을 숨김
-        firstTableView.isHidden = true
-        searchBar.delegate = self
+        detailedResultLabel.isHidden = true
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -91,13 +104,13 @@ extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == firstTableView,
-            // 첫 번째 테이블뷰의 셀 구성
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell", for: indexPath) as? SearchResultTableViewCell {
+           // 첫 번째 테이블뷰의 셀 구성
+           let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell", for: indexPath) as? SearchResultTableViewCell {
             return cell
         }
         if tableView == secondTableView,
-            // 두 번째 테이블뷰의 셀 구성
-            let cell = tableView.dequeueReusableCell(withIdentifier: "RecommendCell", for: indexPath) as? RecommendCell {
+           // 두 번째 테이블뷰의 셀 구성
+           let cell = tableView.dequeueReusableCell(withIdentifier: "RecommendCell", for: indexPath) as? RecommendCell {
             return cell
         }
         return UITableViewCell() // 둘 중 어느 것도 아니면 기본 UITableViewCell 반환
