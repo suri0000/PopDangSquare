@@ -60,6 +60,7 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell", for: indexPath) as! NowPlayingTableViewCell
+            cell.delegate = self
             cell.configure()
             cell.onMovieBooked = { [weak self] movie in
                 guard let strongSelf = self else { return }
@@ -77,6 +78,15 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
             return cell
         default:
             return UITableViewCell()
+        }
+    }
+}
+
+extension MainPageVC: NowPlayingTableViewCellDelegate {
+    func didTapPosterImageInCell() {
+        let storyboard = UIStoryboard(name: "ReserveViews", bundle: nil)
+        if let reserveViewController = storyboard.instantiateViewController(withIdentifier: "ReserveViewController") as? ReserveViewController {
+            self.present(reserveViewController, animated: true, completion: nil)
         }
     }
 }

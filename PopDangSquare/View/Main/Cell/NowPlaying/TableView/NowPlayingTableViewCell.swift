@@ -7,8 +7,16 @@
 
 import UIKit
 
-// NowPlayingTableViewCell 클래스 내부
-class NowPlayingTableViewCell: UITableViewCell {
+protocol NowPlayingTableViewCellDelegate: AnyObject {
+    func didTapPosterImageInCell()
+}
+
+class NowPlayingTableViewCell: UITableViewCell, NowPlayingCellDelegate {
+    func didTapPosterImage(in cell: NowPlayingCell) {
+        delegate?.didTapPosterImageInCell()
+    }
+    
+    weak var delegate: NowPlayingTableViewCellDelegate?
     
     @IBOutlet var collectionView: UICollectionView!
     
@@ -57,7 +65,7 @@ extension NowPlayingTableViewCell: UICollectionViewDataSource, UICollectionViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NowPlayingCell", for: indexPath) as! NowPlayingCell
         let movie = movies[indexPath.row]
         cell.configure(with: movie)
-        
+        cell.delegate = self
         cell.onPurchaseButtonTapped = { [weak self] in
             self?.onMovieBooked?(movie)
         }
