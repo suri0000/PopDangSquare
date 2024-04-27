@@ -4,17 +4,22 @@
 //
 //  Created by 한철희 on 4/24/24.
 //
-
 import UIKit
 
-import UIKit
+// 1. Delegate 프로토콜 정의
+protocol SearchResultCellDelegate: AnyObject {
+    func bookButtonDidTap(_ cell: SearchResultTableViewCell)
+}
 
 class SearchResultTableViewCell: UITableViewCell {
+    weak var delegate: SearchResultCellDelegate?
+    
     @IBOutlet weak var bookButton: UIButton!
     @IBOutlet weak var posterImage: UIImageView!
     
     @IBAction func bookButtonTapped(_ sender: Any) {
         print("bookButtonTapped")
+        delegate?.bookButtonDidTap(self)
     }
     
     override func awakeFromNib() {
@@ -42,3 +47,5 @@ class SearchResultTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 }
+
+

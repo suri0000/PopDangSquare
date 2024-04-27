@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchPageVC: UIViewController, UISearchBarDelegate {
+class SearchPageVC: UIViewController, UISearchBarDelegate, SearchResultCellDelegate {
     
     @IBOutlet weak var recommendView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -60,7 +60,7 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
             }
         }
     }
-
+    
     private func setupTableView() {
         firstTableView.delegate = self
         firstTableView.dataSource = self
@@ -90,30 +90,30 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-            searchBar.resignFirstResponder()
-            if let searchText = searchBar.text, !searchText.isEmpty {
-                filteredMovies = searchMovie.filter { movie in
-                    movie.title.localizedCaseInsensitiveContains(searchText) || movie.originalTitle.localizedCaseInsensitiveContains(searchText)
-                }
-                
-                if !filteredMovies.isEmpty {
-                    // 검색된 결과가 있을 경우
-                    searchResult.text = "\"\(searchText)\"(으)로 검색된 결과입니다."
-                    searchResult.isHidden = false
-                    firstTableView.isHidden = false
-                    firstTableView.reloadData()
-                } else {
-                    // 검색된 결과가 없을 경우
-                    searchResult.text = "죄송합니다. \(searchText)으로 검색된 결과를 찾을 수가 없습니다."
-                    searchResult.isHidden = false
-                    firstTableView.isHidden = true
-                }
+        searchBar.resignFirstResponder()
+        if let searchText = searchBar.text, !searchText.isEmpty {
+            filteredMovies = searchMovie.filter { movie in
+                movie.title.localizedCaseInsensitiveContains(searchText) || movie.originalTitle.localizedCaseInsensitiveContains(searchText)
+            }
+            
+            if !filteredMovies.isEmpty {
+                // 검색된 결과가 있을 경우
+                searchResult.text = "\"\(searchText)\"(으)로 검색된 결과입니다."
+                searchResult.isHidden = false
+                firstTableView.isHidden = false
+                firstTableView.reloadData()
             } else {
-                // 검색어가 비어있을 경우
-                searchResult.isHidden = true
+                // 검색된 결과가 없을 경우
+                searchResult.text = "죄송합니다. \(searchText)으로 검색된 결과를 찾을 수가 없습니다."
+                searchResult.isHidden = false
                 firstTableView.isHidden = true
             }
+        } else {
+            // 검색어가 비어있을 경우
+            searchResult.isHidden = true
+            firstTableView.isHidden = true
         }
+    }
 }
 
 extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
@@ -134,6 +134,7 @@ extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell", for: indexPath) as? SearchResultTableViewCell {
             let movie = filteredMovies[indexPath.row]
             cell.configure(with: movie)
+            cell.delegate = self
             return cell
         }
         if tableView == secondTableView,
@@ -145,8 +146,14 @@ extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell() // 둘 중 어느 것도 아니면 기본 UITableViewCell 반환
     }
-    
-    
+    func bookButtonDidTap(_ cell: SearchResultTableViewCell) {
+        // 스토리보드에서 DetailViewController 인스턴스화하기
+        let storyboard = UIStoryboard(name: "DetailView", bundle: nil) // let storyboard = UIStoryboard(name: "Main", bundle: nil) // "Main"은 스토리보드 파일의 이름입니다.
+        if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+            self.present(detailViewController, animated: true, completion: nil)
+        }
+        
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == firstTableView {
             return 160 // 첫 번째 테이블뷰의 셀 높이
@@ -156,5 +163,9 @@ extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
         }
         return 44 // 기본값
     }
-    
 }
+
+
+
+
+
