@@ -7,74 +7,60 @@
 
 import UIKit
 
-struct Movie {
-    var title: String
-}
-
+// NowPlayingTableViewCell 클래스 내부
 class NowPlayingTableViewCell: UITableViewCell {
     
     @IBOutlet var collectionView: UICollectionView!
     
-    var movies = [Movie]()
-    // MainPage로 데이터를 전달할 클로저
-    var onMovieBooked: ((Movie) -> Void)?
+    // NowPlaying 구조체를 사용하는 movies 배열
+    var movies = [NowPlaying]()
+    
+    var onMovieBooked: ((NowPlaying) -> Void)?
     
     func configure() {
-        movies = [
-            Movie(title: "영화 1"),
-            Movie(title: "영화 2"),
-            Movie(title: "영화 3"),
-            Movie(title: "영화 4")
-            // 더 많은 아이템 추가...
-        ]
-        collectionView.reloadData()
+        fetchMovies()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        collectionView.backgroundColor = .clear
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0))
+    func fetchMovies() {
+        NowPlayingManager.shared.fetchMovies { [weak self] (nowPlayings, error) in
+                DispatchQueue.main.async {
+                    if let nowPlayings = nowPlayings {
+                        // 최대 10개의 요소만 선택하여 movies 배열에 할당
+                        self?.movies = Array(nowPlayings.prefix(10))
+                        self?.collectionView.reloadData()
+                    } else if let error = error {
+                        print("Error fetching movies: \(error)")
+                    }
+                }
+            }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
         self.backgroundColor = UIColor.clear // 셀 배경을 투명하게
+        collectionView.backgroundColor = .clear
         collectionView.layer.cornerRadius = 10
-        let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
-//        layout?.itemSize = CGSize(width: 100, height: 100) // 적절한 크기로 조정하세요.
-//        layout?.minimumInteritemSpacing = 10 // 항목 간 최소 간격
-//        layout?.minimumLineSpacing = 10 // 줄 간 최소 간격
-        
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UINib(nibName: "NowPlayingCell", bundle: nil), forCellWithReuseIdentifier : "NowPlayingCell")
+        collectionView.register(UINib(nibName: "NowPlayingCell", bundle: nil), forCellWithReuseIdentifier: "NowPlayingCell")
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
 }
 
-extension NowPlayingTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+// UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout 확장
+extension NowPlayingTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NowPlayingCell", for: indexPath) as! NowPlayingCell
         let movie = movies[indexPath.row]
         cell.configure(with: movie)
         
-        // NowPlayingCell의 클로저 구현
         cell.onPurchaseButtonTapped = { [weak self] in
             self?.onMovieBooked?(movie)
         }
-        
         return cell
     }
     

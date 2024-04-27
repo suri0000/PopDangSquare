@@ -13,7 +13,7 @@ class NowPlayingCell: UICollectionViewCell {
     @IBOutlet weak var purchaseButton: UIButton!
     @IBOutlet weak var moviePosterView: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
-    @IBOutlet weak var runTimeLabel: UILabel!
+    @IBOutlet weak var rateLabel: UILabel!
     
     // MARK: - Properties
     var onPurchaseButtonTapped: (() -> Void)?
@@ -39,8 +39,18 @@ class NowPlayingCell: UICollectionViewCell {
     }
     
     // MARK: - Configuration
-    func configure(with movie: Movie) {
+    func configure(with movie: NowPlaying) {
         movieTitle.text = movie.title
+        rateLabel.text = String(format: "%.1f", movie.voteAverage)
+        if let posterPath = movie.posterPath, let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    DispatchQueue.main.async { [self] in
+                        moviePosterView.image = UIImage(data: data)
+                    }
+                }
+            }.resume()
+        }
     }
     
     // MARK: - Setup Methods
