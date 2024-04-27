@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		544E456C2BD9F10F002F2F1E /* MypageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E456B2BD9F10F002F2F1E /* MypageData.swift */; };
 		544E456E2BD9F171002F2F1E /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 544E456D2BD9F171002F2F1E /* MyPage.storyboard */; };
 		544E45702BD9F192002F2F1E /* MyPageLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E456F2BD9F192002F2F1E /* MyPageLoginController.swift */; };
 		544E45722BD9F1A2002F2F1E /* CustomerServiceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E45712BD9F1A2002F2F1E /* CustomerServiceViewCell.swift */; };
@@ -54,6 +53,7 @@
 		ABD0255E2BDBFC4600DBF952 /* PopularManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD0255D2BDBFC4600DBF952 /* PopularManager.swift */; };
 		ABD025602BDC027700DBF952 /* Upcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD0255F2BDC027700DBF952 /* Upcoming.swift */; };
 		ABD025622BDC02B400DBF952 /* UpcomingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD025612BDC02B400DBF952 /* UpcomingManager.swift */; };
+		ABD025662BDC90C800DBF952 /* MyPageInformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD025652BDC90C700DBF952 /* MyPageInformationVC.swift */; };
 		CCD2A2592BD9F5AF0001FEC4 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A2532BD9F5AF0001FEC4 /* DetailView.storyboard */; };
 		CCD2A25A2BD9F5AF0001FEC4 /* DetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A2542BD9F5AF0001FEC4 /* DetailViewCell.xib */; };
 		CCD2A25B2BD9F5AF0001FEC4 /* DetailReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2A2552BD9F5AF0001FEC4 /* DetailReviewCell.swift */; };
@@ -74,7 +74,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		544E456B2BD9F10F002F2F1E /* MypageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MypageData.swift; sourceTree = "<group>"; };
 		544E456D2BD9F171002F2F1E /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		544E456F2BD9F192002F2F1E /* MyPageLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageLoginController.swift; sourceTree = "<group>"; };
 		544E45712BD9F1A2002F2F1E /* CustomerServiceViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerServiceViewCell.swift; sourceTree = "<group>"; };
@@ -123,6 +122,7 @@
 		ABD0255D2BDBFC4600DBF952 /* PopularManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularManager.swift; sourceTree = "<group>"; };
 		ABD0255F2BDC027700DBF952 /* Upcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upcoming.swift; sourceTree = "<group>"; };
 		ABD025612BDC02B400DBF952 /* UpcomingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingManager.swift; sourceTree = "<group>"; };
+		ABD025652BDC90C700DBF952 /* MyPageInformationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageInformationVC.swift; sourceTree = "<group>"; };
 		CCD2A2532BD9F5AF0001FEC4 /* DetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		CCD2A2542BD9F5AF0001FEC4 /* DetailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewCell.xib; sourceTree = "<group>"; };
 		CCD2A2552BD9F5AF0001FEC4 /* DetailReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailReviewCell.swift; sourceTree = "<group>"; };
@@ -198,7 +198,6 @@
 				CCD2A2632BD9F5DA0001FEC4 /* ReviewData.swift */,
 				CCD2A2692BDA8B1E0001FEC4 /* ActorData.swift */,
 				CCD2A26B2BDA8DC30001FEC4 /* TrailerData.swift */,
-				544E456B2BD9F10F002F2F1E /* MypageData.swift */,
 				85DD94FC2BDB58800051523C /* UserDefaultsKey.swift */,
 			);
 			path = Model;
@@ -210,6 +209,7 @@
 				AB4A13552BD94D9400B39808 /* MainPageVC.swift */,
 				85AC102F2BD64CAF00C00DCF /* ViewController.swift */,
 				CCD2A25F2BD9F5CC0001FEC4 /* DetailViewController.swift */,
+				ABD025652BDC90C700DBF952 /* MyPageInformationVC.swift */,
 				544E456F2BD9F192002F2F1E /* MyPageLoginController.swift */,
 				85AC10442BD749B000C00DCF /* LoginViewController.swift */,
 				85AC10492BD7971300C00DCF /* SignUpViewController.swift */,
@@ -539,8 +539,8 @@
 				CCD2A2772BDAA3140001FEC4 /* DetailViewCell.swift in Sources */,
 				ABD0255E2BDBFC4600DBF952 /* PopularManager.swift in Sources */,
 				544E45702BD9F192002F2F1E /* MyPageLoginController.swift in Sources */,
-				544E456C2BD9F10F002F2F1E /* MypageData.swift in Sources */,
 				85AC104A2BD7971300C00DCF /* SignUpViewController.swift in Sources */,
+				ABD025662BDC90C800DBF952 /* MyPageInformationVC.swift in Sources */,
 				AB4A13582BD9F2A900B39808 /* SearchPageVC.swift in Sources */,
 				85AC10452BD749B000C00DCF /* LoginViewController.swift in Sources */,
 				CCD2A2652BD9F5DA0001FEC4 /* NetworkManager.swift in Sources */,
