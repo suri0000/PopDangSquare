@@ -65,6 +65,7 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
                 guard let strongSelf = self else { return }
                 let storyboard = UIStoryboard(name: "DetailView", bundle: nil)
                 if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+                  detailViewController.movie = movie
                     strongSelf.show(detailViewController, sender: nil)
                 }
             }

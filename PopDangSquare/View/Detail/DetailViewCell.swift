@@ -30,25 +30,17 @@ class DetailViewCell: UICollectionViewCell {
     fetchMovieInfo()
   }
   
-  func configureView() {
-      guard let movieInfo = movieInfo else { return }
-      
-      detailMovieLabel.text = movieInfo.movieName
-      detailMovieENLabel.text = movieInfo.movieNameEnglish
-      
-      if let openDate = movieInfo.openDate {
-        detailDateLabel.text = formatDate(openDate)
-      }
-      
-      let genresName = movieInfo.genres.map { $0.genreNm }.joined(separator: ", ")
-      detailGenreLabel.text = genresName
-    }
+  func configure(_ detailInfo: DetailData) {
+//    detailMovieLabel.text = detailInfo.movieNm
+//            detailMovieENLabel.text = detailInfo.movieNmEn
+//            detailDateLabel.text = detailInfo.prdtYear
+            detailStoryLabel.text = detailInfo.story
+  }
   
   func fetchMovieInfo() {
     networkManager.getMovieInfo { [weak self] (movieInfo, error) in
       DispatchQueue.main.async {
         if let movieInfo = movieInfo {
-          //DetailData.detail.append(movieInfo)
           self?.detailMovieLabel.text = movieInfo.movieName
           self?.detailMovieENLabel.text = movieInfo.movieNameEnglish
           
@@ -59,7 +51,6 @@ class DetailViewCell: UICollectionViewCell {
           let genresName = movieInfo.genres.map { $0.genreNm }.joined(separator: ", ")
           self?.detailGenreLabel.text = genresName
           
-          print(DetailData.detail)
         } else if let error = error {
           print(error.localizedDescription)
         }

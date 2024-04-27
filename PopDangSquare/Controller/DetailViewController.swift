@@ -48,12 +48,26 @@ class DetailViewController: UIViewController {
   
   var datasource: UICollectionViewDiffableDataSource<SectionType, SectionType.ItemType>!
   
+  var movie: NowPlaying?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupCollectionView()
+    fetchMoviePlot()
     setupDataSource()
+    
   }
   
+  func fetchMoviePlot() {
+    guard let movieOverview = movie?.overview else { return }
+    
+    if movieOverview == "" {
+      DetailData.detail[0].story = "줄거리를 제공하지 않습니다. 죄송합니다."
+    } else {
+      DetailData.detail[0].story = movieOverview
+    }
+  }
+
 }
 
 extension DetailViewController {
@@ -80,6 +94,7 @@ extension DetailViewController {
           else {
             return DetailViewCell()
           }
+          cell.configure(detailItem)
           return cell
           
         case .review:
