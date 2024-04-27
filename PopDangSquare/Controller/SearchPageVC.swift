@@ -12,15 +12,15 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var recommendView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchResult: UILabel!
-    @IBOutlet weak var detailedResultLabel: UILabel! // 검색 결과를 보여줄 라벨
     @IBOutlet weak var firstTableView: UITableView!
     @IBOutlet weak var secondTableView: UITableView!
     
-    // Popular 데이터 구조를 저장한 배열
-    // Recommend 셀에서 활용할 데이터
+    // 영화 데이터 구조를 저장한 배열
     var movies: [Popular] = []
+    var searchMovie: [NowPlaying] = []
+    var filteredMovies: [NowPlaying] = []
     
-    let dummyData = ["Apple", "Banana", "Snack", "Chocolate", "Ice Cream"] // 더미 데이터 배열
+    var dummyData = ["Apple", "Banana", "Snack", "Chocolate", "Ice Cream"] // 더미 데이터 배열
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,7 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
         setupSearchBar()
         setupUI()
         fetchMovies()
+        fetchSearchMovies()
     }
     
     private func fetchMovies() {
@@ -47,9 +48,23 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
             }
         }
     }
-
-
     
+    private func fetchSearchMovies() {
+        NowPlayingManager.shared.fetchMovies { [weak self] (movies, error) in
+            DispatchQueue.main.async {
+                if let movies = movies {
+                    self?.searchMovie = movies // 모든 영화 데이터를 배열에 할당
+                    // 영화 제목만 추출하여 dummyData 배열을 업데이트
+//                    self?.dummyData = movies.map { $0.title }
+                    self?.firstTableView.reloadData()
+                    print(movies.count)
+                } else if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+
     private func setupTableView() {
         firstTableView.delegate = self
         firstTableView.dataSource = self
@@ -76,50 +91,46 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
     private func setupUI() {
         recommendView.backgroundColor = .clear
         searchResult.isHidden = true
-        detailedResultLabel.isHidden = true
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        if let searchText = searchBar.text, !searchText.isEmpty {
-            // 검색 결과 초기화
-            searchResult.isHidden = false
-            detailedResultLabel.isHidden = true
-            
-            // 사용자의 입력을 포함하는 모든 항목을 찾음
-            let matchingItems = dummyData.filter { $0.localizedCaseInsensitiveContains(searchText) }
-            
-            if !matchingItems.isEmpty {
-                // 검색된 결과가 있을 경우
-                searchResult.text = "\"\(searchText)\"(으)로 검색된 결과입니다."
-                // 모든 일치하는 항목을 detailedResultLabel에 표시
-                detailedResultLabel.text = "Matching items: \(matchingItems.joined(separator: ", "))"
-                detailedResultLabel.isHidden = false
-                firstTableView.isHidden = false // 검색된 결과가 있으므로 tableView를 보이게 함
+            searchBar.resignFirstResponder()
+            if let searchText = searchBar.text, !searchText.isEmpty {
+                // 검색 결과 초기화
+                filteredMovies = searchMovie.filter { movie in
+                    movie.title.localizedCaseInsensitiveContains(searchText) || movie.originalTitle.localizedCaseInsensitiveContains(searchText)
+                }
+                
+                if !filteredMovies.isEmpty {
+                    // 검색된 결과가 있을 경우
+                    searchResult.text = "\"\(searchText)\"(으)로 검색된 결과입니다."
+                    // 모든 일치하는 항목의 title을 detailedResultLabel에 표시
+                    searchResult.isHidden = false
+                    firstTableView.isHidden = false // 검색된 결과가 있으므로 tableView를 보이게 함
+                    firstTableView.reloadData() // 검색 결과에 따라 TableView를 리로드
+                } else {
+                    // 검색된 결과가 없을 경우
+                    searchResult.text = "죄송합니다. \(searchText)으로 검색된 결과를 찾을 수가 없습니다."
+                    searchResult.isHidden = false
+                    firstTableView.isHidden = true // 검색된 결과가 없으므로 tableView를 숨김
+                }
             } else {
-                // 검색된 결과가 없을 경우
-                searchResult.text = "죄송합니다. \(searchText)으로 검색된 결과를 찾을 수가 없습니다."
-                detailedResultLabel.isHidden = true
-                firstTableView.isHidden = true // 검색된 결과가 없으므로 tableView를 숨김
+                // 검색어가 비어있을 경우
+                searchResult.isHidden = true
+                firstTableView.isHidden = true
             }
-        } else {
-            searchResult.isHidden = true
-            detailedResultLabel.isHidden = true
-            firstTableView.isHidden = true // 검색어가 비어있으므로 tableView를 숨김
         }
-    }
+
 }
 
 extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
     //TableView Section 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == firstTableView {
-            // 첫 번째 테이블뷰의 로우 개수 반환
-            return 1 // 예를 들어 dummyData 배열의 크기를 반환합니다.
+            return filteredMovies.count
         }
         if tableView == secondTableView {
-            // 두 번째 테이블뷰의 로우 개수 반환
-            return 5 // 두 번째 테이블뷰에 표시할 로우의 개수를 반환합니다.
+            return movies.count
         }
         return 0 // 둘 중 어느 것도 아니면 0 반환
     }
@@ -128,15 +139,15 @@ extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
         if tableView == firstTableView,
            // 첫 번째 테이블뷰의 셀 구성
            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell", for: indexPath) as? SearchResultTableViewCell {
+            let movie = filteredMovies[indexPath.row]
+            cell.configure(with: movie)
             return cell
         }
         if tableView == secondTableView,
            // 두 번째 테이블뷰의 셀 구성
            let cell = tableView.dequeueReusableCell(withIdentifier: "RecommendCell", for: indexPath) as? RecommendCell {
-            if indexPath.row < movies.count {
-                let movie = movies[indexPath.row]
-                cell.configure(with: movie)
-            }
+            let movie = movies[indexPath.row]
+            cell.configure(with: movie)
             return cell
         }
         return UITableViewCell() // 둘 중 어느 것도 아니면 기본 UITableViewCell 반환
@@ -145,10 +156,10 @@ extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == firstTableView {
-            return 150 // 첫 번째 테이블뷰의 셀 높이
+            return 160 // 첫 번째 테이블뷰의 셀 높이
         }
         if tableView == secondTableView {
-            return 150 // 두 번째 테이블뷰의 셀 높이
+            return 160 // 두 번째 테이블뷰의 셀 높이
         }
         return 44 // 기본값
     }
