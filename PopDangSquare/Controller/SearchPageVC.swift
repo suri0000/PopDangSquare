@@ -169,9 +169,6 @@ extension SearchPageVC: RecommendCellDelegate {
     func detailButtonTapped(cell: RecommendCell) {
         let detailViewStoryboard = UIStoryboard(name: "DetailView", bundle: .main)
         if let detailViewController = detailViewStoryboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-            // 셀에 저장된 moviePopular를 DetailViewController로 전달
-//            detailViewController.moviePopular = cell.moviePopular
-
             self.present(detailViewController, animated: true, completion: nil)
         }
     }
@@ -182,8 +179,6 @@ extension SearchPageVC: SearchResultCellDelegate {
         let detailViewStoryboard = UIStoryboard(name: "DetailView", bundle: .main)
         // 추후 reserve컨트롤러 연결
         if let detailViewController = detailViewStoryboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-            // 셀에 저장된 movieNow를 reserveViewController로 전달
-//            reserveViewController.moviePopular = cell.movieNow
             self.present(detailViewController, animated: true, completion: nil)
         }
     }
