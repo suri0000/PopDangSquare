@@ -144,7 +144,7 @@ extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
             cell.delegate = self
             return cell
         }
-        return UITableViewCell() // 둘 중 어느 것도 아니면 기본 UITableViewCell 반환
+        return UITableViewCell()
     }
     
     func bookButtonDidTap(_ cell: SearchResultTableViewCell) {
@@ -180,9 +180,10 @@ extension SearchPageVC: RecommendCellDelegate {
 extension SearchPageVC: SearchResultCellDelegate {
     func bookButtonTapped(cell: SearchResultTableViewCell) {
         let detailViewStoryboard = UIStoryboard(name: "DetailView", bundle: .main)
+        // 추후 reserve컨트롤러 연결
         if let detailViewController = detailViewStoryboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-            // 셀에 저장된 movieNow를 DetailViewController로 전달
-//            detailViewController.moviePopular = cell.movieNow
+            // 셀에 저장된 movieNow를 reserveViewController로 전달
+//            reserveViewController.moviePopular = cell.movieNow
             self.present(detailViewController, animated: true, completion: nil)
         }
     }

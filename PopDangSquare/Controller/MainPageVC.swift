@@ -65,8 +65,8 @@ extension MainPageVC: UITableViewDelegate, UITableViewDataSource {
                 guard let strongSelf = self else { return }
                 let storyboard = UIStoryboard(name: "DetailView", bundle: nil)
                 if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-                    // detailViewController에 NowPlayingCell 데이터 전달
-//                    detailViewController.movie = movieNowMain
+                    // reserveViewController에 NowPlayingCell 데이터 전달
+//                    reserve.movie = movieNowMain
                     strongSelf.show(detailViewController, sender: nil)
                 }
             }
