@@ -247,7 +247,7 @@
                             <constraint firstItem="LmP-zx-Mkm" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="tyo-pY-VYF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="마이페이지" image="line.3.horizontal" catalog="system" id="2r9-HH-8Yo"/>
+                    <tabBarItem key="tabBarItem" title="마이페이지" image="person" catalog="system" id="2r9-HH-8Yo"/>
                     <navigationItem key="navigationItem" id="Lic-ab-RVi"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -428,7 +428,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QW2-qL-Yau">
                                 <rect key="frame" x="100" y="233" width="193" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="ZMm-ab-zuV"/>
                                     <constraint firstAttribute="height" constant="200" id="xCr-sW-UeB"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
@@ -446,7 +445,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="홍길동" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGK-uz-buE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGK-uz-buE">
                                 <rect key="frame" x="170" y="487" width="60" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="7ww-mj-ZZ4"/>
@@ -567,6 +566,7 @@
                             <constraint firstItem="DI4-gf-gFf" firstAttribute="top" secondItem="n9i-eH-hW7" secondAttribute="bottom" constant="135" id="6a4-BC-LVd"/>
                             <constraint firstItem="scp-un-d2Z" firstAttribute="leading" secondItem="kW3-z9-oXn" secondAttribute="leading" constant="30" id="706-jM-p0Z"/>
                             <constraint firstItem="1Df-5I-KW9" firstAttribute="leading" secondItem="kW3-z9-oXn" secondAttribute="leading" constant="100" id="8MA-u5-D6a"/>
+                            <constraint firstItem="QW2-qL-Yau" firstAttribute="leading" secondItem="kW3-z9-oXn" secondAttribute="leading" constant="100" id="8qk-F0-P4s"/>
                             <constraint firstItem="1Df-5I-KW9" firstAttribute="top" secondItem="VRw-xg-tN8" secondAttribute="bottom" constant="100" id="9Ip-uE-DyZ"/>
                             <constraint firstItem="KGK-uz-buE" firstAttribute="leading" secondItem="QDc-jh-OAv" secondAttribute="trailing" constant="110" id="9zG-tD-D6m"/>
                             <constraint firstItem="kW3-z9-oXn" firstAttribute="trailing" secondItem="DI4-gf-gFf" secondAttribute="trailing" constant="30" id="AJl-h8-zC4"/>
@@ -588,7 +588,6 @@
                             <constraint firstItem="scp-un-d2Z" firstAttribute="top" secondItem="QDc-jh-OAv" secondAttribute="bottom" constant="10" id="eK6-SJ-cFQ"/>
                             <constraint firstItem="n9i-eH-hW7" firstAttribute="trailing" secondItem="kW3-z9-oXn" secondAttribute="trailing" id="fRa-Se-oTz"/>
                             <constraint firstItem="kW3-z9-oXn" firstAttribute="trailing" secondItem="q3C-x8-0lF" secondAttribute="trailing" constant="314" id="fUS-mG-eCC"/>
-                            <constraint firstItem="QW2-qL-Yau" firstAttribute="leading" secondItem="kW3-z9-oXn" secondAttribute="leading" constant="100" id="fwf-Xw-ZVm"/>
                             <constraint firstItem="QDc-jh-OAv" firstAttribute="leading" secondItem="kW3-z9-oXn" secondAttribute="leading" constant="30" id="gQ2-Ab-SwK"/>
                             <constraint firstItem="oSn-Lt-xjN" firstAttribute="trailing" secondItem="kW3-z9-oXn" secondAttribute="trailing" id="iek-DV-VrL"/>
                             <constraint firstItem="QDc-jh-OAv" firstAttribute="top" secondItem="q3C-x8-0lF" secondAttribute="bottom" constant="10" id="ix9-zX-p6b"/>
@@ -651,8 +650,8 @@
         <image name="exclamationmark.bubble.fill" catalog="system" width="128" height="110"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="greaterthan" catalog="system" width="128" height="108"/>
-        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="pencil.line" catalog="system" width="128" height="117"/>
+        <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -2,7 +2,7 @@
 import Foundation
 import UIKit
 
-class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MyPageInformationDelegate{
     
     // MARK: - UI 요소
     @IBOutlet weak var reservationDetailsView: UIView!
@@ -28,10 +28,23 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         updateUI()
         configureProfileImage()
         configureQuickMenu()
-        //        updateUIForLoginStatus()
+        showMyPageInformationVC()
     }
+    func showMyPageInformationVC() {
+           let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+           guard let myPageInfoVC = storyboard.instantiateViewController(withIdentifier: "InfoVC") as? MyPageInformationVC else {
+               return
+           }
+           
+           myPageInfoVC.delegate = self // 델리게이트 설정
+           navigationController?.pushViewController(myPageInfoVC, animated: true)
+       }
+       
+       // MyPageInformationDelegate 메서드 구현
+       func didUpdateUserInfo(name: String) {
+           myPageNameLable.text = name // 정보 업데이트
+       }
     // MARK: - 내부사항
-    
     // #1. 기본적인 사용자의 정보를 가져옵시다.
     private func updateUI() {
         // 로그아웃 상태를 확인합니다.
@@ -153,15 +166,7 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         let isLoggedIn = UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
         
         // 수정하는 곳으로 이동
-        if isLoggedIn {
-            // 로그인 페이지로 이동
-            let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
-            guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController else {
-                return
-            }
-            navigationController?.pushViewController(loginVC, animated: true)
-            }
-         else {
+        if !isLoggedIn {
             // 로그인이 필요한 알림 표시
             let alert = UIAlertController(title: "로그인 필요", message: "내 정보를 이용하시려면 로그인이 필요합니다. 로그인 하시겠습니까?", preferredStyle: .alert)
             let loginAction = UIAlertAction(title: "로그인", style: .default) { _ in
@@ -184,7 +189,6 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             present(alert, animated: true, completion: nil)
         }
     }
-    
     // MARK: - UICollectionViewDataSource
     
     // 각 CollectionView의 항목 개수 반환
