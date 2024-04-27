@@ -15,6 +15,7 @@ class SearchResultTableViewCell: UITableViewCell {
     @IBOutlet weak var bookButton: UIButton!
     @IBOutlet weak var posterImage: UIImageView!
     
+    var nowPlaying: NowPlaying?
     weak var delegate: SearchResultCellDelegate?
     
     @IBAction func bookButtonTapped(_ sender: Any) {
@@ -31,8 +32,8 @@ class SearchResultTableViewCell: UITableViewCell {
         bookButton.layer.masksToBounds = true
     }
     
-    func configure(with movie: NowPlaying) {
-        if let posterPath = movie.posterPath, let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") {
+    func configure(with movieNow: NowPlaying) {
+        if let posterPath = movieNow.posterPath, let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") {
             URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
                 if let data = data {
                     DispatchQueue.main.async {

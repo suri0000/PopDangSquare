@@ -13,8 +13,6 @@ protocol RecommendCellDelegate: AnyObject {
 
 class RecommendCell: UITableViewCell {
     
-    weak var delegate: RecommendCellDelegate?
-    
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var detailButton: UIButton!
     
@@ -22,6 +20,9 @@ class RecommendCell: UITableViewCell {
         print("detailButtonTapped")
         delegate?.detailButtonTapped(cell: self)
     }
+    
+    var movie: Popular?
+    weak var delegate: RecommendCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,8 +33,9 @@ class RecommendCell: UITableViewCell {
         detailButton.layer.masksToBounds = true
     }
 
-    func configure(with movie: Popular) {
-        if let posterPath = movie.posterPath, let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") {
+    func configure(with moviePopular: Popular) {
+        self.movie = moviePopular
+        if let posterPath = moviePopular.posterPath, let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") {
             URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
                 guard let self = self else { return }
                 
@@ -48,7 +50,6 @@ class RecommendCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
     
 }

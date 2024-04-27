@@ -14,6 +14,7 @@ class NowPlayingCell: UICollectionViewCell {
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var rateLabel: UILabel!
     
+    var movieNowMain: NowPlaying?
     var onPurchaseButtonTapped: (() -> Void)?
     
     override func awakeFromNib() {

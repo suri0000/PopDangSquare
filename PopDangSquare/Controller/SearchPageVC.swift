@@ -34,7 +34,7 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
             DispatchQueue.main.async {
                 if let movies = movies {
                     // 영화 목록을 랜덤하게 섞음
-                    var shuffledMovies = movies.shuffled()
+                    let shuffledMovies = movies.shuffled()
                     // 섞인 목록에서 처음 5개의 영화만 선택
                     let randomFiveMovies = Array(shuffledMovies.prefix(5))
                     self?.movies = randomFiveMovies
@@ -53,7 +53,6 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
                 if let movies = movies {
                     self?.searchMovie = movies
                     self?.firstTableView.reloadData()
-                    print(movies.count)
                 } else if let error = error {
                     print(error.localizedDescription)
                 }
@@ -170,6 +169,9 @@ extension SearchPageVC: RecommendCellDelegate {
     func detailButtonTapped(cell: RecommendCell) {
         let detailViewStoryboard = UIStoryboard(name: "DetailView", bundle: .main)
         if let detailViewController = detailViewStoryboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+            // 셀에 저장된 moviePopular를 DetailViewController로 전달
+//            detailViewController.moviePopular = cell.moviePopular
+
             self.present(detailViewController, animated: true, completion: nil)
         }
     }
@@ -179,6 +181,8 @@ extension SearchPageVC: SearchResultCellDelegate {
     func bookButtonTapped(cell: SearchResultTableViewCell) {
         let detailViewStoryboard = UIStoryboard(name: "DetailView", bundle: .main)
         if let detailViewController = detailViewStoryboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+            // 셀에 저장된 movieNow를 DetailViewController로 전달
+//            detailViewController.moviePopular = cell.movieNow
             self.present(detailViewController, animated: true, completion: nil)
         }
     }
