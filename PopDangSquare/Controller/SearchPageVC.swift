@@ -8,6 +8,13 @@
 import UIKit
 
 class SearchPageVC: UIViewController, UISearchBarDelegate, SearchResultCellDelegate {
+    func bookButtonTapped(cell: SearchResultTableViewCell) {
+        let detailViewStoryboard = UIStoryboard(name: "DetailView", bundle: .main)
+        if let detailViewController = detailViewStoryboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+            self.present(detailViewController, animated: true, completion: nil)
+        }
+    }
+    
     
     @IBOutlet weak var recommendView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -146,14 +153,14 @@ extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell() // 둘 중 어느 것도 아니면 기본 UITableViewCell 반환
     }
+    
     func bookButtonDidTap(_ cell: SearchResultTableViewCell) {
-        // 스토리보드에서 DetailViewController 인스턴스화하기
-        let storyboard = UIStoryboard(name: "DetailView", bundle: nil) // let storyboard = UIStoryboard(name: "Main", bundle: nil) // "Main"은 스토리보드 파일의 이름입니다.
-        if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-            self.present(detailViewController, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "DetailView", bundle: nil) //
+        if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController { //
+            navigationController?.pushViewController(detailViewController, animated: true)
         }
-        
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == firstTableView {
             return 160 // 첫 번째 테이블뷰의 셀 높이
@@ -164,7 +171,6 @@ extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
         return 44 // 기본값
     }
 }
-
 
 
 

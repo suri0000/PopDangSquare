@@ -6,20 +6,20 @@
 //
 import UIKit
 
-// 1. Delegate 프로토콜 정의
 protocol SearchResultCellDelegate: AnyObject {
-    func bookButtonDidTap(_ cell: SearchResultTableViewCell)
+    func bookButtonTapped(cell: SearchResultTableViewCell)
 }
 
 class SearchResultTableViewCell: UITableViewCell {
-    weak var delegate: SearchResultCellDelegate?
     
     @IBOutlet weak var bookButton: UIButton!
     @IBOutlet weak var posterImage: UIImageView!
     
+    weak var delegate: SearchResultCellDelegate?
+    
     @IBAction func bookButtonTapped(_ sender: Any) {
         print("bookButtonTapped")
-        delegate?.bookButtonDidTap(self)
+        delegate?.bookButtonTapped(cell: self)
     }
     
     override func awakeFromNib() {
