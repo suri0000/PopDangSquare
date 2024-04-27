@@ -27,6 +27,7 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
         setupUI()
         fetchMovies()
         fetchSearchMovies()
+        setBackGorundImg()
     }
     
     private func fetchMovies() {
@@ -58,6 +59,13 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
                 }
             }
         }
+    }
+    
+    private func setBackGorundImg() {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "SearchPageBg")
+        backgroundImage.contentMode = .scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
     }
     
     private func setupTableView() {
