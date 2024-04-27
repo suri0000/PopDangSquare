@@ -44,7 +44,7 @@ class ReserveViewController: UIViewController {
                 displayModal()
             }
         }
-        
+    
         // 모달을 표시하는 함수
         func displayModal() {
             // 모달 뷰의 프레임을 설정합니다.

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Reserve View Controller-->
+        <!--예매하기-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="ReserveViewController" id="Y6W-OH-hqX" customClass="ReserveViewController" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReserveViewController" hidesBottomBarWhenPushed="YES" id="Y6W-OH-hqX" customClass="ReserveViewController" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,13 +21,13 @@
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLq-NR-CsP">
-                                <rect key="frame" x="0.0" y="687" width="393" height="32"/>
+                                <rect key="frame" x="0.0" y="687" width="393" height="82"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="haX-NV-EPN">
-                                        <rect key="frame" x="0.0" y="0.0" width="132.66666666666666" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="132.66666666666666" height="82"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWw-xC-oKN">
-                                                <rect key="frame" x="0.0" y="0.0" width="132.66666666666666" height="32"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="132.66666666666666" height="82"/>
                                                 <color key="backgroundColor" red="0.9533130527" green="0.74394315479999995" blue="0.2120856941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
@@ -45,16 +45,19 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Rw-R5-9MA">
-                                        <rect key="frame" x="132.66666666666666" y="0.0" width="260.33333333333337" height="32"/>
+                                        <rect key="frame" x="132.66666666666666" y="0.0" width="260.33333333333337" height="82"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6m-xf-hIV">
-                                                <rect key="frame" x="0.0" y="0.0" width="260.33333333333331" height="32"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="260.33333333333331" height="82"/>
                                                 <color key="backgroundColor" red="0.091979749499999999" green="0.1100719497" blue="0.38009524350000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="예매하기">
                                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5z9-Kn-I6I"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.091979749499999999" green="0.1100719497" blue="0.38009524350000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -169,26 +172,29 @@
                             <constraint firstItem="Z9p-LC-HNG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="rck-60-3Qp"/>
                             <constraint firstItem="1pL-7r-AWV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="sJw-Dz-f0U"/>
                             <constraint firstItem="FLq-NR-CsP" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="628" id="uQN-rq-mBA"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="FLq-NR-CsP" secondAttribute="bottom" constant="50" id="uud-33-HMt"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="FLq-NR-CsP" secondAttribute="bottom" id="uud-33-HMt"/>
                             <constraint firstItem="ysx-cs-YVQ" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="yxD-AP-hwK"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dhU-Dr-hQX" secondAttribute="bottom" constant="258" id="zU4-p7-RDq"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="예매하기" image="movieclapper.fill" catalog="system" id="VF4-Re-Ybh">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="ReserveCancelBTN" destination="XWw-xC-oKN" id="WXj-Mc-sDZ"/>
-                        <outlet property="ReserveCancelView" destination="haX-NV-EPN" id="oAr-T6-DK6"/>
-                        <outlet property="ReserveReserveBTN" destination="d6m-xf-hIV" id="VIa-xd-xtQ"/>
-                        <outlet property="ReserveReserveView" destination="9Rw-R5-9MA" id="S8x-gW-PNi"/>
-                        <outlet property="reserveBackImage" destination="ysx-cs-YVQ" id="6Ny-79-zZa"/>
-                        <outlet property="reserveCollectionView" destination="1pL-7r-AWV" id="eNa-xZ-AkK"/>
-                        <outlet property="reserveDateAndTime" destination="j6N-GM-7Tk" id="iaL-g7-Cf9"/>
-                        <outlet property="reserveLocation" destination="ZO1-jz-8H5" id="PL2-F6-A2f"/>
-                        <outlet property="reserveMovieName" destination="CJu-Bu-Gal" id="Ubv-TZ-2qH"/>
-                        <outlet property="reservePosterImage" destination="4oD-Fn-woO" id="mrz-mK-Cvf"/>
-                        <outlet property="reserveStackView" destination="FLq-NR-CsP" id="1hg-lk-uj5"/>
-                        <outlet property="reserveTextLabel" destination="dhU-Dr-hQX" id="nqJ-6b-zhL"/>
-                        <outlet property="reserveTitleView" destination="Z9p-LC-HNG" id="psG-NL-bDc"/>
+                        <outlet property="reserveBackImage" destination="ysx-cs-YVQ" id="rBv-tL-oVV"/>
+                        <outlet property="reserveCancelBTN" destination="XWw-xC-oKN" id="JNO-9T-TCE"/>
+                        <outlet property="reserveCancelView" destination="haX-NV-EPN" id="Qx9-g9-Rdi"/>
+                        <outlet property="reserveCollectionView" destination="1pL-7r-AWV" id="ZK4-nW-8oo"/>
+                        <outlet property="reserveDateAndTime" destination="ZO1-jz-8H5" id="Lvu-Js-xbg"/>
+                        <outlet property="reserveLocation" destination="j6N-GM-7Tk" id="GGX-9e-pfO"/>
+                        <outlet property="reserveMovieName" destination="CJu-Bu-Gal" id="iwf-Jb-gpO"/>
+                        <outlet property="reservePosterImage" destination="4oD-Fn-woO" id="tF9-GP-JdI"/>
+                        <outlet property="reserveReserveBTN" destination="d6m-xf-hIV" id="W82-o5-cMx"/>
+                        <outlet property="reserveReserveView" destination="9Rw-R5-9MA" id="m7c-XP-NMb"/>
+                        <outlet property="reserveStackView" destination="FLq-NR-CsP" id="nGa-be-H4x"/>
+                        <outlet property="reserveTextLabel" destination="dhU-Dr-hQX" id="A1u-cq-Oxb"/>
+                        <outlet property="reserveTitleView" destination="Z9p-LC-HNG" id="r2q-B4-FaZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -197,6 +203,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="movieclapper.fill" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
