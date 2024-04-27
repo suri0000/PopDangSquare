@@ -15,6 +15,7 @@ class LogoCellTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.backgroundColor = UIColor.clear
+        self.selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

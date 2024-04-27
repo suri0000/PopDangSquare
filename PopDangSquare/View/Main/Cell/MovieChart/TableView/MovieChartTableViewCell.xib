@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="133"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Gl9-mT-JKE">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Gl9-mT-JKE">
                         <rect key="frame" x="16" y="30" width="288" height="87"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7jo-TG-TPt">
@@ -28,7 +28,7 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="무비차트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNe-oH-cIm">
-                        <rect key="frame" x="16" y="5" width="70" height="24"/>
+                        <rect key="frame" x="16" y="2" width="70" height="24"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
                     <constraint firstItem="JNe-oH-cIm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="HJn-ES-XRC"/>
                     <constraint firstItem="Gl9-mT-JKE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Msl-bX-qG1"/>
                     <constraint firstAttribute="trailing" secondItem="Gl9-mT-JKE" secondAttribute="trailing" constant="16" id="nRL-Ed-8GK"/>
-                    <constraint firstItem="JNe-oH-cIm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="pwX-eo-XEk"/>
+                    <constraint firstItem="JNe-oH-cIm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="pwX-eo-XEk"/>
                     <constraint firstAttribute="trailing" secondItem="JNe-oH-cIm" secondAttribute="trailing" constant="234" id="s6H-mk-zVr"/>
                     <constraint firstAttribute="bottom" secondItem="Gl9-mT-JKE" secondAttribute="bottom" constant="16" id="ujK-rt-FeU"/>
                 </constraints>
