@@ -12,13 +12,15 @@ class ReserveCell: UICollectionViewCell {
     static let cellId = "ReserveCell"
     static let className = "ReserveCell"
     
-    @IBOutlet weak var ReserveViewItem: UIView!
-    @IBOutlet weak var ReserveTimeLabel: UILabel!
-    @IBOutlet weak var ReserveDateLabel: UILabel!
+    @IBOutlet weak var reserveViewItem: UIView!
+    @IBOutlet weak var reserveTimeLabel: UILabel!
+    @IBOutlet weak var reserveDateLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        ReserveViewItem.layer.cornerRadius = 16
+        reserveViewItem.backgroundColor = UIColor.blue
+        reserveViewItem.layer.cornerRadius = 30
     }
     public func configure() {
 

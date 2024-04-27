@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,19 +17,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="250" height="144"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-Sm-DBn">
-                        <rect key="frame" x="0.0" y="2" width="250" height="140"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aga-Sm-DBn">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="144"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
-                        <imageReference key="image" image="tray.full" catalog="system" symbolScale="default"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Aga-Sm-DBn" secondAttribute="bottom" symbolic="YES" id="9OF-m9-V03"/>
-                <constraint firstAttribute="trailing" secondItem="Aga-Sm-DBn" secondAttribute="trailing" id="f8L-Jy-qck"/>
-                <constraint firstItem="Aga-Sm-DBn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qBa-sX-njb"/>
-                <constraint firstItem="Aga-Sm-DBn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tts-Cg-cVB"/>
+                <constraint firstItem="Aga-Sm-DBn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KFd-00-rJ8"/>
+                <constraint firstItem="Aga-Sm-DBn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TSS-En-pgf"/>
+                <constraint firstAttribute="bottom" secondItem="Aga-Sm-DBn" secondAttribute="bottom" id="mlj-AP-CD6"/>
+                <constraint firstAttribute="trailing" secondItem="Aga-Sm-DBn" secondAttribute="trailing" id="pWs-co-d0u"/>
             </constraints>
             <size key="customSize" width="250" height="144"/>
             <connections>
@@ -40,7 +38,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="tray.full" catalog="system" width="128" height="88"/>
         <systemColor name="systemTealColor">
             <color red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

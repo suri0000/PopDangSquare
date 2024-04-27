@@ -17,18 +17,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="235" height="287"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hf5-gF-IbS">
-                        <rect key="frame" x="0.0" y="0.0" width="235" height="286.66666666666669"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hf5-gF-IbS">
+                        <rect key="frame" x="0.0" y="0.0" width="235" height="287"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="hf5-gF-IbS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="QFe-fv-w0g"/>
-                <constraint firstAttribute="bottom" secondItem="hf5-gF-IbS" secondAttribute="bottom" id="SgG-Aq-hl6"/>
-                <constraint firstAttribute="trailing" secondItem="hf5-gF-IbS" secondAttribute="trailing" id="Y4e-Vs-ffX"/>
-                <constraint firstItem="hf5-gF-IbS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jDV-i1-Ugg"/>
+                <constraint firstAttribute="trailing" secondItem="hf5-gF-IbS" secondAttribute="trailing" id="BFp-ge-gvU"/>
+                <constraint firstItem="hf5-gF-IbS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="GHq-ph-15a"/>
+                <constraint firstItem="hf5-gF-IbS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="jlh-1Z-mSg"/>
+                <constraint firstAttribute="bottom" secondItem="hf5-gF-IbS" secondAttribute="bottom" id="os5-Vu-KgP"/>
             </constraints>
             <size key="customSize" width="235" height="287"/>
             <connections>
@@ -38,7 +38,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

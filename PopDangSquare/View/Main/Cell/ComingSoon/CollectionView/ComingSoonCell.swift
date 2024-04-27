@@ -17,5 +17,17 @@ class ComingSoonCell: UICollectionViewCell {
         posterView.backgroundColor = .clear
         // Initialization code
     }
+    
+    func configure(with movie: Upcoming) {
+        if let posterPath = movie.posterPath, let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    DispatchQueue.main.async { [self] in
+                        posterView.image = UIImage(data: data)
+                    }
+                }
+            }.resume()
+        }
+    }
 
 }

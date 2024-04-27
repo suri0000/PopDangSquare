@@ -98,11 +98,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1pL-7r-AWV">
-                                <rect key="frame" x="16" y="184" width="113" height="59"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1pL-7r-AWV">
+                                <rect key="frame" x="0.0" y="184" width="393" height="59"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="113" id="vOL-mj-byp"/>
                                     <constraint firstAttribute="height" constant="59" id="yIb-wf-pez"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p5X-og-M7B">
@@ -158,6 +156,7 @@
                             <constraint firstItem="ysx-cs-YVQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="0hK-oj-Hdo"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FLq-NR-CsP" secondAttribute="trailing" id="7iy-5x-APh"/>
                             <constraint firstItem="Z9p-LC-HNG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="9rG-G7-toF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1pL-7r-AWV" secondAttribute="trailing" constant="280" id="DFb-qT-RB6"/>
                             <constraint firstAttribute="bottom" secondItem="ysx-cs-YVQ" secondAttribute="bottom" id="HKZ-95-jnv"/>
                             <constraint firstItem="4oD-Fn-woO" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Ouq-kj-Zea"/>
                             <constraint firstItem="1pL-7r-AWV" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="184" id="RBR-1d-pJv"/>
@@ -168,7 +167,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ysx-cs-YVQ" secondAttribute="trailing" id="h5q-jl-Rif"/>
                             <constraint firstItem="dhU-Dr-hQX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="45" id="ifb-YR-jQW"/>
                             <constraint firstItem="Z9p-LC-HNG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="rck-60-3Qp"/>
-                            <constraint firstItem="1pL-7r-AWV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="sJw-Dz-f0U"/>
+                            <constraint firstItem="1pL-7r-AWV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="sJw-Dz-f0U"/>
                             <constraint firstItem="FLq-NR-CsP" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="628" id="uQN-rq-mBA"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="FLq-NR-CsP" secondAttribute="bottom" constant="50" id="uud-33-HMt"/>
                             <constraint firstItem="ysx-cs-YVQ" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="yxD-AP-hwK"/>
@@ -176,19 +175,19 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ReserveBackImage" destination="ysx-cs-YVQ" id="jda-h2-ZC3"/>
                         <outlet property="ReserveCancelBTN" destination="XWw-xC-oKN" id="WXj-Mc-sDZ"/>
                         <outlet property="ReserveCancelView" destination="haX-NV-EPN" id="oAr-T6-DK6"/>
-                        <outlet property="ReserveCollectionView" destination="1pL-7r-AWV" id="Mfx-NP-7QJ"/>
-                        <outlet property="ReserveDateAndTime" destination="j6N-GM-7Tk" id="IbB-kz-N6B"/>
-                        <outlet property="ReserveLocation" destination="ZO1-jz-8H5" id="Tqw-vh-EB9"/>
-                        <outlet property="ReserveMovieName" destination="CJu-Bu-Gal" id="kKd-qO-fPF"/>
-                        <outlet property="ReservePosterImage" destination="4oD-Fn-woO" id="EqM-YY-YNg"/>
                         <outlet property="ReserveReserveBTN" destination="d6m-xf-hIV" id="VIa-xd-xtQ"/>
                         <outlet property="ReserveReserveView" destination="9Rw-R5-9MA" id="S8x-gW-PNi"/>
-                        <outlet property="ReserveStackView" destination="FLq-NR-CsP" id="0uF-y5-7mP"/>
-                        <outlet property="ReserveTextLabel" destination="dhU-Dr-hQX" id="AKa-Sv-HCE"/>
-                        <outlet property="ReserveTitleView" destination="Z9p-LC-HNG" id="AJ5-KP-lhn"/>
+                        <outlet property="reserveBackImage" destination="ysx-cs-YVQ" id="6Ny-79-zZa"/>
+                        <outlet property="reserveCollectionView" destination="1pL-7r-AWV" id="eNa-xZ-AkK"/>
+                        <outlet property="reserveDateAndTime" destination="j6N-GM-7Tk" id="iaL-g7-Cf9"/>
+                        <outlet property="reserveLocation" destination="ZO1-jz-8H5" id="PL2-F6-A2f"/>
+                        <outlet property="reserveMovieName" destination="CJu-Bu-Gal" id="Ubv-TZ-2qH"/>
+                        <outlet property="reservePosterImage" destination="4oD-Fn-woO" id="mrz-mK-Cvf"/>
+                        <outlet property="reserveStackView" destination="FLq-NR-CsP" id="1hg-lk-uj5"/>
+                        <outlet property="reserveTextLabel" destination="dhU-Dr-hQX" id="nqJ-6b-zhL"/>
+                        <outlet property="reserveTitleView" destination="Z9p-LC-HNG" id="psG-NL-bDc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
