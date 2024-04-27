@@ -57,6 +57,7 @@
 		CC3415E72BDBF98600C44A38 /* ReserveViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC3415E62BDBF98600C44A38 /* ReserveViews.storyboard */; };
 		CC3415EB2BDC035900C44A38 /* ReserveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3415E82BDC035900C44A38 /* ReserveCell.swift */; };
 		CC3415ED2BDCA13800C44A38 /* ReserveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC3415EC2BDCA13800C44A38 /* ReserveCell.xib */; };
+		CC3415EF2BDD4FE200C44A38 /* PersonSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3415EE2BDD4FE200C44A38 /* PersonSelectionView.swift */; };
 		CCD2A2592BD9F5AF0001FEC4 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A2532BD9F5AF0001FEC4 /* DetailView.storyboard */; };
 		CCD2A25A2BD9F5AF0001FEC4 /* DetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD2A2542BD9F5AF0001FEC4 /* DetailViewCell.xib */; };
 		CCD2A25B2BD9F5AF0001FEC4 /* DetailReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2A2552BD9F5AF0001FEC4 /* DetailReviewCell.swift */; };
@@ -130,6 +131,7 @@
 		CC3415E62BDBF98600C44A38 /* ReserveViews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReserveViews.storyboard; sourceTree = "<group>"; };
 		CC3415E82BDC035900C44A38 /* ReserveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveCell.swift; sourceTree = "<group>"; };
 		CC3415EC2BDCA13800C44A38 /* ReserveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReserveCell.xib; sourceTree = "<group>"; };
+		CC3415EE2BDD4FE200C44A38 /* PersonSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonSelectionView.swift; sourceTree = "<group>"; };
 		CCD2A2532BD9F5AF0001FEC4 /* DetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		CCD2A2542BD9F5AF0001FEC4 /* DetailViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewCell.xib; sourceTree = "<group>"; };
 		CCD2A2552BD9F5AF0001FEC4 /* DetailReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailReviewCell.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 				CC3415E62BDBF98600C44A38 /* ReserveViews.storyboard */,
 				CC3415E82BDC035900C44A38 /* ReserveCell.swift */,
 				CC3415EC2BDCA13800C44A38 /* ReserveCell.xib */,
+				CC3415EE2BDD4FE200C44A38 /* PersonSelectionView.swift */,
 			);
 			path = Reserve;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				AB4A13582BD9F2A900B39808 /* SearchPageVC.swift in Sources */,
 				85AC10452BD749B000C00DCF /* LoginViewController.swift in Sources */,
 				CCD2A2652BD9F5DA0001FEC4 /* NetworkManager.swift in Sources */,
+				CC3415EF2BDD4FE200C44A38 /* PersonSelectionView.swift in Sources */,
 				ABD025602BDC027700DBF952 /* Upcoming.swift in Sources */,
 				854B8DA42BD8A1F1003AB9AC /* UIResponderExtension.swift in Sources */,
 				AB4A13442BD94D7800B39808 /* ComingSoonCell.swift in Sources */,
