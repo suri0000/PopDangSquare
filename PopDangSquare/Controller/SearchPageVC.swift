@@ -20,8 +20,6 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
     var searchMovie: [NowPlaying] = []
     var filteredMovies: [NowPlaying] = []
     
-    var dummyData = ["Apple", "Banana", "Snack", "Chocolate", "Ice Cream"] // 더미 데이터 배열
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
@@ -53,9 +51,7 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
         NowPlayingManager.shared.fetchMovies { [weak self] (movies, error) in
             DispatchQueue.main.async {
                 if let movies = movies {
-                    self?.searchMovie = movies // 모든 영화 데이터를 배열에 할당
-                    // 영화 제목만 추출하여 dummyData 배열을 업데이트
-//                    self?.dummyData = movies.map { $0.title }
+                    self?.searchMovie = movies
                     self?.firstTableView.reloadData()
                     print(movies.count)
                 } else if let error = error {
@@ -96,7 +92,6 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
             searchBar.resignFirstResponder()
             if let searchText = searchBar.text, !searchText.isEmpty {
-                // 검색 결과 초기화
                 filteredMovies = searchMovie.filter { movie in
                     movie.title.localizedCaseInsensitiveContains(searchText) || movie.originalTitle.localizedCaseInsensitiveContains(searchText)
                 }
@@ -104,15 +99,14 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
                 if !filteredMovies.isEmpty {
                     // 검색된 결과가 있을 경우
                     searchResult.text = "\"\(searchText)\"(으)로 검색된 결과입니다."
-                    // 모든 일치하는 항목의 title을 detailedResultLabel에 표시
                     searchResult.isHidden = false
-                    firstTableView.isHidden = false // 검색된 결과가 있으므로 tableView를 보이게 함
-                    firstTableView.reloadData() // 검색 결과에 따라 TableView를 리로드
+                    firstTableView.isHidden = false
+                    firstTableView.reloadData()
                 } else {
                     // 검색된 결과가 없을 경우
                     searchResult.text = "죄송합니다. \(searchText)으로 검색된 결과를 찾을 수가 없습니다."
                     searchResult.isHidden = false
-                    firstTableView.isHidden = true // 검색된 결과가 없으므로 tableView를 숨김
+                    firstTableView.isHidden = true
                 }
             } else {
                 // 검색어가 비어있을 경우
@@ -120,7 +114,6 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
                 firstTableView.isHidden = true
             }
         }
-
 }
 
 extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
