@@ -49,13 +49,14 @@ class DetailViewController: UIViewController {
   var datasource: UICollectionViewDiffableDataSource<SectionType, SectionType.ItemType>!
   
   var movie: NowPlaying?
+  let networkManager = NetworkManager.shared
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setupCollectionView()
     fetchMoviePlot()
     setupDataSource()
-    
+    networkManager.getMoviePoster(posterPath: movie?.posterPath ?? "")
   }
   
   func fetchMoviePlot() {

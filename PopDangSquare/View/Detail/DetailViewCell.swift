@@ -27,6 +27,7 @@ class DetailViewCell: UICollectionViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    networkManager.delegate = self
     fetchMovieInfo()
   }
   
@@ -89,4 +90,10 @@ class DetailViewCell: UICollectionViewCell {
     }
   }
   
+}
+
+extension DetailViewCell: NetworkManagerDelegate {
+  func setPoster(image: UIImage) {
+    detailPosterImage.image = image
+  }
 }
