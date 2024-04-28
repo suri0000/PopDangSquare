@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--예매하기-->
+        <!--Detail View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="DetailViewController" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,7 +38,6 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gBL-50-XlE" secondAttribute="trailing" id="Hkg-L1-USF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="예매하기" image="movieclapper" catalog="system" id="5BQ-pr-tTL"/>
                     <navigationItem key="navigationItem" id="bIi-eU-Cgh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -51,7 +50,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="movieclapper" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
