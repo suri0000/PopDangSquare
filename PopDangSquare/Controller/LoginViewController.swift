@@ -9,6 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var backMyPage: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var autoLoginButton: UIButton!
@@ -28,6 +29,11 @@ class LoginViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
     }
+    
+    @IBAction func backMyPageTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         

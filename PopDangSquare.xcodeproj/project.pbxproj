@@ -11,6 +11,7 @@
 		544E45702BD9F192002F2F1E /* MyPageLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E456F2BD9F192002F2F1E /* MyPageLoginController.swift */; };
 		544E45722BD9F1A2002F2F1E /* CustomerServiceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E45712BD9F1A2002F2F1E /* CustomerServiceViewCell.swift */; };
 		544E45742BD9F1BA002F2F1E /* CustomerServiceViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 544E45732BD9F1BA002F2F1E /* CustomerServiceViewCell.xib */; };
+		546F639D2BDCFD9400F24B20 /* MyPageInformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546F639C2BDCFD9400F24B20 /* MyPageInformationVC.swift */; };
 		854B8DA42BD8A1F1003AB9AC /* UIResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B8DA32BD8A1F1003AB9AC /* UIResponderExtension.swift */; };
 		85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC102B2BD64CAF00C00DCF /* AppDelegate.swift */; };
 		85AC102E2BD64CAF00C00DCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AC102D2BD64CAF00C00DCF /* SceneDelegate.swift */; };
@@ -82,6 +83,7 @@
 		544E456F2BD9F192002F2F1E /* MyPageLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageLoginController.swift; sourceTree = "<group>"; };
 		544E45712BD9F1A2002F2F1E /* CustomerServiceViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerServiceViewCell.swift; sourceTree = "<group>"; };
 		544E45732BD9F1BA002F2F1E /* CustomerServiceViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerServiceViewCell.xib; sourceTree = "<group>"; };
+		546F639C2BDCFD9400F24B20 /* MyPageInformationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageInformationVC.swift; sourceTree = "<group>"; };
 		854B8DA32BD8A1F1003AB9AC /* UIResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponderExtension.swift; sourceTree = "<group>"; };
 		85AC10282BD64CAF00C00DCF /* PopDangSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopDangSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85AC102B2BD64CAF00C00DCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -217,8 +219,8 @@
 				AB4A13552BD94D9400B39808 /* MainPageVC.swift */,
 				85AC102F2BD64CAF00C00DCF /* ViewController.swift */,
 				CCD2A25F2BD9F5CC0001FEC4 /* DetailViewController.swift */,
-				ABD025652BDC90C700DBF952 /* MyPageInformationVC.swift */,
 				544E456F2BD9F192002F2F1E /* MyPageLoginController.swift */,
+				546F639C2BDCFD9400F24B20 /* MyPageInformationVC.swift */,
 				85AC10442BD749B000C00DCF /* LoginViewController.swift */,
 				85AC10492BD7971300C00DCF /* SignUpViewController.swift */,
 				AB4A13572BD9F2A900B39808 /* SearchPageVC.swift */,
@@ -563,7 +565,6 @@
 				544E45702BD9F192002F2F1E /* MyPageLoginController.swift in Sources */,
 				CCF1E59F2BDBB98200867ABC /* ReserveViewController.swift in Sources */,
 				85AC104A2BD7971300C00DCF /* SignUpViewController.swift in Sources */,
-				ABD025662BDC90C800DBF952 /* MyPageInformationVC.swift in Sources */,
 				AB4A13582BD9F2A900B39808 /* SearchPageVC.swift in Sources */,
 				85AC10452BD749B000C00DCF /* LoginViewController.swift in Sources */,
 				CCD2A2652BD9F5DA0001FEC4 /* NetworkManager.swift in Sources */,
@@ -578,6 +579,7 @@
 				ABD0255C2BDBFC0300DBF952 /* Popular.swift in Sources */,
 				AB4A13512BD94D7800B39808 /* NowPlayingTableViewCell.swift in Sources */,
 				AB4A134B2BD94D7800B39808 /* MovieChartCell.swift in Sources */,
+				546F639D2BDCFD9400F24B20 /* MyPageInformationVC.swift in Sources */,
 				CCD2A26A2BDA8B1E0001FEC4 /* ActorData.swift in Sources */,
 				AB4A13462BD94D7800B39808 /* ComingSoonCellTableViewCell.swift in Sources */,
 				85AC102C2BD64CAF00C00DCF /* AppDelegate.swift in Sources */,
