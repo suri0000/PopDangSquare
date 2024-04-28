@@ -11,7 +11,6 @@ protocol MyPageInformationDelegate: AnyObject {
 
 class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    //
     weak var delegate: MyPageInformationDelegate?
     
     // MARK: - UI 요소
@@ -27,7 +26,6 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var myPageInfoNameLable: UILabel!
     @IBOutlet weak var myPageInfoNameModify: UIButton!
     @IBOutlet weak var myPageInfoEmailLable: UILabel!
-    @IBOutlet weak var myPageInfoEmailModify: UIButton!
     @IBOutlet weak var myPageInfoPasswordModify: UIButton!
     
     // 마이페이지 수정 완료 연결
@@ -37,7 +35,7 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         configureProfileImage()
-//                fetchUserInfo()
+        fetchUserInfo()
     }
     // MARK: - 회원 이미지 데이터 받아오기
     // #1 배경 이미지를 원형으로 만들기
@@ -117,6 +115,41 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
         }
         picker.dismiss(animated: true, completion: nil)
     }
+    // MARK: - 회원이름 수정
+    // MyPageInformationVC 클래스 내의 수정 얼럿 창 관련 코드
+    @IBAction func myPageInfoNameModifyButtonTapped(_ sender: UIButton) {
+        
+        // 이름 수정 얼럿 창 생성
+        let alertController = UIAlertController(title: "이름 수정", message: "새로운 이름을 입력하세요.", preferredStyle: .alert)
+        
+        // 입력 필드 추가
+        alertController.addTextField { textField in
+            textField.placeholder = "새로운 이름"
+        }
+        // 확인 액션
+        let confirmAction = UIAlertAction(title: "확인", style: .default) { [weak self] _ in
+            // 입력된 새로운 이름 가져오기
+            guard let newName = alertController.textFields?.first?.text else { return }
+            
+            // 새로운 이름을 레이블에 반영
+            self?.myPageInfoNameLable.text = newName
+            
+            // 새로운 이름을 MyPageLoginController로 전달
+            self?.delegate?.didUpdateUserInfo(name: newName)
+        }
+        
+        // 취소 액션
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        // 얼럿 창에 액션 추가
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        // 얼럿 창 표시
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: - 회원
     
     // MARK: - 회원 비밀번호 수정
     // 비밀번호 수정하기
@@ -143,10 +176,6 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
                   let newPassword = alertController.textFields?[1].text else {
                 return // 비밀번호를 모두 입력하지 않은 경우 처리
             }
-            
-            // 비밀번호 수정 로직 구현
-            // 예를 들어, 현재 비밀번호를 확인하고 새로운 비밀번호를 저장하는 작업 수행
-            
             // 변경된 비밀번호를 UserDefaults에 저장
             UserDefaults.standard.set(newPassword, forKey: UserDefaultsKeys.userPassword.rawValue)
         }

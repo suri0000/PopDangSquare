@@ -3,7 +3,6 @@ import Foundation
 import UIKit
 
 class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MyPageInformationDelegate{
-    
     // MARK: - UI 요소
     @IBOutlet weak var reservationDetailsView: UIView!
     @IBOutlet weak var myInfoView: UIView!
@@ -30,22 +29,23 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         configureQuickMenu()
         showMyPageInformationVC()
     }
+    // MARK: - 프로토콜 함수 정의
     func showMyPageInformationVC() {
-           let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
-           guard let myPageInfoVC = storyboard.instantiateViewController(withIdentifier: "InfoVC") as? MyPageInformationVC else {
-               return
-           }
-           
-           myPageInfoVC.delegate = self // 델리게이트 설정
-           navigationController?.pushViewController(myPageInfoVC, animated: true)
-       }
-       
-       // MyPageInformationDelegate 메서드 구현
-       func didUpdateUserInfo(name: String) {
-           myPageNameLable.text = name // 정보 업데이트
-       }
-    // MARK: - 내부사항
-    // #1. 기본적인 사용자의 정보를 가져옵시다.
+        let storyboard = UIStoryboard(name: "MyPage", bundle: nil)
+        guard let myPageInfoVC = storyboard.instantiateViewController(withIdentifier: "InfoVC") as? MyPageInformationVC else {
+            return
+        }
+        
+        myPageInfoVC.delegate = self // 델리게이트 설정
+        navigationController?.pushViewController(myPageInfoVC, animated: true)
+    }
+    
+    // MyPageInformationDelegate 메서드 구현
+    func didUpdateUserInfo(name: String) {
+        myPageNameLable.text = name // 정보 업데이트
+    }
+    
+    // MARK: - #1 로그인 상태
     private func updateUI() {
         // 로그아웃 상태를 확인합니다.
         let isLoggedIn = UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
@@ -70,13 +70,14 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
     
+    // MARK: - #1 로그인 상태 처리 기능
     // #2. 로그인 및 로그아웃 버튼 정의
     @IBAction func loginLogoutButtonTapped(_ sender: UIButton) {
-        
+        print("1")
         // 로그인 여부 확인
         let isLoggedIn = UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
-        
         // 로그인되어 있다면 로그아웃 처리
+        print(isLoggedIn)
         if isLoggedIn {
             // 로그아웃 확인 얼럿 표시
             let alert = UIAlertController(title: "로그아웃 확인", message: "로그아웃 하시겠습니까?", preferredStyle: .alert)
@@ -94,16 +95,25 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             
             present(alert, animated: true, completion: nil)
         } else {
+            print("2")
             // 로그인 페이지로 이동
             let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
+            print(storyboard)
             guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController else {
-                return
+                return print("문제가있음")
             }
-            navigationController?.pushViewController(loginVC, animated: true)
+            print(loginVC)
+            print("4")
+            let navigationController = UINavigationController(rootViewController: loginVC)
+            
+            navigationController.modalPresentationStyle = .fullScreen
+            present(navigationController, animated: true, completion: nil)
+//            navigationController?.pushViewController(loginVC, animated: true)
+            print("5")
         }
+        print("6")
     }
-    
-    // #5 프로필 이미지 모양 및 그림자 설정
+    // MARK: - #1 프로필 이미지 모양 및 그림자 설정
     private func configureProfileImage() {
         // 이미지를 동그랗게 만들기
         profileImage.layer.masksToBounds = true
@@ -117,7 +127,7 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         profileImage.layer.shadowRadius = 4
     }
     
-    // #6 퀵메뉴 버튼 모양 변경
+    // 퀵메뉴 버튼 모양 변경
     private func configureQuickMenu() {
         for button in [myInforMationManageMent, wishHistory, reserVationDetails] {
             button?.layer.masksToBounds = true
@@ -161,10 +171,9 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             serviceCollview.register(UINib(nibName: "CustomerServiceViewCell", bundle: nil), forCellWithReuseIdentifier: "customerServiceViewCell")
         }
     }
-    // MARK: - 회원정보 수정
+    // MARK: - 회원정보 UserDefaults 수정
     @IBAction func myInforMationManageMentButtonTapped(_ sender: UIButton) {
         let isLoggedIn = UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
-        
         // 수정하는 곳으로 이동
         if !isLoggedIn {
             // 로그인이 필요한 알림 표시
@@ -190,7 +199,6 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
     // MARK: - UICollectionViewDataSource
-    
     // 각 CollectionView의 항목 개수 반환
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == serviceCollview {
@@ -210,7 +218,6 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
         return UICollectionViewCell()
     }
     // MARK: - UICollectionViewDelegateFlowLayout
-    
     // 각 셀의 크기 설정
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == serviceCollview {
@@ -223,7 +230,7 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
     // 콜렉션 뷰의 왼쪽 인셋 설정한 부분
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView == serviceCollview {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) // 왼쪽에 30포인트의 인셋 추가
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
         return UIEdgeInsets.zero
     }
