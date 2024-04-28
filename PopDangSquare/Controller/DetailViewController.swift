@@ -67,7 +67,7 @@ class DetailViewController: UIViewController {
       DetailData.detail[0].story = movieOverview
     }
     
-    guard let movieName = movie?.overview else { return }
+    guard let movieName = movie?.title else { return }
     DetailData.detail[0].movieNm = movieName
     
     guard let movieOriginName = movie?.originalTitle else { return }
