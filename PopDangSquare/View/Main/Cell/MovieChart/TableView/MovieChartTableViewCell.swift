@@ -44,6 +44,7 @@ class MovieChartTableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "MovieChartCell", bundle: nil), forCellWithReuseIdentifier: "MovieChartCell")
         collectionView.isPagingEnabled = true
+        collectionView.backgroundColor = .clear
     }
     
     private func setupPageControl() {

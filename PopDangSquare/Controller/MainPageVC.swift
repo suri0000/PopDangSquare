@@ -60,6 +60,7 @@ extension MainPageVC: UITableViewDataSource {
                 guard let strongSelf = self else { return }
                 let storyboard = UIStoryboard(name: "ReserveViews", bundle: nil)
                 if let reserveViewController = storyboard.instantiateViewController(withIdentifier: "ReserveViewController") as? ReserveViewController {
+                    reserveViewController.selectedMovie = movie
                     strongSelf.show(reserveViewController, sender: nil)
                 }
             }
