@@ -82,6 +82,7 @@ class ReserveViewController: UIViewController {
         if let selectedMovie = selectedMovie, let posterPath = selectedMovie.posterPath {
             // 예매하기 버튼이 눌린 영화의 포스터 이미지를 받아옵니다.
             fetchMoviePosterImage(posterPath: posterPath)
+            reserveMovieName.text = selectedMovie.title
         }
         //>>오류 Initializer for conditional binding must have Optional type, not 'String'
 //        if let selectedTitle = selectedTitle, let titlePath = selectedTitle.title {
