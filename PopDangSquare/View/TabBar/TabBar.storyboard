@@ -26,16 +26,6 @@
             </objects>
             <point key="canvasLocation" x="2812.2137404580153" y="27.464788732394368"/>
         </scene>
-        <!--ReserveViews-->
-        <scene sceneID="ruX-au-phB">
-            <objects>
-                <viewControllerPlaceholder storyboardName="ReserveViews" id="BZV-BP-mEU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="OKZ-K2-IdW"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1sv-bN-2da" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3105" y="27"/>
-        </scene>
         <!--MyPage-->
         <scene sceneID="AIv-tR-hoE">
             <objects>
