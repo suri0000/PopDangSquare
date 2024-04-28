@@ -26,16 +26,6 @@
             </objects>
             <point key="canvasLocation" x="2812.2137404580153" y="27.464788732394368"/>
         </scene>
-        <!--DetailViewController-->
-        <scene sceneID="fe5-L7-ugh">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="DetailViewController" storyboardName="DetailView" referencedIdentifier="DetailViewController" id="zMa-5i-vEr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="3nz-VQ-SMY"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kgb-wt-Gth" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3096.1832061068703" y="27.464788732394368"/>
-        </scene>
         <!--MyPage-->
         <scene sceneID="AIv-tR-hoE">
             <objects>
@@ -44,7 +34,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RO3-uE-ffl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3403.0534351145038" y="27.464788732394368"/>
+            <point key="canvasLocation" x="3363" y="27"/>
         </scene>
         <!--Tab BarVC-->
         <scene sceneID="p2s-ov-JyP">
@@ -59,7 +49,6 @@
                     <connections>
                         <segue destination="m4x-Ca-mIR" kind="relationship" relationship="viewControllers" id="N8n-9e-Uut"/>
                         <segue destination="idl-jS-tuz" kind="relationship" relationship="viewControllers" id="jcJ-Gi-Zei"/>
-                        <segue destination="zMa-5i-vEr" kind="relationship" relationship="viewControllers" id="AgY-Ck-Soj"/>
                         <segue destination="Sfq-u0-JtE" kind="relationship" relationship="viewControllers" id="VWd-0Q-vQI"/>
                     </connections>
                 </tabBarController>

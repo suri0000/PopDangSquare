@@ -19,8 +19,7 @@ class ReserveCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        reserveViewItem.backgroundColor = UIColor.blue
-        reserveViewItem.layer.cornerRadius = 30
+        reserveViewItem.layer.cornerRadius = 25
     }
     public func configure() {
 

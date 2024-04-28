@@ -44,6 +44,7 @@ class MovieChartTableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "MovieChartCell", bundle: nil), forCellWithReuseIdentifier: "MovieChartCell")
         collectionView.isPagingEnabled = true
+        collectionView.backgroundColor = .clear
     }
     
     private func setupPageControl() {
@@ -72,16 +73,18 @@ class MovieChartTableViewCell: UITableViewCell {
         PopularManager.shared.fetchMovies { [weak self] (movies, error) in
             DispatchQueue.main.async {
                 if let movies = movies {
-                    let firstFiveMovies = Array(movies.prefix(5))
-                    self?.movies = firstFiveMovies
+                    // 영화 목록을 랜덤하게 섞은 후, 첫 5개의 영화를 선택합니다.
+                    let randomFiveMovies = Array(movies.shuffled().prefix(5))
+                    self?.movies = randomFiveMovies
                     self?.collectionView.reloadData()
-                    self?.pageControl.numberOfPages = firstFiveMovies.count
+                    self?.pageControl.numberOfPages = randomFiveMovies.count
                 } else if let error = error {
                     print(error.localizedDescription)
                 }
             }
         }
     }
+
     
     // 자동 스크롤 시작
     private func startAutoScroll() {

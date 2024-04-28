@@ -28,8 +28,8 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.094117648900000003" green="0.109803915" blue="0.36470589040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.wave.2.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="W2Y-SZ-cIt">
-                                        <rect key="frame" x="15" y="9.3333333333333357" width="90.666666666666671" height="74.333333333333314"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyPageService" translatesAutoresizingMaskIntoConstraints="NO" id="W2Y-SZ-cIt">
+                                        <rect key="frame" x="15" y="10" width="90.666666666666671" height="75"/>
                                         <color key="tintColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="rv0-cC-NBf"/>
@@ -45,7 +45,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -66,8 +66,8 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.094117648900000003" green="0.109803915" blue="0.36470589040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark.bubble.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Gyl-v5-dvk">
-                                        <rect key="frame" x="15" y="11.333333333333336" width="90.666666666666671" height="74"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyPageFaq" translatesAutoresizingMaskIntoConstraints="NO" id="Gyl-v5-dvk">
+                                        <rect key="frame" x="15" y="10" width="90.666666666666671" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="M7g-9K-QPA"/>
                                         </constraints>
@@ -82,7 +82,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -103,8 +103,8 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.094117648900000003" green="0.109803915" blue="0.36470589040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="light.beacon.min.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VhK-as-cc2">
-                                        <rect key="frame" x="15" y="11" width="90.666666666666671" height="72.333333333333329"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MyPageDeclaration" translatesAutoresizingMaskIntoConstraints="NO" id="VhK-as-cc2">
+                                        <rect key="frame" x="15" y="10" width="90.666666666666671" height="75"/>
                                         <color key="tintColor" systemColor="systemRedColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="aNO-sW-QON"/>
@@ -120,7 +120,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -157,9 +157,9 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="light.beacon.min.fill" catalog="system" width="128" height="106"/>
-        <image name="person.wave.2.fill" catalog="system" width="128" height="118"/>
-        <image name="questionmark.bubble.fill" catalog="system" width="128" height="110"/>
+        <image name="MyPageDeclaration" width="70" height="70"/>
+        <image name="MyPageFaq" width="70" height="70"/>
+        <image name="MyPageService" width="80" height="80"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

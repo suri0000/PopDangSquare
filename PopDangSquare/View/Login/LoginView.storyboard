@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="LoginView" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="PopDangSquare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -156,12 +156,22 @@
                                     <action selector="autoLoginButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="r81-lW-0HD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pe3-zc-FZs">
+                                <rect key="frame" x="0.0" y="59" width="80.666666666666671" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="&lt;  Back"/>
+                                <connections>
+                                    <action selector="backMyPageTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="iWK-2E-qCP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="p2m-mv-OjP" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="1Pc-GV-NTP"/>
                             <constraint firstItem="04p-mj-spO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="5bc-h1-vIF"/>
+                            <constraint firstItem="pe3-zc-FZs" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="5ke-ta-2if"/>
+                            <constraint firstItem="pe3-zc-FZs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="95p-Zv-RQq"/>
                             <constraint firstItem="vfm-J1-YJv" firstAttribute="top" secondItem="grz-7j-Eqg" secondAttribute="bottom" constant="21" id="Cir-Ap-q9B"/>
                             <constraint firstItem="cM7-Ts-PnP" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Cso-Lc-cw9"/>
                             <constraint firstItem="p2m-mv-OjP" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="HDZ-co-8BR"/>
@@ -186,6 +196,7 @@
                     <navigationItem key="navigationItem" id="GPh-QL-6uu"/>
                     <connections>
                         <outlet property="autoLoginButton" destination="04p-mj-spO" id="hQE-oj-qqj"/>
+                        <outlet property="backMyPage" destination="pe3-zc-FZs" id="JsK-Pc-bFH"/>
                         <outlet property="emailTextField" destination="673-8I-MgU" id="2eV-7M-BMF"/>
                         <outlet property="passwordTextField" destination="o6y-JQ-MVK" id="vBo-SL-okF"/>
                     </connections>
