@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol NowPlayingCellDelegate: AnyObject {
+    func didTapPosterImage(in cell: NowPlayingCell)
+}
+
 class NowPlayingCell: UICollectionViewCell {
     
     @IBOutlet weak var purchaseButton: UIButton!
@@ -16,11 +20,13 @@ class NowPlayingCell: UICollectionViewCell {
     
     var movieNowMain: NowPlaying?
     var onPurchaseButtonTapped: (() -> Void)?
+    weak var delegate: NowPlayingCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupButtonAppearance()
         setupShadow()
+        setupTapGestureRecognizer()
     }
     
     override func layoutSubviews() {
@@ -68,5 +74,16 @@ class NowPlayingCell: UICollectionViewCell {
     
     private func updateShadowPath() {
         layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
+    }
+    
+    private func setupTapGestureRecognizer() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(moviePosterTapped))
+        moviePosterView.isUserInteractionEnabled = true
+        moviePosterView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func moviePosterTapped() {
+        print("Movie poster tapped")
+        delegate?.didTapPosterImage(in: self)
     }
 }
