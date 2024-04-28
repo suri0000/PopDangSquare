@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NowPlayingCellDelegate: AnyObject {
-    func didTapPosterImage(in cell: NowPlayingCell)
+    func didTapPosterImage(in cell: NowPlayingCell, with movie: NowPlaying?)
 }
 
 class NowPlayingCell: UICollectionViewCell {
@@ -41,6 +41,7 @@ class NowPlayingCell: UICollectionViewCell {
     }
     
     func configure(with movie: NowPlaying) {
+      movieNowMain = movie
         movieTitle.text = movie.title
         rateLabel.text = String(format: "%.1f", movie.voteAverage)
         if let posterPath = movie.posterPath, let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") {
@@ -84,6 +85,6 @@ class NowPlayingCell: UICollectionViewCell {
     
     @objc func moviePosterTapped() {
         print("Movie poster tapped")
-        delegate?.didTapPosterImage(in: self)
+        delegate?.didTapPosterImage(in: self, with: movieNowMain)
     }
 }

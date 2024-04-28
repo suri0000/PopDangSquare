@@ -8,12 +8,12 @@
 import UIKit
 
 protocol NowPlayingTableViewCellDelegate: AnyObject {
-    func didTapPosterImageInCell()
+  func didTapPosterImageInCell(in cell: NowPlayingCell, with movie: NowPlaying?)
 }
 
 class NowPlayingTableViewCell: UITableViewCell, NowPlayingCellDelegate {
-    func didTapPosterImage(in cell: NowPlayingCell) {
-        delegate?.didTapPosterImageInCell()
+    func didTapPosterImage(in cell: NowPlayingCell, with movie: NowPlaying?) {
+      delegate?.didTapPosterImageInCell(in: cell, with: movie)
     }
     
     weak var delegate: NowPlayingTableViewCellDelegate?

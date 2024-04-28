@@ -157,9 +157,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pe3-zc-FZs">
-                                <rect key="frame" x="0.0" y="59" width="83" height="35"/>
+                                <rect key="frame" x="0.0" y="59" width="80.666666666666671" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="돌아가기"/>
+                                <buttonConfiguration key="configuration" style="plain" title="&lt;  Back"/>
                                 <connections>
                                     <action selector="backMyPageTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="iWK-2E-qCP"/>
                                 </connections>

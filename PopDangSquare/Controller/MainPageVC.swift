@@ -95,11 +95,11 @@ extension MainPageVC: UITableViewDelegate {
     }
 }
 
-
 extension MainPageVC: NowPlayingTableViewCellDelegate {
-    func didTapPosterImageInCell() {
+    func didTapPosterImageInCell(in cell: NowPlayingCell, with movie: NowPlaying?) {
         let storyboard = UIStoryboard(name: "DetailView", bundle: nil)
         if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+          detailViewController.movie = movie
             self.present(detailViewController, animated: true, completion: nil)
         }
     }

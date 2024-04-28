@@ -1,43 +1,67 @@
-////
-////  NetworkManager.swift
-////  PopDangSquare
-////
-////  Created by 민웅킴 on 4/24/24.
-////
 //
-//import Foundation
+//  NetworkManager.swift
+//  PopDangSquare
 //
-//struct Movie: Codable {
-//    let movieNm: String
-//    let movieNmEn: String
-//}
+//  Created by 민웅킴 on 4/24/24.
 //
-//class NetworkManager {
-//    
-//    static let apiUrl = URL(string: "https://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=9a51098fee3a5f3ee0d7e6cb17074a8c&movieCd=20200202")!
-//    
-//    static func fetchMovies(completion: @escaping ([Movie]?, Error?) -> Void) {
-//        let task = URLSession.shared.dataTask(with: apiUrl) { (data, response, error) in
-//            if let error = error {
-//                print(error)
-//                completion(nil, error)
-//                return
-//            }
-//            
-//            guard let data = data else {
-//                completion(nil, NSError(domain: "NoData", code: 1, userInfo: nil))
-//                return
-//            }
-//            
-//            do {
-//                let movies = try JSONDecoder().decode([Movie].self, from: data)
-//                completion(movies, nil)
-//                print(movies)
-//            } catch {
-//                print(error)
-//                completion(nil, error)
-//            }
-//        }
-//        task.resume()
-//    }
-//}
+
+import Foundation
+import UIKit
+
+protocol NetworkManagerDelegate {
+  func setPoster(image: UIImage)
+}
+
+class NetworkManager {
+  
+  static let shared = NetworkManager()
+  var delegate: NetworkManagerDelegate?
+  
+  func getMovieInfo(completion: @escaping (MovieInfo?, Error?) -> Void) {
+    if let url = URL(string: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=3ab979402a1df4144bc5f7e11f96426a&movieCd=20225061") {
+      
+      let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        if let error = error {
+          print("Error: \(error)")
+        } else if let data = data {
+          do {
+            let movieInfoResponse = try JSONDecoder().decode(MovieInfoResponse.self, from: data)
+            let movieInfo =  movieInfoResponse.movieInfoResult.movieInfo
+            completion(movieInfo, nil)
+            print("Decoded movieInfo: \(movieInfo)")
+          } catch {
+            print("Decode Error: \(error)")
+          }
+        }
+      }
+      task.resume()
+    }
+  }
+  
+  func getMoviePoster(posterPath: String) {
+    let posterURL = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")!
+    
+    URLSession.shared.dataTask(with: posterURL) { data, response, error in
+      if let error = error {
+        print("Error fetching movie poster image: \(error.localizedDescription)")
+        return
+      }
+      
+      guard let data = data else {
+        print("No data received while fetching movie poster image")
+        return
+      }
+
+      if let posterImage = UIImage(data: data) {
+        DispatchQueue.main.async {
+          self.delegate?.setPoster(image: posterImage)
+        }
+      }
+    }.resume()
+  }
+  
+  // 메인과 일치하는 영화 코드 찾기
+  // 1. 메인에서 영화 제목 받아오기
+  // 2. 받아온 영화 제목을 넣어 영화 목록 API를 이용해서 영화코드 찾기 -> 영화 제목 일치하지 않을 가능성 있음
+  // 3. 찾은 영화코드로 영화 기본 정보 불러오기
+}
