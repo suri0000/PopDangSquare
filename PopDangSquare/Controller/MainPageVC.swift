@@ -8,6 +8,14 @@ class MainPageVC: UIViewController {
         super.viewDidLoad()
         setupTableView()
         registerTableViewCells()
+        setBackGorundImg()
+    }
+    
+    private func setBackGorundImg() {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "MainBackGround")
+        backgroundImage.contentMode = .scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
     }
     
     private func setupTableView() {

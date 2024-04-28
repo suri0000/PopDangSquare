@@ -27,6 +27,7 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
         setupUI()
         fetchMovies()
         fetchSearchMovies()
+        setBackGorundImg()
     }
     
     private func fetchMovies() {
@@ -58,6 +59,13 @@ class SearchPageVC: UIViewController, UISearchBarDelegate {
                 }
             }
         }
+    }
+    
+    private func setBackGorundImg() {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "SearchPageBg")
+        backgroundImage.contentMode = .scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
     }
     
     private func setupTableView() {
@@ -147,13 +155,6 @@ extension SearchPageVC: UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
     
-    func bookButtonDidTap(_ cell: SearchResultTableViewCell) {
-        let storyboard = UIStoryboard(name: "DetailView", bundle: nil) //
-        if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController { //
-            navigationController?.pushViewController(detailViewController, animated: true)
-        }
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == firstTableView {
             return 160 // 첫 번째 테이블뷰의 셀 높이
@@ -176,10 +177,10 @@ extension SearchPageVC: RecommendCellDelegate {
 
 extension SearchPageVC: SearchResultCellDelegate {
     func bookButtonTapped(cell: SearchResultTableViewCell) {
-        let detailViewStoryboard = UIStoryboard(name: "DetailView", bundle: .main)
+        let detailViewStoryboard = UIStoryboard(name: "ReserveViews", bundle: .main)
         // 추후 reserve컨트롤러 연결
-        if let detailViewController = detailViewStoryboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-            self.present(detailViewController, animated: true, completion: nil)
+        if let reserveViewController = detailViewStoryboard.instantiateViewController(withIdentifier: "ReserveViewController") as? ReserveViewController {
+            self.present(reserveViewController, animated: true, completion: nil)
         }
     }
 }
