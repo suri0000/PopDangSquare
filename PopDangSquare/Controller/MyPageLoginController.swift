@@ -96,9 +96,9 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             // 로그인 페이지로 이동
             let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
             guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController else {
+                return
             }
             let navigationController = UINavigationController(rootViewController: loginVC)
-            
             navigationController.modalPresentationStyle = .fullScreen
             present(navigationController, animated: true, completion: nil)
 //            navigationController?.pushViewController(loginVC, animated: true) 오류
@@ -177,8 +177,9 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
                 guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController else {
                     return
                 }
-                // 현재의 navigationController 스택에 loginVC를 push하여 로그인 페이지로 이동
-                self.navigationController?.pushViewController(loginVC, animated: true)
+                // 현재의 navigationController를 사용하여 모달로 로그인 페이지를 표시
+                loginVC.modalPresentationStyle = .fullScreen
+                self.present(loginVC, animated: true, completion: nil)
             }
             let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
             
@@ -221,7 +222,7 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
     // 콜렉션 뷰의 왼쪽 인셋 설정한 부분
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView == serviceCollview {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         }
         return UIEdgeInsets.zero
     }
