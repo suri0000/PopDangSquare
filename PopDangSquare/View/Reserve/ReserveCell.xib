@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8nV-gI-W1D" firstAttribute="leading" secondItem="sgV-Z9-Azu" secondAttribute="leading" constant="15" id="36U-7s-6pK"/>
                             <constraint firstItem="8nV-gI-W1D" firstAttribute="leading" secondItem="VIZ-RH-iWQ" secondAttribute="leading" id="7Oz-Ne-bbR"/>
@@ -55,6 +54,7 @@
                     <constraint firstItem="sgV-Z9-Azu" firstAttribute="leading" secondItem="ie3-tc-UVs" secondAttribute="leading" id="xQW-Ro-fvQ"/>
                 </constraints>
             </collectionViewCellContentView>
+            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="reserveDateLabel" destination="VIZ-RH-iWQ" id="3w2-Cv-phG"/>
                 <outlet property="reserveTimeLabel" destination="8nV-gI-W1D" id="G2b-n1-Cma"/>
@@ -63,9 +63,4 @@
             <point key="canvasLocation" x="-199.23664122137404" y="-265.14084507042253"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>
