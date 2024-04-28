@@ -1,12 +1,8 @@
 {
   "images" : [
     {
-      "idiom" : "universal"
-    },
-    {
       "filename" : "Main 화면 틀.svg",
-      "idiom" : "universal",
-      "scale" : "1x"
+      "idiom" : "universal"
     }
   ],
   "info" : {
