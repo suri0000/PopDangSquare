@@ -6,7 +6,6 @@ import UIKit
 // 프로토콜 정의
 protocol MyPageInformationDelegate: AnyObject {
     func didUpdateUserInfo(name: String) // 다리역할
-    
 }
 
 class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -28,8 +27,9 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var myPageInfoEmailLable: UILabel!
     @IBOutlet weak var myPageInfoPasswordModify: UIButton!
     
-    // 마이페이지 수정 완료 연결
+    // 마이페이지 수정 완료 취소 연결
     @IBOutlet weak var myPageModifyButton: UIButton!
+    @IBOutlet weak var myPageNonModifyButton: UIButton!
     
     // MARK: - viewDidLoad Start
     override func viewDidLoad() {
@@ -56,7 +56,6 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
     
     // MARK: - 사용자 정보 업데이트
     // #2 사용자 정보 가져와서 UI 업데이트
-    
     func fetchUserInfo() {
         if let userName = UserDefaults.standard.string(forKey: UserDefaultsKeys.userName.rawValue),
            let userID = UserDefaults.standard.string(forKey: UserDefaultsKeys.userID.rawValue),
@@ -151,6 +150,8 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
     
     // MARK: - 회원
     
+    
+    
     // MARK: - 회원 비밀번호 수정
     // 비밀번호 수정하기
     @IBAction func myPageModifyPassword(_ sender: UIButton) {
@@ -191,6 +192,12 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
         present(alertController, animated: true, completion: nil)
     }
     
+    
+    
+    @IBAction func myPageNonModifyButtonTapped(_ sender: UIButton) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
     // 수정 완료 버튼 액션
     @IBAction func myPageModifyButtonTapped(_ sender: UIButton) {
         // 수정된 정보를 UserDefaults에 저장
@@ -199,7 +206,6 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
             UserDefaults.standard.set(modifiedName, forKey: UserDefaultsKeys.userName.rawValue)
             UserDefaults.standard.set(modifiedEmail, forKey: UserDefaultsKeys.userID.rawValue)
         }
-        
         
         // MyPageLoginController의 인스턴스 가져오기
         if let myPageLoginController = presentingViewController as? MyPageLoginController {
@@ -211,9 +217,7 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
         // 수정 완료 팝업 표시
         let alert = UIAlertController(title: "수정 완료", message: "정보가 성공적으로 수정되었습니다.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default) { _ in
-            // 확인 버튼을 눌렀을 때 MyPageLoginController로 돌아가게 함
-            // MyPageLoginController로의 이동 코드를 여기에 추가
-            // 예를 들어, navigationController를 사용하여 이전 화면으로 이동할 수 있음
+            
             self.navigationController?.popViewController(animated: true)
         }
         alert.addAction(okAction)
@@ -221,7 +225,15 @@ class MyPageInformationVC: UIViewController, UIImagePickerControllerDelegate, UI
         
         // 수정된 정보를 델리게이트에 전달
         delegate?.didUpdateUserInfo(name: myPageInfoNameLable.text ?? "")
+        
+        // 모달을 표시한 뷰 컨트롤러를 찾아서 모달을 닫습니다.
+        presentingViewController?.dismiss(animated: true) { [weak self] in
+            guard let self = self else { return }
+            // 모달이 닫힌 후에 "수정 완료" 팝업을 표시합니다.
+            let alert = UIAlertController(title: "수정 완료", message: "정보가 성공적으로 수정되었습니다.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
-
-

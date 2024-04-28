@@ -73,11 +73,9 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
     // MARK: - #1 로그인 상태 처리 기능
     // #2. 로그인 및 로그아웃 버튼 정의
     @IBAction func loginLogoutButtonTapped(_ sender: UIButton) {
-        print("1")
         // 로그인 여부 확인
         let isLoggedIn = UserDefaults.standard.bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
         // 로그인되어 있다면 로그아웃 처리
-        print(isLoggedIn)
         if isLoggedIn {
             // 로그아웃 확인 얼럿 표시
             let alert = UIAlertController(title: "로그아웃 확인", message: "로그아웃 하시겠습니까?", preferredStyle: .alert)
@@ -95,23 +93,16 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
             
             present(alert, animated: true, completion: nil)
         } else {
-            print("2")
             // 로그인 페이지로 이동
             let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
-            print(storyboard)
             guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController else {
-                return print("문제가있음")
+                return
             }
-            print(loginVC)
-            print("4")
             let navigationController = UINavigationController(rootViewController: loginVC)
-            
             navigationController.modalPresentationStyle = .fullScreen
             present(navigationController, animated: true, completion: nil)
-//            navigationController?.pushViewController(loginVC, animated: true)
-            print("5")
+//            navigationController?.pushViewController(loginVC, animated: true) 오류
         }
-        print("6")
     }
     // MARK: - #1 프로필 이미지 모양 및 그림자 설정
     private func configureProfileImage() {
@@ -186,8 +177,9 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
                 guard let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController else {
                     return
                 }
-                // 현재의 navigationController 스택에 loginVC를 push하여 로그인 페이지로 이동
-                self.navigationController?.pushViewController(loginVC, animated: true)
+                // 현재의 navigationController를 사용하여 모달로 로그인 페이지를 표시
+                loginVC.modalPresentationStyle = .fullScreen
+                self.present(loginVC, animated: true, completion: nil)
             }
             let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
             
@@ -230,7 +222,7 @@ class MyPageLoginController: UIViewController, UICollectionViewDataSource, UICol
     // 콜렉션 뷰의 왼쪽 인셋 설정한 부분
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if collectionView == serviceCollview {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         }
         return UIEdgeInsets.zero
     }
