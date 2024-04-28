@@ -49,11 +49,47 @@ class PersonSelectionView: UIView {
         titleLabel.text = "인원 선택"
         addSubview(titleLabel)
         
-        // 피커뷰 설정
-        pickerView = UIPickerView(frame: CGRect(x: 0, y: 50, width: frame.width, height: frame.height - 50))
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        addSubview(pickerView)
+        // 버튼을 생성하여 뷰에 추가합니다.
+        let buttonTitles = ["1", "2", "3", "4", "5", "6", "7", "8"]
+        let buttonWidth: CGFloat = 50
+        let buttonHeight: CGFloat = 30
+        let horizontalSpacing: CGFloat = 10
+        let verticalSpacing: CGFloat = 10
+        let numberOfButtonsPerRow = 8 // 한 줄에 표시할 버튼의 수
+        let totalVerticalSpacing = verticalSpacing * CGFloat((buttonTitles.count - 1) / numberOfButtonsPerRow)
+        let buttonTotalWidth = buttonWidth * CGFloat(numberOfButtonsPerRow) + horizontalSpacing * CGFloat(numberOfButtonsPerRow - 1)
+        let buttonStartX = (frame.width - buttonTotalWidth) / 2 // 중앙 정렬을 위한 시작 X 좌표 계산
+        var currentX = buttonStartX
+        var currentY: CGFloat = 20 // 버튼의 Y 좌표
+        
+        for title in buttonTitles {
+            let button = UIButton(type: .system)
+            button.setTitle(title, for: .normal)
+            button.frame = CGRect(x: currentX, y: currentY, width: buttonWidth, height: buttonHeight)
+            button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+            addSubview(button)
+            
+            // 다음 버튼의 X 좌표 계산
+            currentX += buttonWidth + horizontalSpacing
+            
+            // 줄 바꿈 처리
+            if currentX >= buttonStartX + buttonTotalWidth {
+                currentX = buttonStartX
+                currentY += buttonHeight + verticalSpacing
+            }
+        }
+    }
+    
+    
+    // 버튼을 탭했을 때 호출되는 액션 메서드
+    @objc private func buttonTapped(_ sender: UIButton) {
+        guard let title = sender.title(for: .normal), let numberOfPeople = Int(title) else { return }
+        handleNumberOfPeopleSelected(numberOfPeople)
+    }
+    // 사용자가 인원을 선택하고 선택된 인원 수를 처리하는 함수
+    private func handleNumberOfPeopleSelected(_ numberOfPeople: Int) {
+        // didSelectNumberOfPeople 클로저를 호출하여 선택된 인원 수를 전달합니다.
+        didSelectNumberOfPeople?(numberOfPeople)
     }
 }
 

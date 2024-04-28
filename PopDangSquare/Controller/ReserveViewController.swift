@@ -28,16 +28,14 @@ class ReserveViewController: UIViewController {
     @IBOutlet weak var reserveDateAndTime: UILabel!
     @IBOutlet weak var reserveLocation: UILabel!
 
-    // 모달을 표시할 뷰
     let modalView = UIView()
     
-    // 모달이 표시되었는지 여부를 나타내는 변수
     var isModalDisplayed = false
     
     // 선택된 영화 정보를 저장할 변수
     var selectedMovie: NowPlaying?
+    var selectedTitle: NowPlaying?
     
-    // 버튼을 누르면 모달을 표시하는 액션
     @IBAction func buttonTapped(_ sender: UIButton) {
         if !isModalDisplayed {
             // 모달이 표시되지 않았으면 모달을 표시합니다.
@@ -45,46 +43,51 @@ class ReserveViewController: UIViewController {
         }
     }
     
-    // 모달을 표시하는 함수
     func displayModal() {
-        // 모달 뷰의 프레임을 설정합니다.
-        modalView.frame = CGRect(x: 0, y: reserveStackView.frame.height / 2 + view.safeAreaInsets.top,
-//                                    view.frame.height / 2 + view.safeAreaInsets.top,
+        modalView.frame = CGRect(x: 0, y: reserveStackView.frame.height + view.safeAreaInsets.top,
                                  width: view.frame.width, height: view.frame.height / 2)
-        // 모달 뷰의 배경색을 설정합니다.
         modalView.backgroundColor = UIColor.white.withAlphaComponent(0.9)
-        // 모달 뷰를 슈퍼뷰에 추가합니다.
         view.addSubview(modalView)
         
-        // 모달이 표시되었음을 표시합니다.
         isModalDisplayed = true
         
-//        let personSelectionView = PersonSelectionView(frame: modalView.bounds)
-//                personSelectionView.didSelectNumberOfPeople = { [weak self] numberOfPeople in
-//                    guard let strongSelf = self else { return }
-//                    strongSelf.dismissModal() // 선택 후 모달 닫기
-//                    print("Selected number of people: \(numberOfPeople)")
-//                }
-//                modalView.addSubview(personSelectionView)
+        // PersonSelectionView를 생성하여 모달에 추가합니다.
+            let personSelectionView = PersonSelectionView(frame: modalView.bounds, isDisabled: true, isTeenager: true, isChild: true) // 매개변수 제공
+            personSelectionView.didSelectNumberOfPeople = { [weak self] numberOfPeople in
+            }
+            modalView.addSubview(personSelectionView)
+            
+            // 모달 뷰에 탭 제스처를 추가하여 모달이 닫히지 않도록 설정합니다.
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleModalTap(_:)))
+            modalView.addGestureRecognizer(tapGestureRecognizer)
+        }
+    
+    @objc private func handleModalTap(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: modalView)
+        if !modalView.bounds.contains(location) {
+            dismissModal()
+        }
     }
     
     // 모달을 숨기는 함수
     func dismissModal() {
-        // 모달 뷰를 슈퍼뷰에서 제거합니다.
         modalView.removeFromSuperview()
         
-        // 모달이 숨겨졌음을 표시합니다.
         isModalDisplayed = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 선택된 영화 정보를 이용하여 포스터 이미지를 설정합니다.
         if let selectedMovie = selectedMovie, let posterPath = selectedMovie.posterPath {
             // 예매하기 버튼이 눌린 영화의 포스터 이미지를 받아옵니다.
             fetchMoviePosterImage(posterPath: posterPath)
         }
+        //>>오류 Initializer for conditional binding must have Optional type, not 'String'
+//        if let selectedTitle = selectedTitle, let titlePath = selectedTitle.title {
+//
+//            fetchMovieTitle(title: titlePath)
+//        }
         configureCollectionView()
     }
     
@@ -110,7 +113,7 @@ class ReserveViewController: UIViewController {
     // 선택된 영화의 포스터 이미지를 받아오는 함수
     func fetchMoviePosterImage(posterPath: String) {
         // posterPath를 이용하여 이미지를 받아오는 코드를 구현합니다.
-        // 예시로는 URL을 사용하여 이미지를 받아오는 방법을 보여줍니다.
+
         let posterURL = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")!
         
         URLSession.shared.dataTask(with: posterURL) { data, response, error in
@@ -130,6 +133,35 @@ class ReserveViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.reservePosterImage.image = posterImage
                 }
+            }
+        }.resume()
+    }
+    
+    
+    func fetchMovieTitle(title: String) {
+        let titleURL = URL(string: "https://api.themoviedb.org/3/movie/\(title)")! // 예시 URL
+        
+        URLSession.shared.dataTask(with: titleURL) { data, response, error in
+            if let error = error {
+                print("Error fetching movie title: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received while fetching movie title")
+                return
+            }
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                if let title = json?["title"] as? String {
+                    // UI 업데이트는 메인 스레드에서 수행합니다.
+                    DispatchQueue.main.async {
+                        self.reserveMovieName.text = title
+                    }
+                }
+            } catch {
+                print("Error parsing JSON: \(error.localizedDescription)")
             }
         }.resume()
     }
