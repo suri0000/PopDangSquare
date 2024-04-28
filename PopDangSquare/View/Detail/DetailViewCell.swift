@@ -32,9 +32,9 @@ class DetailViewCell: UICollectionViewCell {
   }
   
   func configure(_ detailInfo: DetailData) {
-//    detailMovieLabel.text = detailInfo.movieNm
-//            detailMovieENLabel.text = detailInfo.movieNmEn
-//            detailDateLabel.text = detailInfo.prdtYear
+    detailMovieLabel.text = detailInfo.movieNm
+            detailMovieENLabel.text = detailInfo.movieNmEn
+            detailDateLabel.text = detailInfo.prdtYear
             detailStoryLabel.text = detailInfo.story
   }
   
@@ -42,12 +42,12 @@ class DetailViewCell: UICollectionViewCell {
     networkManager.getMovieInfo { [weak self] (movieInfo, error) in
       DispatchQueue.main.async {
         if let movieInfo = movieInfo {
-          self?.detailMovieLabel.text = movieInfo.movieName
-          self?.detailMovieENLabel.text = movieInfo.movieNameEnglish
+          //self?.detailMovieLabel.text = movieInfo.movieName
+          //self?.detailMovieENLabel.text = movieInfo.movieNameEnglish
           
-          if let openDate = movieInfo.openDate {
-            self?.detailDateLabel.text = self?.formatDate(openDate)
-          }
+//          if let openDate = movieInfo.openDate {
+//            self?.detailDateLabel.text = self?.formatDate(openDate)
+//          }
           
           let genresName = movieInfo.genres.map { $0.genreNm }.joined(separator: ", ")
           self?.detailGenreLabel.text = genresName
@@ -57,17 +57,6 @@ class DetailViewCell: UICollectionViewCell {
         }
       }
     }
-  }
-  
-  private func formatDate(_ dateString: String) -> String {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyyMMdd"
-    guard let date = dateFormatter.date(from: dateString) else {
-      return dateString
-    }
-    
-    dateFormatter.dateFormat = "yyyy년 MM월 dd일"
-    return dateFormatter.string(from: date)
   }
   
   private func updateLabelVisibility() {

@@ -56,9 +56,9 @@ struct Audit: Codable, Equatable, Hashable {
 //}
 
 struct DetailData: Hashable {
-    let movieNm: String
-    let movieNmEn: String
-    let prdtYear: String
+    var movieNm: String
+    var movieNmEn: String
+    var prdtYear: String
     var story: String
 }
 

@@ -54,19 +54,40 @@ class DetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupCollectionView()
-    fetchMoviePlot()
+    fetchMovieInfo()
     setupDataSource()
     networkManager.getMoviePoster(posterPath: movie?.posterPath ?? "")
   }
   
-  func fetchMoviePlot() {
+  func fetchMovieInfo() {
     guard let movieOverview = movie?.overview else { return }
-    
     if movieOverview == "" {
       DetailData.detail[0].story = "줄거리를 제공하지 않습니다. 죄송합니다."
     } else {
       DetailData.detail[0].story = movieOverview
     }
+    
+    guard let movieName = movie?.overview else { return }
+    DetailData.detail[0].movieNm = movieName
+    
+    guard let movieOriginName = movie?.originalTitle else { return }
+    DetailData.detail[0].movieNmEn = movieOriginName
+    
+    guard let movieOpenDate = movie?.releaseDate else { return }
+    DetailData.detail[0].prdtYear = self.formatDate(movieOpenDate)
+    
+    print(movie)
+  }
+  
+  private func formatDate(_ dateString: String) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    guard let date = dateFormatter.date(from: dateString) else {
+      return dateString
+    }
+    
+    dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+    return dateFormatter.string(from: date)
   }
 
 }
