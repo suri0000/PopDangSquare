@@ -1,12 +1,12 @@
 # 🍿 영화 예매 앱
-## 기술
+## ⚒️ 기술
 - MVC
 - URLSession, TMDB API
 - UserDefaults
 </br>
 </br>
 
-## 팀원
+## 🧑‍💻 팀원
 - 한철희
   - 팀장
   - 메인화면 UI 및 기능
@@ -31,7 +31,15 @@
 </br>
 </br>
 
-## 느낀 점
+## 📸 스크린샷
+|메인|검색|상세|예매|마이페이지|로그인|회원가입|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|<img src="https://github.com/user-attachments/assets/248cec75-3085-489e-a012-12ba42e1aa58" width=200>|<img src="https://github.com/user-attachments/assets/2de34c57-1cfe-475c-bc5e-de8e6a647d4b" width=200>|<img src="https://github.com/user-attachments/assets/a6bc5a83-ba50-43d3-8863-d031266fd8ea" width=200>|<img src="https://github.com/user-attachments/assets/2f53a968-9891-46b1-a74a-0bca707a5d2b" width=200>|<img src="https://github.com/user-attachments/assets/bc98b816-7d04-49f2-b050-ff0d41534637" width=200>|<img src="https://github.com/user-attachments/assets/d43cda70-34b5-443d-99ee-bcace6628f05" width=200>|<img src="https://github.com/user-attachments/assets/4b463ff9-2d08-4830-b181-37f9286da2cc" width=200>|
+</br>
+</br>
+
+
+## 💡 느낀 점
 **한철희**
 - 테이블뷰와 컬렉션뷰의 동시사용 
 세로스크롤이 되고 가로스크롤이 되는 컬렉션을 여러개 구성하기 위해 하나의 테이블뷰에 여러개의 테이블뷰셀과 컬렉션뷰셀을 같이 사용했습니다.
